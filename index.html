@@ -1,0 +1,1205 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Fleetmatrix - Fleet Business Intelligence</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d6e3fb",
+              surface: "#f8f9ff",
+              "surface-container-lowest": "#ffffff",
+              "bg-fog": "#F4F7FA",
+              "accent-lime": "#8BED02",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed-variant": "#004494",
+              "tertiary-fixed-dim": "#32e27d",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001a42",
+              "inverse-primary": "#aec6ff",
+              "on-secondary-container": "#003b82",
+              "outline-variant": "#c3c6d2",
+              "on-surface": "#0f1c2d",
+              "surface-dim": "#cedbf2",
+              outline: "#747782",
+              tertiary: "#002b12",
+              "on-surface-variant": "#434751",
+              primary: "#002254",
+              "error-container": "#ffdad6",
+              "brand-gradient":
+                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+              "primary-fixed-dim": "#aec6ff",
+              "on-background": "#0f1c2d",
+              "surface-tint": "#375da4",
+              secondary: "#295caf",
+              "secondary-fixed": "#d8e2ff",
+              "tertiary-fixed": "#60ff98",
+              "on-primary-fixed-variant": "#19448a",
+              "on-error-container": "#93000a",
+              background: "#f8f9ff",
+              "on-tertiary-fixed": "#00210c",
+              "primary-container": "#01377d",
+              "inverse-on-surface": "#ebf1ff",
+              "surface-container-low": "#eff3ff",
+              "border-silver": "#E4E9F0",
+              "on-tertiary-fixed-variant": "#005227",
+              "surface-variant": "#d6e3fb",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#00bd62",
+              "surface-container-high": "#dde9ff",
+              "on-tertiary": "#ffffff",
+              "text-muted": "#5A6B84",
+              "tertiary-container": "#00441f",
+              "on-secondary-fixed": "#001a41",
+              "primary-fixed": "#d8e2ff",
+              "surface-container": "#e6eeff",
+              error: "#ba1a1a",
+              "on-primary-container": "#7fa3ef",
+              "inverse-surface": "#253143",
+              "surface-bright": "#f8f9ff",
+              "secondary-container": "#7ba8ff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-padding": "80px",
+              gutter: "24px",
+              "margin-desktop": "40px",
+              "margin-mobile": "16px",
+              "max-width": "1280px",
+              "stack-sm": "8px",
+              "stack-md": "16px",
+              "stack-lg": "24px",
+            },
+            fontFamily: {
+              "label-md": ["IBM Plex Sans"],
+              "display-lg": ["Space Grotesk"],
+              "body-md": ["IBM Plex Sans"],
+              "headline-lg-mobile": ["Space Grotesk"],
+              "body-lg": ["IBM Plex Sans"],
+              "label-sm": ["IBM Plex Sans"],
+              "headline-md": ["Space Grotesk"],
+              "headline-lg": ["Space Grotesk"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                {
+                  lineHeight: "36px",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "400",
+                },
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* ── Base Utilities ───────────────────────────── */
+      .chevron-divider {
+        color: #01377d;
+        font-family: monospace;
+        font-size: 24px;
+        letter-spacing: -2px;
+      }
+      .emerald-bullet::before {
+        content: ">";
+        color: #05d16e;
+        font-weight: bold;
+        margin-right: 8px;
+        display: inline-block;
+      }
+      .gradient-border {
+        position: relative;
+        background-clip: padding-box;
+        border: solid 2px transparent;
+        border-radius: 12px;
+      }
+      .gradient-border::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        margin: -2px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, #8bed02 0%, #05d16e 45%, #01377d 100%);
+      }
+      .bg-gradient-brand {
+        background: linear-gradient(135deg, #8bed02 0%, #05d16e 45%, #01377d 100%);
+      }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* ── Keyframes ────────────────────────────────── */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(32px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeSlideRight {
+        from { opacity: 0; transform: translateX(-28px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0px); }
+        50%       { transform: translateY(-10px); }
+      }
+      @keyframes shimmer {
+        0%   { background-position: -400px 0; }
+        100% { background-position: 400px 0; }
+      }
+      @keyframes pingSlow {
+        0%   { transform: scale(1); opacity: 1; }
+        75%, 100% { transform: scale(2.2); opacity: 0; }
+      }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-40px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.88); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+      @keyframes gradientShift {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes particleDrift {
+        0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+        50%  { opacity: 0.15; }
+        100% { transform: translateY(-120px) translateX(40px) rotate(180deg); opacity: 0; }
+      }
+      @keyframes countUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes navShadowIn {
+        from { box-shadow: none; }
+        to   { box-shadow: 0 4px 24px rgba(1,55,125,0.10); }
+      }
+      @keyframes barGrow {
+        from { width: 0%; }
+      }
+
+      /* ── Hero Animations ──────────────────────────── */
+      .hero-badge    { animation: fadeSlideUp 0.6s cubic-bezier(.22,1,.36,1) 0.1s both; }
+      .hero-heading  { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.25s both; }
+      .hero-body1    { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.4s both; }
+      .hero-body2    { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.5s both; }
+      .hero-cta      { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.62s both; }
+      .hero-mockup   { animation: fadeIn 0.9s ease 0.35s both, floatY 6s ease-in-out 1.2s infinite; }
+
+      /* ── Scroll-reveal base ───────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+      }
+      .reveal.reveal-left {
+        transform: translateX(-28px);
+      }
+      .reveal.reveal-scale {
+        transform: scale(0.92);
+      }
+      .reveal.in-view {
+        opacity: 1;
+        transform: none;
+      }
+      /* stagger siblings */
+      .stagger-1 { transition-delay: 0.05s !important; }
+      .stagger-2 { transition-delay: 0.13s !important; }
+      .stagger-3 { transition-delay: 0.21s !important; }
+      .stagger-4 { transition-delay: 0.29s !important; }
+      .stagger-5 { transition-delay: 0.37s !important; }
+      .stagger-6 { transition-delay: 0.45s !important; }
+
+      /* ── Dashboard live-dot ───────────────────────── */
+      .live-dot {
+        position: relative;
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        background: #05D16E;
+        display: inline-block;
+      }
+      .live-dot::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: #05D16E;
+        animation: pingSlow 1.8s cubic-bezier(0,0,.2,1) infinite;
+      }
+
+      /* ── Shimmer bar (chart rows) ─────────────────── */
+      .shimmer-bar {
+        background: linear-gradient(90deg, #e4e9f0 25%, #c8d6ef 50%, #e4e9f0 75%);
+        background-size: 400px 100%;
+        animation: shimmer 1.6s infinite linear;
+        border-radius: 4px;
+        height: 8px;
+      }
+
+      /* ── Animated stat gradient text ─────────────── */
+      .stat-number {
+        background: linear-gradient(135deg, #8BED02, #05D16E, #60ff98);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      /* ── Floating particles ───────────────────────── */
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: particleDrift linear infinite;
+      }
+
+      /* ── Testimonial animated border ─────────────── */
+      .quote-animate {
+        animation: slideInLeft 0.8s cubic-bezier(.22,1,.36,1) both;
+      }
+
+      /* ── Nav scrolled state ───────────────────────── */
+      nav.scrolled, header.scrolled {
+        box-shadow: 0 4px 32px rgba(1,55,125,0.13);
+        transition: box-shadow 0.3s;
+      }
+
+      /* ── Metric card number pop ───────────────────── */
+      .metric-number {
+        display: inline-block;
+        animation: countUp 0.6s cubic-bezier(.22,1,.36,1) 1.1s both;
+      }
+
+      /* ── CTA section animated background ─────────── */
+      .cta-bg-animated {
+        background: linear-gradient(135deg, #8bed02, #05d16e, #01377d, #05d16e, #8bed02);
+        background-size: 300% 300%;
+        animation: gradientShift 6s ease infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-md border-b border-border-silver dark:border-primary-container"
+    >
+      <div
+        class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop py-4 max-w-max-width mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Fleetmatrix Logo"
+            class="h-8 sm:h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+          />
+          <span
+            class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl"
+            >Fleetmatrix</span
+          >
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <a
+            class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="index.html"
+            >Solutions</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="index2.html"
+            >About Us</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="index3.html"
+            >Customer Stories</a
+          >
+          <!-- Page Switcher Dropdown -->
+          <div class="relative group">
+            <button
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300 flex items-center gap-1"
+            >
+              More
+              <span class="material-symbols-outlined text-sm">expand_more</span>
+            </button>
+            <div
+              class="absolute top-full right-0 mt-2 w-44 bg-white dark:bg-[#01377D] rounded-xl shadow-xl border border-border-silver dark:border-primary-container opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden"
+            >
+              <a
+                href="index.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >⚡ Design 1</a
+              >
+              <a
+                href="index2.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🔵 Design 2</a
+              >
+              <a
+                href="index3.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🌿 Design 3</a
+              >
+              <a
+                href="index4.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🎯 Design 4</a
+              >
+              <a
+                href="index5.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🚀 Design 5</a
+              >
+              <a
+                href="index6.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >💎 Design 6</a
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
+          id="mobile-menu-btn-idx1"
+          onclick="document.getElementById('mobile-menu-idx1').classList.toggle('hidden')"
+          aria-label="Toggle menu"
+        >
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu-idx1"
+        class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto"
+      >
+        <a
+          href="index.html"
+          class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10"
+          >Solutions</a
+        >
+        <a
+          href="index2.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >About Us</a
+        >
+        <a
+          href="index3.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Customer Stories</a
+        >
+
+        <div
+          class="border-t border-border-silver dark:border-primary-container pt-3 mt-1"
+        >
+          <span
+            class="text-xs font-semibold text-text-muted dark:text-surface-variant uppercase tracking-wider px-3 mb-2 block"
+            >Switch Landing Page Design</span
+          >
+          <div class="grid grid-cols-2 gap-2 px-1">
+            <a
+              href="index.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-accent-lime/10 text-primary dark:text-white font-semibold"
+              >⚡ Design 1</a
+            >
+            <a
+              href="index2.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🔵 Design 2</a
+            >
+            <a
+              href="index3.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🌿 Design 3</a
+            >
+            <a
+              href="index4.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🎯 Design 4</a
+            >
+            <a
+              href="index5.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🚀 Design 5</a
+            >
+            <a
+              href="index6.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >💎 Design 6</a
+            >
+          </div>
+        </div>
+
+        <button
+          class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+      </div>
+    </nav>
+    <!-- 1. Hero Section -->
+    <section
+      class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[85vh] lg:min-h-[90vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
+    >
+      <!-- Chevron Gradient Graphic -->
+      <div
+        class="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-10 pointer-events-none z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBCMzI3RCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIz84RUQwMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik0wLDBMMTAwLDEwMEw1MCwxMDBaIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+')] bg-cover bg-no-repeat bg-right-top"
+      ></div>
+      <!-- Animation Overlay -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none z-0"></div>
+      <div
+        class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10"
+      >
+        <!-- Text Content -->
+        <div
+          class="col-span-1 lg:col-span-6 flex flex-col justify-center text-left pt-4 lg:pt-0"
+        >
+          <span
+            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center gap-2 text-xs sm:text-sm"
+          >
+            <span class="live-dot"></span>
+            FLEET INTELLIGENCE, ENGINEERED FOR GROWTH
+          </span>
+          <h1
+            class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-primary mb-4 sm:mb-6 hero-heading leading-tight"
+          >
+            Fleet management, engineered for long-term growth.
+          </h1>
+          <p
+            class="font-body-lg text-base sm:text-lg text-text-muted mb-4 sm:mb-6 max-w-xl font-semibold hero-body1"
+          >
+            Fleetmatrix is a cloud-native fleet intelligence platform that helps
+            organisations manage vehicles, drivers, and assets through one
+            connected system — powered by real-time telematics, AI, and advanced
+            analytics.
+          </p>
+          <p
+            class="font-body-md text-sm sm:text-base text-text-muted mb-6 sm:mb-8 max-w-xl hero-body2"
+          >
+            Whether you're running 20 vehicles or 20,000, Fleetmatrix gives you
+            the visibility, automation, and intelligence to operate more
+            efficiently today while preparing for tomorrow.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 hero-cta">
+            <button
+              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-[#04b861] hover:shadow-lg transition-all shadow-sm duration-300"
+            >
+              Request a Demo
+              <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+            <button
+              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-primary text-primary rounded-full font-label-md hover:-translate-y-1 hover:bg-surface-variant hover:shadow-md transition-all duration-300"
+            >
+              Talk to Our Team
+            </button>
+          </div>
+        </div>
+        <!-- Dashboard Mockup -->
+        <div class="col-span-1 lg:col-span-6 relative mt-12 lg:mt-0 hero-mockup">
+          <div
+            class="gradient-border bg-white shadow-2xl p-4 h-full min-h-[400px] flex flex-col rounded-xl"
+          >
+            <!-- Top bar -->
+            <div
+              class="flex justify-between items-center mb-4 pb-2 border-b border-border-silver"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">dashboard</span>
+                <span class="font-label-sm text-primary">Live Overview</span>
+                <span class="live-dot ml-2"></span>
+              </div>
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-accent-lime"></div>
+                <div class="w-3 h-3 rounded-full bg-border-silver"></div>
+                <div class="w-3 h-3 rounded-full bg-border-silver"></div>
+              </div>
+            </div>
+            <!-- Chart rows -->
+            <div class="flex flex-col gap-2 mb-4 px-1">
+              <div class="flex items-center gap-3">
+                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Routes</span>
+                <div class="shimmer-bar flex-1" style="width:82%"></div>
+                <span class="font-label-sm text-xs text-primary">82%</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Fuel</span>
+                <div class="shimmer-bar flex-1" style="width:65%"></div>
+                <span class="font-label-sm text-xs text-[#05D16E]">65%</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Safety</span>
+                <div class="shimmer-bar flex-1" style="background: linear-gradient(90deg,#05D16E 0%,#8BED02 100%); animation: none;"></div>
+                <span class="font-label-sm text-xs text-[#8BED02]">98%</span>
+              </div>
+            </div>
+            <div
+              class="flex-grow bg-bg-fog rounded-lg border border-border-silver relative overflow-hidden flex items-end justify-center"
+            >
+              <!-- Animated map grid overlay -->
+              <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#01377D" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"/>
+              </svg>
+              <!-- Route path animation -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="route1" d="M20,160 Q60,100 100,120 T180,80 T260,40" fill="none" stroke="#05D16E" stroke-width="2" stroke-dasharray="6 4" opacity="0.5">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="3s" repeatCount="indefinite"/>
+                </path>
+                <path d="M10,140 Q80,90 140,110 T230,60" fill="none" stroke="#8BED02" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.3">
+                  <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="4s" repeatCount="indefinite"/>
+                </path>
+                <!-- Vehicle dots -->
+                <circle cx="100" cy="120" r="4" fill="#05D16E">
+                  <animateMotion dur="3s" repeatCount="indefinite">
+                    <mpath href="#route1"/>
+                  </animateMotion>
+                </circle>
+              </svg>
+              <!-- Metric Cards -->
+              <div class="grid grid-cols-2 gap-4 w-full p-4 relative z-10">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-border-silver hover:shadow-md transition-shadow">
+                  <span class="font-label-sm text-text-muted">Active Vehicles</span>
+                  <div class="font-headline-md text-primary mt-1 metric-number" id="hero-vehicles">4,281</div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-border-silver hover:shadow-md transition-shadow">
+                  <span class="font-label-sm text-text-muted">Safety Score</span>
+                  <div class="font-headline-md text-[#05D16E] mt-1 metric-number">98.4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 2. Trust Bar -->
+    <section class="py-6 bg-bg-fog border-y border-border-silver px-4 sm:px-8 md:px-12 lg:px-[96px] overflow-hidden">
+      <div class="max-w-max-width mx-auto flex flex-col items-center md:flex-row md:justify-between text-center md:text-left">
+        <span class="font-label-sm text-text-muted uppercase tracking-widest whitespace-normal sm:whitespace-nowrap mb-4 md:mb-0 md:mr-8 reveal text-xs sm:text-sm">
+          Trusted by fleets across logistics, construction, utilities, field service
+        </span>
+        <!-- Marquee logos -->
+        <div class="relative w-full md:w-auto overflow-hidden md:max-w-2xl">
+          <div class="flex gap-8 sm:gap-12 items-center" style="animation: marquee 18s linear infinite; width: max-content;">
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">LogiPac</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">TransNational</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">EcoFreight</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">BuildCore</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">CityGrid</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">LogiPac</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">TransNational</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">EcoFreight</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">BuildCore</div>
+            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">CityGrid</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+    </style>
+    <!-- 3. Core Capabilities -->
+    <section class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]">
+      <div class="max-w-max-width mx-auto">
+        <div class="text-center mb-10 sm:mb-16 reveal">
+          <span
+            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm"
+            >WHAT FLEETMATRIX DOES</span
+          >
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary mb-4">
+            One platform. Every layer of your fleet.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-gutter">
+          <!-- Capability Card 1 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-1">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">location_on</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Live GPS Tracking</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Pinpoint exact vehicle locations in real-time with sub-second latency.</p>
+          </div>
+          <!-- Capability Card 2 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-2">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">videocam</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">AI Safety Monitoring</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Proactively detect risky driving behaviors and prevent accidents before they happen.</p>
+          </div>
+          <!-- Capability Card 3 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-3">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">monitoring</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Fleet Analytics</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Transform raw telematics data into actionable insights to optimize performance.</p>
+          </div>
+          <!-- Capability Card 4 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-4">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">verified</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Automated Compliance</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Streamline HOS logging, DVIRs, and IFTA reporting automatically.</p>
+          </div>
+          <!-- Capability Card 5 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-5">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">notifications_active</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Smart Alerts &amp; Reporting</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Get instantly notified of critical events like speeding, idling, or maintenance needs.</p>
+          </div>
+          <!-- Capability Card 6 -->
+          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-6">
+            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
+              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">cloud_sync</span>
+            </div>
+            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Secure Cloud Access</h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Manage your entire fleet from any device, anywhere, with enterprise-grade security.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 4. Solutions Cards (Fully Responsive Grid) -->
+    <section class="py-12 sm:py-16 lg:py-section-padding bg-bg-fog px-4 sm:px-8 md:px-12 lg:px-[96px]">
+      <div class="max-w-max-width mx-auto">
+        <div class="mb-8 sm:mb-12 text-center sm:text-left reveal">
+          <span
+            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm"
+            >SOLUTIONS</span
+          >
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary max-w-2xl">
+            Built for however your fleet operates.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-1"
+          >
+            <div>
+              <div class="h-2 w-full bg-[#05D16E]"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">pin_drop</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Fleet Tracking</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Comprehensive visibility into your entire mobile operation with real-time location updates.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#05D16E] group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-2"
+          >
+            <div>
+              <div class="h-2 w-full bg-amber-500"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">videocam</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Fleet Dashcam</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Protect drivers and reduce liability with intelligent video telematics and event recording.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-amber-500 group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-3"
+          >
+            <div>
+              <div class="h-2 w-full bg-[#01377D]"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">inventory_2</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Asset Tracking</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Monitor trailers, heavy equipment, and high-value non-powered assets round-the-clock.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#01377D] group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-4"
+          >
+            <div>
+              <div class="h-2 w-full bg-[#8BED02]"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">electric_car</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Electric Vehicles</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Manage charge states, energy usage, charging schedules, and EV-specific routing.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-5"
+          >
+            <div>
+              <div class="h-2 w-full bg-indigo-500"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">subtitles</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Digital Tachograph</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Automated compliance for driver hours, rest periods, and remote downloads.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-indigo-500 group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-6"
+          >
+            <div>
+              <div class="h-2 w-full bg-rose-500"></div>
+              <div class="p-6 sm:p-8">
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-2xl">alt_route</span>
+                </div>
+                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Route Optimisation</h3>
+                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
+                  Reduce total mileage, cut fuel consumption, and improve on-time delivery performance.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-rose-500 group-hover:translate-x-1 transition-transform">
+              <span>Explore Solution</span>
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 5. Why Fleetmatrix (Stat Band) -->
+    <section class="py-16 sm:py-24 bg-[#01377D] relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]" id="stats-section">
+      <!-- Animated background orbs -->
+      <div class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full opacity-10" style="background: radial-gradient(circle, #8BED02, transparent); transform: translate(-30%, -30%);"></div>
+      <div class="absolute bottom-0 right-0 w-60 sm:w-80 h-60 sm:h-80 rounded-full opacity-10" style="background: radial-gradient(circle, #05D16E, transparent); transform: translate(30%, 30%);"></div>
+      <div class="max-w-max-width mx-auto relative z-10">
+        <div class="text-center mb-10 sm:mb-16 reveal">
+          <span class="font-label-sm text-[#8BED02] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm">WHY FLEETMATRIX</span>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-white mb-4">Intelligence that scales with you.</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+          <div class="flex flex-col items-center reveal stagger-1 group">
+            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="15000" data-suffix="k+">15k+</span>
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Fleets Powered</span>
+            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+          </div>
+          <div class="flex flex-col items-center reveal stagger-2 group">
+            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="22" data-suffix="%">22%</span>
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Fuel Reduction</span>
+            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+          </div>
+          <div class="flex flex-col items-center reveal stagger-3 group">
+            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="50" data-suffix="M+">50M+</span>
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Miles Tracked</span>
+            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+          </div>
+          <div class="flex flex-col items-center reveal stagger-4 group">
+            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="32" data-suffix="">32</span>
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Countries</span>
+            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 6. Testimonial Carousel -->
+    <section class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]">
+      <div class="max-w-max-width mx-auto">
+        <div class="bg-bg-fog border-l-4 border-[#05D16E] p-6 sm:p-10 md:p-12 rounded-r-2xl shadow-sm relative reveal reveal-left overflow-hidden">
+          <!-- Animated background quote -->
+          <span class="material-symbols-outlined absolute top-2 right-2 text-7xl sm:text-[120px] text-primary/5 select-none" style="animation: floatY 5s ease-in-out infinite;">format_quote</span>
+          <span class="material-symbols-outlined absolute top-4 sm:top-8 left-4 sm:left-8 text-3xl sm:text-6xl text-primary/10">format_quote</span>
+          <div class="relative z-10 pl-4 sm:pl-8">
+            <p class="font-headline-md text-base sm:text-xl md:text-2xl text-primary italic mb-6 sm:mb-8 max-w-4xl leading-relaxed">
+              "Since implementing Fleetmatrix, we've seen a dramatic decrease in
+              safety incidents and a significant drop in our fuel costs. The
+              platform's ability to provide real-time insights across our entire
+              mixed fleet has completely transformed how we operate on a daily
+              basis."
+            </p>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <div class="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg flex-shrink-0">SJ</div>
+              <div>
+                <div class="font-label-md text-primary font-bold text-sm sm:text-lg">Sarah Jenkins</div>
+                <div class="font-body-sm text-xs sm:text-sm text-text-muted">VP of Operations, TransNational Logistics</div>
+                <!-- Star rating -->
+                <div class="flex gap-1 mt-0.5 sm:mt-1">
+                  <span class="text-amber-400 text-xs sm:text-sm">★★★★★</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 7. Closing CTA -->
+    <section class="py-16 sm:py-24 lg:py-32 cta-bg-animated relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]">
+      <!-- Floating particles -->
+      <div class="particle w-3 h-3 bg-white/20" style="left:10%; top:70%; animation-duration:8s; animation-delay:0s;"></div>
+      <div class="particle w-2 h-2 bg-white/30" style="left:25%; top:80%; animation-duration:6s; animation-delay:1s;"></div>
+      <div class="particle w-4 h-4 bg-white/10" style="left:50%; top:85%; animation-duration:10s; animation-delay:2s;"></div>
+      <div class="particle w-2 h-2 bg-white/25" style="left:75%; top:75%; animation-duration:7s; animation-delay:0.5s;"></div>
+      <div class="particle w-3 h-3 bg-white/15" style="left:90%; top:60%; animation-duration:9s; animation-delay:3s;"></div>
+      <!-- Animated Chevron Background -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+        <div class="chevron-divider text-[200px] sm:text-[350px] lg:text-[500px] leading-none text-white select-none" style="animation: gradientShift 8s ease infinite; opacity: 0.5;">&gt;&gt;&gt;</div>
+      </div>
+      <div class="max-w-3xl mx-auto text-center relative z-10 reveal">
+        <h2 class="font-display-lg text-2xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6">
+          Your fleet's potential is waiting.
+        </h2>
+        <p class="font-body-lg text-white/90 mb-8 sm:mb-10 text-base sm:text-xl">
+          Contact our team to see how Fleetmatrix can improve safety, cut costs,
+          and give you total visibility — starting today.
+        </p>
+        <button
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-primary rounded-full font-label-md font-bold text-base sm:text-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group"
+        >
+          Request a Demo
+          <span class="chevron-divider text-primary text-base sm:text-lg tracking-normal group-hover:translate-x-1 transition-transform inline-block">&gt;&gt;&gt;</span>
+        </button>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="w-full py-12 sm:py-16 lg:py-section-padding bg-primary dark:bg-primary px-4 sm:px-8 md:px-margin-desktop"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-gutter max-w-max-width mx-auto"
+      >
+        <!-- Brand Column -->
+        <div class="col-span-1 sm:col-span-2 md:col-span-1 flex flex-col">
+          <span
+            class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl"
+            >Fleetmatrix</span
+          >
+          <p class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6">
+            Driving performance forward with intelligent fleet management
+            solutions.
+          </p>
+        </div>
+        <!-- Links Columns -->
+        <div class="col-span-1 md:col-start-3">
+          <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+            Company
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Careers</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+            Solutions
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Tracking</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Safety</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Sustainability</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-max-width mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-surface-tint flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+      >
+        <span class="font-body-md text-xs sm:text-sm text-surface-variant/80"
+          >© 2024 Fleetmatrix. All rights reserved.</span
+        >
+        <div class="flex gap-6">
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">public</span></a
+          >
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">mail</span></a
+          >
+        </div>
+      </div>
+    </footer>
+  <script>
+    // ── Solutions Carousel Navigation ─────────────────────
+    const carouselContainer = document.querySelector('.snap-x');
+    const carouselPrevBtn = document.getElementById('carousel-prev');
+    const carouselNextBtn = document.getElementById('carousel-next');
+    if (carouselContainer && carouselPrevBtn && carouselNextBtn) {
+      carouselPrevBtn.addEventListener('click', () => {
+        carouselContainer.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+      carouselNextBtn.addEventListener('click', () => {
+        carouselContainer.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+
+    // ── Scroll-reveal via IntersectionObserver ─────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ── Animated stat counters ─────────────────────────────
+    const statEls = document.querySelectorAll('[data-target]');
+    let statsCounted = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsCounted) {
+          statsCounted = true;
+          statEls.forEach(el => {
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1800;
+            const step = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+              current = Math.min(current + step, target);
+              if (target >= 1000) {
+                el.textContent = Math.floor(current / 1000) + 'k' + suffix;
+              } else {
+                el.textContent = Math.floor(current) + suffix;
+              }
+              if (current >= target) clearInterval(timer);
+            }, 16);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) statsObserver.observe(statsSection);
+
+    // ── Nav scroll shadow ──────────────────────────────────
+    const nav = document.querySelector('nav, header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav && nav.classList.add('scrolled');
+      } else {
+        nav && nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ── Floating hero particles ────────────────────────────
+    const heroSection = document.querySelector('section');
+    if (heroSection) {
+      for (let i = 0; i < 12; i++) {
+        const dot = document.createElement('div');
+        const size = Math.random() * 6 + 3;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const dur = Math.random() * 8 + 6;
+        const delay = Math.random() * 5;
+        dot.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          border-radius: 50%;
+          left: ${left}%;
+          top: ${top}%;
+          pointer-events: none;
+          background: rgba(5,209,110,${Math.random() * 0.3 + 0.05});
+          animation: particleDrift ${dur}s ${delay}s linear infinite;
+          z-index: 0;
+        `;
+        heroSection.style.position = 'relative';
+        heroSection.appendChild(dot);
+      }
+    }
+
+    // ── Live vehicle counter flicker ───────────────────────
+    const vehicleEl = document.getElementById('hero-vehicles');
+    if (vehicleEl) {
+      setInterval(() => {
+        const base = 4281;
+        const delta = Math.floor(Math.random() * 10) - 4;
+        vehicleEl.textContent = (base + delta).toLocaleString();
+      }, 3200);
+    }
+  </script>
+  </body>
+</html>
