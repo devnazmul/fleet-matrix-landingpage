@@ -195,86 +195,190 @@
       .gradient-border::before {
         content: "";
         position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         z-index: -1;
         margin: -2px;
         border-radius: inherit;
-        background: linear-gradient(135deg, #8bed02 0%, #05d16e 45%, #01377d 100%);
+        background: linear-gradient(
+          135deg,
+          #8bed02 0%,
+          #05d16e 45%,
+          #01377d 100%
+        );
       }
       .bg-gradient-brand {
-        background: linear-gradient(135deg, #8bed02 0%, #05d16e 45%, #01377d 100%);
+        background: linear-gradient(
+          135deg,
+          #8bed02 0%,
+          #05d16e 45%,
+          #01377d 100%
+        );
       }
-      .hide-scrollbar::-webkit-scrollbar { display: none; }
-      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
 
       /* ── Keyframes ────────────────────────────────── */
       @keyframes fadeSlideUp {
-        from { opacity: 0; transform: translateY(32px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes fadeSlideRight {
-        from { opacity: 0; transform: translateX(-28px); }
-        to   { opacity: 1; transform: translateX(0); }
+        from {
+          opacity: 0;
+          transform: translateX(-28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       @keyframes floatY {
-        0%, 100% { transform: translateY(0px); }
-        50%       { transform: translateY(-10px); }
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
       }
       @keyframes shimmer {
-        0%   { background-position: -400px 0; }
-        100% { background-position: 400px 0; }
+        0% {
+          background-position: -400px 0;
+        }
+        100% {
+          background-position: 400px 0;
+        }
       }
       @keyframes pingSlow {
-        0%   { transform: scale(1); opacity: 1; }
-        75%, 100% { transform: scale(2.2); opacity: 0; }
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        75%,
+        100% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
       }
       @keyframes slideInLeft {
-        from { opacity: 0; transform: translateX(-40px); }
-        to   { opacity: 1; transform: translateX(0); }
+        from {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
       @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.88); }
-        to   { opacity: 1; transform: scale(1); }
+        from {
+          opacity: 0;
+          transform: scale(0.88);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
       @keyframes gradientShift {
-        0%   { background-position: 0% 50%; }
-        50%  { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
       @keyframes particleDrift {
-        0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
-        50%  { opacity: 0.15; }
-        100% { transform: translateY(-120px) translateX(40px) rotate(180deg); opacity: 0; }
+        0% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.15;
+        }
+        100% {
+          transform: translateY(-120px) translateX(40px) rotate(180deg);
+          opacity: 0;
+        }
       }
       @keyframes countUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes navShadowIn {
-        from { box-shadow: none; }
-        to   { box-shadow: 0 4px 24px rgba(1,55,125,0.10); }
+        from {
+          box-shadow: none;
+        }
+        to {
+          box-shadow: 0 4px 24px rgba(1, 55, 125, 0.1);
+        }
       }
       @keyframes barGrow {
-        from { width: 0%; }
+        from {
+          width: 0%;
+        }
       }
 
       /* ── Hero Animations ──────────────────────────── */
-      .hero-badge    { animation: fadeSlideUp 0.6s cubic-bezier(.22,1,.36,1) 0.1s both; }
-      .hero-heading  { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.25s both; }
-      .hero-body1    { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.4s both; }
-      .hero-body2    { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.5s both; }
-      .hero-cta      { animation: fadeSlideUp 0.7s cubic-bezier(.22,1,.36,1) 0.62s both; }
-      .hero-mockup   { animation: fadeIn 0.9s ease 0.35s both, floatY 6s ease-in-out 1.2s infinite; }
+      .hero-badge {
+        animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+      }
+      .hero-heading {
+        animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+      }
+      .hero-body1 {
+        animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+      }
+      .hero-body2 {
+        animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+      }
+      .hero-cta {
+        animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+      }
+      .hero-mockup {
+        animation:
+          fadeIn 0.9s ease 0.35s both,
+          floatY 6s ease-in-out 1.2s infinite;
+      }
 
       /* ── Scroll-reveal base ───────────────────────── */
       .reveal {
         opacity: 0;
         transform: translateY(28px);
-        transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+        transition:
+          opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
       }
       .reveal.reveal-left {
         transform: translateX(-28px);
@@ -287,33 +391,51 @@
         transform: none;
       }
       /* stagger siblings */
-      .stagger-1 { transition-delay: 0.05s !important; }
-      .stagger-2 { transition-delay: 0.13s !important; }
-      .stagger-3 { transition-delay: 0.21s !important; }
-      .stagger-4 { transition-delay: 0.29s !important; }
-      .stagger-5 { transition-delay: 0.37s !important; }
-      .stagger-6 { transition-delay: 0.45s !important; }
+      .stagger-1 {
+        transition-delay: 0.05s !important;
+      }
+      .stagger-2 {
+        transition-delay: 0.13s !important;
+      }
+      .stagger-3 {
+        transition-delay: 0.21s !important;
+      }
+      .stagger-4 {
+        transition-delay: 0.29s !important;
+      }
+      .stagger-5 {
+        transition-delay: 0.37s !important;
+      }
+      .stagger-6 {
+        transition-delay: 0.45s !important;
+      }
 
       /* ── Dashboard live-dot ───────────────────────── */
       .live-dot {
         position: relative;
-        width: 10px; height: 10px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        background: #05D16E;
+        background: #05d16e;
         display: inline-block;
       }
       .live-dot::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        background: #05D16E;
-        animation: pingSlow 1.8s cubic-bezier(0,0,.2,1) infinite;
+        background: #05d16e;
+        animation: pingSlow 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
       }
 
       /* ── Shimmer bar (chart rows) ─────────────────── */
       .shimmer-bar {
-        background: linear-gradient(90deg, #e4e9f0 25%, #c8d6ef 50%, #e4e9f0 75%);
+        background: linear-gradient(
+          90deg,
+          #e4e9f0 25%,
+          #c8d6ef 50%,
+          #e4e9f0 75%
+        );
         background-size: 400px 100%;
         animation: shimmer 1.6s infinite linear;
         border-radius: 4px;
@@ -322,7 +444,7 @@
 
       /* ── Animated stat gradient text ─────────────── */
       .stat-number {
-        background: linear-gradient(135deg, #8BED02, #05D16E, #60ff98);
+        background: linear-gradient(135deg, #8bed02, #05d16e, #60ff98);
         background-size: 200% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -340,24 +462,32 @@
 
       /* ── Testimonial animated border ─────────────── */
       .quote-animate {
-        animation: slideInLeft 0.8s cubic-bezier(.22,1,.36,1) both;
+        animation: slideInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
       }
 
       /* ── Nav scrolled state ───────────────────────── */
-      nav.scrolled, header.scrolled {
-        box-shadow: 0 4px 32px rgba(1,55,125,0.13);
+      nav.scrolled,
+      header.scrolled {
+        box-shadow: 0 4px 32px rgba(1, 55, 125, 0.13);
         transition: box-shadow 0.3s;
       }
 
       /* ── Metric card number pop ───────────────────── */
       .metric-number {
         display: inline-block;
-        animation: countUp 0.6s cubic-bezier(.22,1,.36,1) 1.1s both;
+        animation: countUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.1s both;
       }
 
       /* ── CTA section animated background ─────────── */
       .cta-bg-animated {
-        background: linear-gradient(135deg, #8bed02, #05d16e, #01377d, #05d16e, #8bed02);
+        background: linear-gradient(
+          135deg,
+          #8bed02,
+          #05d16e,
+          #01377d,
+          #05d16e,
+          #8bed02
+        );
         background-size: 300% 300%;
         animation: gradientShift 6s ease infinite;
       }
@@ -444,7 +574,11 @@
         <button
           class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
           id="mobile-menu-btn-idx1"
-          onclick="document.getElementById('mobile-menu-idx1').classList.toggle('hidden')"
+          onclick="
+            document
+              .getElementById('mobile-menu-idx1')
+              .classList.toggle('hidden')
+          "
           aria-label="Toggle menu"
         >
           <span class="material-symbols-outlined text-2xl">menu</span>
@@ -515,32 +649,32 @@
     <section
       class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[85vh] lg:min-h-[90vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
     >
-      <!-- Chevron Gradient Graphic -->
+      <!-- Hero Background Image -->
       <div
-        class="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-10 pointer-events-none z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBCMzI3RCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIz84RUQwMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik0wLDBMMTAwLDEwMEw1MCwxMDBaIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+')] bg-cover bg-no-repeat bg-right-top"
+        class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('assets/hero.png')] bg-cover bg-center bg-no-repeat"
       ></div>
-      <!-- Animation Overlay -->
-      <div class="absolute inset-0 opacity-10 pointer-events-none z-0"></div>
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-[#001738]/70 pointer-events-none z-0"></div>
       <div
         class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10"
       >
         <!-- Text Content -->
         <div
-          class="col-span-1 lg:col-span-6 flex flex-col justify-center text-left pt-4 lg:pt-0"
+          class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0"
         >
           <span
-            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center gap-2 text-xs sm:text-sm"
+            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center justify-center gap-2 text-xs sm:text-sm"
           >
             <span class="live-dot"></span>
             FLEET INTELLIGENCE, ENGINEERED FOR GROWTH
           </span>
           <h1
-            class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-primary mb-4 sm:mb-6 hero-heading leading-tight"
+            class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6 hero-heading leading-tight max-w-4xl"
           >
             Fleet management, engineered for long-term growth.
           </h1>
           <p
-            class="font-body-lg text-base sm:text-lg text-text-muted mb-4 sm:mb-6 max-w-xl font-semibold hero-body1"
+            class="font-body-lg text-base sm:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl font-semibold hero-body1 mx-auto"
           >
             Fleetmatrix is a cloud-native fleet intelligence platform that helps
             organisations manage vehicles, drivers, and assets through one
@@ -548,635 +682,478 @@
             analytics.
           </p>
           <p
-            class="font-body-md text-sm sm:text-base text-text-muted mb-6 sm:mb-8 max-w-xl hero-body2"
+            class="font-body-md text-sm sm:text-base text-white/80 mb-6 sm:mb-8 max-w-2xl hero-body2 mx-auto"
           >
             Whether you're running 20 vehicles or 20,000, Fleetmatrix gives you
             the visibility, automation, and intelligence to operate more
             efficiently today while preparing for tomorrow.
           </p>
-          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 hero-cta">
+          <div
+            class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 hero-cta"
+          >
             <button
               class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-[#04b861] hover:shadow-lg transition-all shadow-sm duration-300"
             >
               Request a Demo
-              <span class="material-symbols-outlined text-sm">chevron_right</span>
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
             </button>
             <button
-              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-primary text-primary rounded-full font-label-md hover:-translate-y-1 hover:bg-surface-variant hover:shadow-md transition-all duration-300"
+              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-white/10 hover:shadow-md transition-all duration-300"
             >
               Talk to Our Team
             </button>
           </div>
         </div>
-        <!-- Dashboard Mockup -->
-        <div class="col-span-1 lg:col-span-6 relative mt-12 lg:mt-0 hero-mockup">
-          <div
-            class="gradient-border bg-white shadow-2xl p-4 h-full min-h-[400px] flex flex-col rounded-xl"
-          >
-            <!-- Top bar -->
-            <div
-              class="flex justify-between items-center mb-4 pb-2 border-b border-border-silver"
-            >
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">dashboard</span>
-                <span class="font-label-sm text-primary">Live Overview</span>
-                <span class="live-dot ml-2"></span>
-              </div>
-              <div class="flex gap-2">
-                <div class="w-3 h-3 rounded-full bg-accent-lime"></div>
-                <div class="w-3 h-3 rounded-full bg-border-silver"></div>
-                <div class="w-3 h-3 rounded-full bg-border-silver"></div>
-              </div>
-            </div>
-            <!-- Chart rows -->
-            <div class="flex flex-col gap-2 mb-4 px-1">
-              <div class="flex items-center gap-3">
-                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Routes</span>
-                <div class="shimmer-bar flex-1" style="width:82%"></div>
-                <span class="font-label-sm text-xs text-primary">82%</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Fuel</span>
-                <div class="shimmer-bar flex-1" style="width:65%"></div>
-                <span class="font-label-sm text-xs text-[#05D16E]">65%</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="font-label-sm text-text-muted w-16 text-right text-xs">Safety</span>
-                <div class="shimmer-bar flex-1" style="background: linear-gradient(90deg,#05D16E 0%,#8BED02 100%); animation: none;"></div>
-                <span class="font-label-sm text-xs text-[#8BED02]">98%</span>
-              </div>
-            </div>
-            <div
-              class="flex-grow bg-bg-fog rounded-lg border border-border-silver relative overflow-hidden flex items-end justify-center"
-            >
-              <!-- Animated map grid overlay -->
-              <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#01377D" stroke-width="0.5"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-              </svg>
-              <!-- Route path animation -->
-              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path id="route1" d="M20,160 Q60,100 100,120 T180,80 T260,40" fill="none" stroke="#05D16E" stroke-width="2" stroke-dasharray="6 4" opacity="0.5">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="3s" repeatCount="indefinite"/>
-                </path>
-                <path d="M10,140 Q80,90 140,110 T230,60" fill="none" stroke="#8BED02" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.3">
-                  <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="4s" repeatCount="indefinite"/>
-                </path>
-                <!-- Vehicle dots -->
-                <circle cx="100" cy="120" r="4" fill="#05D16E">
-                  <animateMotion dur="3s" repeatCount="indefinite">
-                    <mpath href="#route1"/>
-                  </animateMotion>
-                </circle>
-              </svg>
-              <!-- Metric Cards -->
-              <div class="grid grid-cols-2 gap-4 w-full p-4 relative z-10">
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-border-silver hover:shadow-md transition-shadow">
-                  <span class="font-label-sm text-text-muted">Active Vehicles</span>
-                  <div class="font-headline-md text-primary mt-1 metric-number" id="hero-vehicles">4,281</div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-border-silver hover:shadow-md transition-shadow">
-                  <span class="font-label-sm text-text-muted">Safety Score</span>
-                  <div class="font-headline-md text-[#05D16E] mt-1 metric-number">98.4</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     <!-- 2. Trust Bar -->
-    <section class="py-6 bg-bg-fog border-y border-border-silver px-4 sm:px-8 md:px-12 lg:px-[96px] overflow-hidden">
-      <div class="max-w-max-width mx-auto flex flex-col items-center md:flex-row md:justify-between text-center md:text-left">
-        <span class="font-label-sm text-text-muted uppercase tracking-widest whitespace-normal sm:whitespace-nowrap mb-4 md:mb-0 md:mr-8 reveal text-xs sm:text-sm">
-          Trusted by fleets across logistics, construction, utilities, field service
+    <section
+      class="py-6 bg-bg-fog border-y border-border-silver px-4 sm:px-8 md:px-12 lg:px-[96px] overflow-hidden"
+    >
+      <div
+        class="max-w-max-width mx-auto flex flex-col items-center md:flex-row md:justify-between text-center md:text-left"
+      >
+        <span
+          class="font-label-sm text-text-muted uppercase tracking-widest whitespace-normal sm:whitespace-nowrap mb-4 md:mb-0 md:mr-8 reveal text-xs sm:text-sm"
+        >
+          Trusted by fleets across logistics, construction, utilities, field
+          service
         </span>
         <!-- Marquee logos -->
         <div class="relative w-full md:w-auto overflow-hidden md:max-w-2xl">
-          <div class="flex gap-8 sm:gap-12 items-center" style="animation: marquee 18s linear infinite; width: max-content;">
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">LogiPac</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">TransNational</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">EcoFreight</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">BuildCore</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">CityGrid</div>
+          <div
+            class="flex gap-8 sm:gap-12 items-center"
+            style="animation: marquee 18s linear infinite; width: max-content"
+          >
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              LogiPac
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              TransNational
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              EcoFreight
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              BuildCore
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              CityGrid
+            </div>
             <!-- Duplicate for seamless loop -->
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">LogiPac</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">TransNational</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">EcoFreight</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">BuildCore</div>
-            <div class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">CityGrid</div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              LogiPac
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              TransNational
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              EcoFreight
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              BuildCore
+            </div>
+            <div
+              class="h-8 flex items-center font-label-md text-text-muted font-bold opacity-50 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >
+              CityGrid
+            </div>
           </div>
         </div>
       </div>
     </section>
     <style>
       @keyframes marquee {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
       }
     </style>
 
     <!-- Total Operational Control & Real-Time Visibility Section -->
-    <section class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#001a41] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
+    <section
+      class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#001a41] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden"
+    >
+      <div
+        class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
         <!-- Left Column: Copy & Actions -->
-        <div class="col-span-1 lg:col-span-5 flex flex-col justify-center text-left">
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight">
+        <div
+          class="col-span-1 lg:col-span-5 flex flex-col justify-center text-left"
+        >
+          <h2
+            class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight"
+          >
             Total Operational Control &amp; Real-Time Visibility
           </h2>
-          <p class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg">
-            See every vehicle's location on a live map, streamline dispatching, receive instant alerts, and monitor driver behaviour against safety benchmarks with Fleetmatrix GPS fleet Tracker
+          <p
+            class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg"
+          >
+            See every vehicle's location on a live map, streamline dispatching,
+            receive instant alerts, and monitor driver behaviour against safety
+            benchmarks with Fleetmatrix GPS fleet Tracker
           </p>
           <div class="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="#pricing" class="inline-flex items-center justify-center bg-[#0077c8] hover:bg-[#0060a3] text-white font-label-md px-7 py-3 rounded shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base">
+            <a
+              href="#pricing"
+              class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-7 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base"
+            >
               See Pricing
             </a>
-            <a href="#demo" class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#0077c8] dark:hover:text-accent-lime transition-all group text-base">
+            <a
+              href="#demo"
+              class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
+            >
               Book a Live Map Demo
-              <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">chevron_right</span>
+              <span
+                class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform"
+                >chevron_right</span
+              >
             </a>
           </div>
         </div>
 
-        <!-- Right Column: FleetMatrix Live Map UI Dashboard -->
-        <div class="col-span-1 lg:col-span-7 relative flex items-center justify-center">
-          <div class="relative w-full rounded-2xl border border-border-silver dark:border-primary-container shadow-2xl overflow-hidden bg-white dark:bg-[#001f4d] group transition-all duration-500 hover:shadow-cyan-500/10">
-            <!-- Subtle Radial Glow -->
-            <div class="absolute -inset-1 bg-gradient-to-r from-[#0077c8]/20 to-[#05D16E]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            
-            <img 
-              src="assets/fleetmatrix_live_map.png" 
-              alt="FleetMatrix Live Map Tracking & Telematics Dashboard" 
-              class="relative z-10 w-full h-auto object-cover rounded-2xl block"
-              loading="lazy"
-            />
-          </div>
+        <!-- Right Column: FleetMatrix Live Map Image -->
+        <div
+          class="col-span-1 lg:col-span-7 relative flex items-center justify-center"
+        >
+          <img
+            src="assets/fleetmatrix_live_map.png"
+            alt="Live Fleet Status"
+            class="w-full h-auto object-contain drop-shadow-2xl"
+            style="animation: floatY 6s ease-in-out infinite"
+          />
         </div>
-
       </div>
     </section>
 
     <!-- Optimise Fleet Performance and Reduce Costs Section -->
-    <section class="py-16 sm:py-20 lg:py-24 bg-bg-fog dark:bg-[#001738] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden border-t border-border-silver/60 dark:border-primary-container/40">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- Left Column: Multi-Device Dashboard Mockup Composite -->
-        <div class="col-span-1 lg:col-span-7 relative order-2 lg:order-1 pt-4 pb-6 lg:py-0">
-          
-          <!-- 1. Main Desktop Dashboard Frame -->
-          <div class="relative bg-white dark:bg-[#001f4d] rounded-2xl border border-border-silver dark:border-primary-container shadow-2xl overflow-hidden">
-            <!-- Mockup Header -->
-            <div class="bg-[#f0f4f9] dark:bg-[#012d68] px-3.5 py-2 border-b border-border-silver dark:border-primary-container flex items-center justify-between gap-2 text-xs">
-              <div class="flex items-center gap-2 sm:gap-3">
-                <span class="font-bold text-[#0077c8] dark:text-accent-lime tracking-wider text-xs sm:text-sm flex items-center gap-1">
-                  <span class="material-symbols-outlined text-sm sm:text-base">insights</span>
-                  myFLEET
-                </span>
-                <div class="hidden sm:flex items-center gap-1.5 bg-white dark:bg-primary-container/80 px-2 py-0.5 rounded border border-border-silver dark:border-primary-container text-text-muted text-[10px]">
-                  <span class="material-symbols-outlined text-xs">search</span>
-                  <span>Jump to...</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-1.5 sm:gap-2">
-                <div class="bg-white dark:bg-primary-container/80 px-2 py-0.5 rounded border border-border-silver dark:border-primary-container font-medium text-[10px] text-text-muted dark:text-surface-variant flex items-center gap-1">
-                  <span>Filter by group...</span>
-                  <span class="material-symbols-outlined text-xs">expand_more</span>
-                </div>
-                <div class="hidden md:flex items-center gap-1 text-[10px] text-text-muted">
-                  <span>Show hidden reports</span>
-                </div>
-                <div class="w-5 h-5 rounded-full bg-[#0077c8] text-white flex items-center justify-center font-bold text-[9px]">FM</div>
-              </div>
-            </div>
-
-            <!-- Mockup Content Grid (Sidebar + Analytics Widgets) -->
-            <div class="grid grid-cols-12 min-h-[360px] bg-[#f8fafc] dark:bg-[#001738]">
-              <!-- Sidebar -->
-              <div class="hidden md:flex col-span-3 bg-white dark:bg-[#001f4d] border-r border-border-silver dark:border-primary-container flex-col justify-between py-2 px-1.5 text-[10px]">
-                <div class="flex flex-col gap-0.5">
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded bg-[#0077c8]/10 text-[#0077c8] dark:text-accent-lime font-semibold border-l-2 border-[#0077c8]">
-                    <span class="material-symbols-outlined text-xs">dashboard</span>
-                    <span>Dashboard</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">map</span>
-                    <span>Map</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">local_shipping</span>
-                    <span>Track</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">verified_user</span>
-                    <span>Compliance</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">security</span>
-                    <span>Safety</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">build</span>
-                    <span>Maintenance</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">eco</span>
-                    <span>Sustainability</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 px-2 py-1 rounded text-text-muted dark:text-surface-variant hover:bg-surface-container">
-                    <span class="material-symbols-outlined text-xs">group</span>
-                    <span>People</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-1 px-2 py-1 text-[9px] text-text-muted border-t border-border-silver dark:border-primary-container/40 pt-1.5">
-                  <span class="material-symbols-outlined text-xs">settings</span>
-                  <span>Settings</span>
-                </div>
-              </div>
-
-              <!-- Main Widgets Grid Area -->
-              <div class="col-span-12 md:col-span-9 p-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-[#f1f5f9] dark:bg-[#001738]">
-                
-                <!-- Widget 1: Driver Safety Scorecard -->
-                <div class="bg-white dark:bg-[#002254] p-3 rounded-lg border border-border-silver dark:border-primary-container shadow-xs flex flex-col justify-between">
-                  <div class="flex justify-between items-center mb-1">
-                    <span class="text-[11px] font-bold text-primary dark:text-white">Driver Safety Scorecard</span>
-                    <span class="material-symbols-outlined text-xs text-text-muted">more_vert</span>
-                  </div>
-                  <div class="flex items-center justify-around py-1">
-                    <div class="relative w-16 h-16">
-                      <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                        <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" stroke-width="4.5" />
-                        <circle cx="18" cy="18" r="14" fill="none" stroke="#0077c8" stroke-width="4.5" stroke-dasharray="63 100" stroke-dashoffset="0" />
-                        <circle cx="18" cy="18" r="14" fill="none" stroke="#f59e0b" stroke-width="4.5" stroke-dasharray="20 100" stroke-dashoffset="-63" />
-                        <circle cx="18" cy="18" r="14" fill="none" stroke="#ea580c" stroke-width="4.5" stroke-dasharray="14 100" stroke-dashoffset="-83" />
-                        <circle cx="18" cy="18" r="14" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-dasharray="3 100" stroke-dashoffset="-97" />
-                      </svg>
-                      <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <span class="text-[7px] text-text-muted dark:text-surface-variant uppercase">Average</span>
-                        <span class="text-[11px] font-bold text-primary dark:text-white leading-none">75.25</span>
-                      </div>
-                    </div>
-                    <div class="flex flex-col gap-0.5 text-[9px] text-text-muted dark:text-surface-variant font-medium">
-                      <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#0077c8]"></span><span>Low Risk (63%)</span></div>
-                      <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span><span>Mild Risk (20%)</span></div>
-                      <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#ea580c]"></span><span>Medium (14%)</span></div>
-                      <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#ef4444]"></span><span>High Risk (3%)</span></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Widget 2: Fleet Mileage (last week) -->
-                <div class="bg-white dark:bg-[#002254] p-3 rounded-lg border border-border-silver dark:border-primary-container shadow-xs flex flex-col justify-between">
-                  <div class="flex justify-between items-center mb-1">
-                    <span class="text-[11px] font-bold text-primary dark:text-white">Fleet Mileage (last week)</span>
-                    <span class="material-symbols-outlined text-xs text-text-muted">more_vert</span>
-                  </div>
-                  <div class="flex flex-col gap-1 py-1 text-[9px]">
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-5 text-text-muted text-right font-medium">Mon</span>
-                      <div class="flex-1 bg-slate-100 dark:bg-primary-container/40 h-2 rounded-full overflow-hidden">
-                        <div class="bg-[#0077c8] h-full rounded-full" style="width: 75%"></div>
-                      </div>
-                      <span class="w-7 text-right font-semibold text-primary dark:text-white text-[9px]">881</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-5 text-text-muted text-right font-medium">Tue</span>
-                      <div class="flex-1 bg-slate-100 dark:bg-primary-container/40 h-2 rounded-full overflow-hidden">
-                        <div class="bg-[#0077c8] h-full rounded-full" style="width: 45%"></div>
-                      </div>
-                      <span class="w-7 text-right font-semibold text-primary dark:text-white text-[9px]">524</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-5 text-text-muted text-right font-medium">Wed</span>
-                      <div class="flex-1 bg-slate-100 dark:bg-primary-container/40 h-2 rounded-full overflow-hidden">
-                        <div class="bg-[#0077c8] h-full rounded-full" style="width: 80%"></div>
-                      </div>
-                      <span class="w-7 text-right font-semibold text-primary dark:text-white text-[9px]">924</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-5 text-text-muted text-right font-medium">Thu</span>
-                      <div class="flex-1 bg-slate-100 dark:bg-primary-container/40 h-2 rounded-full overflow-hidden">
-                        <div class="bg-[#0077c8] h-full rounded-full" style="width: 90%"></div>
-                      </div>
-                      <span class="w-7 text-right font-semibold text-primary dark:text-white text-[9px]">1,021</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-5 text-text-muted text-right font-medium">Fri</span>
-                      <div class="flex-1 bg-slate-100 dark:bg-primary-container/40 h-2 rounded-full overflow-hidden">
-                        <div class="bg-[#05D16E] h-full rounded-full" style="width: 98%"></div>
-                      </div>
-                      <span class="w-7 text-right font-semibold text-primary dark:text-white text-[9px]">1,145</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Widget 3: Top 5 Aggressive Drivers -->
-                <div class="bg-white dark:bg-[#002254] p-3 rounded-lg border border-border-silver dark:border-primary-container shadow-xs flex flex-col justify-between">
-                  <div class="flex justify-between items-center mb-1">
-                    <span class="text-[11px] font-bold text-primary dark:text-white">Top 5 Aggressive Drivers</span>
-                    <span class="material-symbols-outlined text-xs text-text-muted">more_vert</span>
-                  </div>
-                  <div class="flex items-end justify-between h-20 px-2 pt-2 pb-1 border-b border-border-silver/60">
-                    <!-- Driver 11 -->
-                    <div class="flex flex-col items-center gap-0.5 w-6">
-                      <div class="w-3.5 bg-slate-100 dark:bg-primary-container/40 rounded-t flex flex-col justify-end overflow-hidden" style="height: 64px;">
-                        <div class="bg-[#05D16E] w-full" style="height: 12px;"></div>
-                        <div class="bg-[#002254] dark:bg-accent-lime w-full" style="height: 28px;"></div>
-                        <div class="bg-[#0077c8] w-full" style="height: 24px;"></div>
-                      </div>
-                      <span class="text-[8px] text-text-muted">D-11</span>
-                    </div>
-                    <!-- Driver 8 -->
-                    <div class="flex flex-col items-center gap-0.5 w-6">
-                      <div class="w-3.5 bg-slate-100 dark:bg-primary-container/40 rounded-t flex flex-col justify-end overflow-hidden" style="height: 52px;">
-                        <div class="bg-[#05D16E] w-full" style="height: 10px;"></div>
-                        <div class="bg-[#002254] dark:bg-accent-lime w-full" style="height: 22px;"></div>
-                        <div class="bg-[#0077c8] w-full" style="height: 20px;"></div>
-                      </div>
-                      <span class="text-[8px] text-text-muted">D-8</span>
-                    </div>
-                    <!-- Driver 1 -->
-                    <div class="flex flex-col items-center gap-0.5 w-6">
-                      <div class="w-3.5 bg-slate-100 dark:bg-primary-container/40 rounded-t flex flex-col justify-end overflow-hidden" style="height: 44px;">
-                        <div class="bg-[#05D16E] w-full" style="height: 8px;"></div>
-                        <div class="bg-[#002254] dark:bg-accent-lime w-full" style="height: 18px;"></div>
-                        <div class="bg-[#0077c8] w-full" style="height: 18px;"></div>
-                      </div>
-                      <span class="text-[8px] text-text-muted">D-1</span>
-                    </div>
-                    <!-- Driver 21 -->
-                    <div class="flex flex-col items-center gap-0.5 w-6">
-                      <div class="w-3.5 bg-slate-100 dark:bg-primary-container/40 rounded-t flex flex-col justify-end overflow-hidden" style="height: 32px;">
-                        <div class="bg-[#05D16E] w-full" style="height: 6px;"></div>
-                        <div class="bg-[#002254] dark:bg-accent-lime w-full" style="height: 14px;"></div>
-                        <div class="bg-[#0077c8] w-full" style="height: 12px;"></div>
-                      </div>
-                      <span class="text-[8px] text-text-muted">D-21</span>
-                    </div>
-                    <!-- Driver 18 -->
-                    <div class="flex flex-col items-center gap-0.5 w-6">
-                      <div class="w-3.5 bg-slate-100 dark:bg-primary-container/40 rounded-t flex flex-col justify-end overflow-hidden" style="height: 24px;">
-                        <div class="bg-[#002254] dark:bg-accent-lime w-full" style="height: 12px;"></div>
-                        <div class="bg-[#0077c8] w-full" style="height: 12px;"></div>
-                      </div>
-                      <span class="text-[8px] text-text-muted">D-18</span>
-                    </div>
-                  </div>
-                  <div class="flex justify-center gap-2 pt-1 text-[8px] text-text-muted">
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-xs bg-[#05D16E]"></span> Harsh Braking</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-xs bg-[#002254] dark:bg-accent-lime"></span> Cornering</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-xs bg-[#0077c8]"></span> Accel.</span>
-                  </div>
-                </div>
-
-                <!-- Widget 4: Last 3 Months Fuel Trend -->
-                <div class="bg-white dark:bg-[#002254] p-3 rounded-lg border border-border-silver dark:border-primary-container shadow-xs flex flex-col justify-between">
-                  <div class="flex justify-between items-center mb-1">
-                    <span class="text-[11px] font-bold text-primary dark:text-white">Last 3 Months Fuel Trend</span>
-                    <span class="material-symbols-outlined text-xs text-text-muted">more_vert</span>
-                  </div>
-                  <div class="flex items-end justify-between h-20 px-2 pt-2 pb-1 border-b border-border-silver/60">
-                    <div class="flex flex-col items-center gap-0.5">
-                      <div class="w-4 bg-amber-400 rounded-t" style="height: 58px;"></div>
-                      <span class="text-[8px] text-text-muted">Nov</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-0.5">
-                      <div class="w-4 bg-amber-500 rounded-t" style="height: 46px;"></div>
-                      <span class="text-[8px] text-text-muted">Dec</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-0.5">
-                      <div class="w-4 bg-[#05D16E] rounded-t" style="height: 34px;"></div>
-                      <span class="text-[8px] text-text-muted">Jan</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-0.5">
-                      <div class="w-4 bg-[#0077c8] rounded-t" style="height: 28px;"></div>
-                      <span class="text-[8px] text-text-muted">Feb</span>
-                    </div>
-                  </div>
-                  <div class="flex justify-between items-center pt-1 text-[8px] text-text-muted">
-                    <span class="text-[#05D16E] font-bold">▼ 21.4% Fuel Reduction</span>
-                    <span>Target: Met</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Tablet Overlay Mockup (Right Floating Window) -->
-          <div class="absolute -right-2 sm:-right-4 top-10 sm:top-14 w-[180px] sm:w-[220px] bg-white dark:bg-[#002254] rounded-xl border-2 border-border-silver dark:border-primary-container shadow-2xl overflow-hidden hidden md:block transition-all duration-300 hover:-translate-y-1 z-20">
-            <div class="bg-[#002254] text-white px-2.5 py-1.5 flex items-center justify-between text-[9px]">
-              <span class="font-bold text-accent-lime">Live Analytics</span>
-              <div class="flex gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-accent-lime"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
-              </div>
-            </div>
-            <div class="p-2 flex flex-col gap-2 text-[9px] bg-slate-50 dark:bg-[#001738]">
-              <div class="bg-white dark:bg-[#001f4d] p-1.5 rounded border border-border-silver/60 dark:border-primary-container">
-                <div class="flex justify-between text-[8px] font-bold text-primary dark:text-white mb-1">
-                  <span>Driver Safety</span>
-                  <span class="text-[#05D16E]">75.25</span>
-                </div>
-                <div class="w-full bg-slate-100 dark:bg-primary-container/40 h-1.5 rounded-full overflow-hidden flex">
-                  <div class="bg-[#0077c8] h-full" style="width: 63%"></div>
-                  <div class="bg-[#f59e0b] h-full" style="width: 20%"></div>
-                  <div class="bg-[#ea580c] h-full" style="width: 14%"></div>
-                  <div class="bg-[#ef4444] h-full" style="width: 3%"></div>
-                </div>
-              </div>
-              <div class="bg-white dark:bg-[#001f4d] p-1.5 rounded border border-border-silver/60 dark:border-primary-container">
-                <div class="flex justify-between text-[8px] font-bold text-primary dark:text-white mb-1">
-                  <span>Fuel Trend</span>
-                  <span class="text-[#05D16E] font-semibold">-21%</span>
-                </div>
-                <div class="flex items-end gap-1 h-8 justify-between px-1">
-                  <div class="w-2.5 bg-amber-400 h-7 rounded-xs"></div>
-                  <div class="w-2.5 bg-amber-500 h-5 rounded-xs"></div>
-                  <div class="w-2.5 bg-[#05D16E] h-3.5 rounded-xs"></div>
-                  <div class="w-2.5 bg-[#0077c8] h-2.5 rounded-xs"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Smartphone Mockup (Bottom-Left Floating Frame) -->
-          <div class="absolute -left-2 sm:-left-4 -bottom-4 sm:-bottom-6 w-[110px] sm:w-[130px] bg-[#0f1c2d] rounded-2xl p-1.5 shadow-2xl border border-white/20 hidden sm:block z-30 transition-all duration-300 hover:-translate-y-1">
-            <div class="bg-white dark:bg-[#001f4d] rounded-xl p-2 flex flex-col gap-1.5 overflow-hidden">
-              <div class="flex justify-between items-center text-[7px] text-text-muted pb-1 border-b border-border-silver/40">
-                <span class="font-bold text-primary dark:text-white">myFleet Mobile</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#05D16E]"></span>
-              </div>
-              <div class="flex flex-col items-center justify-center py-0.5">
-                <div class="relative w-9 h-9">
-                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                    <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" stroke-width="4.5" />
-                    <circle cx="18" cy="18" r="14" fill="none" stroke="#0077c8" stroke-width="4.5" stroke-dasharray="63 100" stroke-dashoffset="0" />
-                    <circle cx="18" cy="18" r="14" fill="none" stroke="#f59e0b" stroke-width="4.5" stroke-dasharray="20 100" stroke-dashoffset="-63" />
-                    <circle cx="18" cy="18" r="14" fill="none" stroke="#ea580c" stroke-width="4.5" stroke-dasharray="14 100" stroke-dashoffset="-83" />
-                  </svg>
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="text-[7px] font-bold text-primary dark:text-white">75.2</span>
-                  </div>
-                </div>
-                <span class="text-[7px] text-text-muted mt-0.5 font-medium">Safety Score</span>
-              </div>
-              <div class="bg-[#f0f4f9] dark:bg-[#001738] p-1 rounded text-[7px] flex justify-between font-medium">
-                <span class="text-text-muted">Weekly Miles</span>
-                <span class="font-bold text-primary dark:text-white">4,812</span>
-              </div>
-            </div>
-          </div>
-
+    <section
+      class="py-16 sm:py-20 lg:py-24 bg-bg-fog dark:bg-[#001738] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden border-t border-border-silver/60 dark:border-primary-container/40"
+    >
+      <div
+        class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
+        <!-- Left Column: Route Optimization Image -->
+        <div
+          class="col-span-1 lg:col-span-7 relative order-2 lg:order-1 pt-4 pb-6 lg:py-0 flex items-center justify-center"
+        >
+          <img
+            src="assets/route_optimization.png"
+            alt="Route Optimization"
+            class="w-full h-auto object-contain drop-shadow-2xl"
+            style="animation: floatY 6s ease-in-out infinite"
+          />
         </div>
 
         <!-- Right Column: Copy & Actions -->
-        <div class="col-span-1 lg:col-span-5 flex flex-col justify-center text-left order-1 lg:order-2">
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight">
+        <div
+          class="col-span-1 lg:col-span-5 flex flex-col justify-center text-left order-1 lg:order-2"
+        >
+          <h2
+            class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight"
+          >
             Optimise Fleet Performance and Reduce Costs
           </h2>
-          <p class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg">
-            Fleetmatrix's fleet management software gives you the insights you need to reduce expenses like fuel, maintenance, and idling time. Get the clear reports required to make strategic decisions and improve your bottom line.
+          <p
+            class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg"
+          >
+            Fleetmatrix's fleet management software gives you the insights you
+            need to reduce expenses like fuel, maintenance, and idling time. Get
+            the clear reports required to make strategic decisions and improve
+            your bottom line.
           </p>
           <div class="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="#pricing" class="inline-flex items-center justify-center bg-[#0077c8] hover:bg-[#0060a3] text-white font-label-md px-7 py-3 rounded shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base">
+            <a
+              href="#pricing"
+              class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-7 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base"
+            >
               See Pricing
             </a>
-            <a href="#demo" class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#0077c8] dark:hover:text-accent-lime transition-all group text-base">
+            <a
+              href="#demo"
+              class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
+            >
               Book a Free Demo
-              <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">chevron_right</span>
+              <span
+                class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform"
+                >chevron_right</span
+              >
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- Drive operational excellence with GO Focus Dash Cam Section -->
-    <section class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#001a41] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden border-t border-border-silver/60 dark:border-primary-container/40">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
+    <section
+      class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#001a41] px-4 sm:px-8 md:px-12 lg:px-margin-desktop relative overflow-hidden border-t border-border-silver/60 dark:border-primary-container/40"
+    >
+      <div
+        class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
         <!-- Left Column: Copy & Actions -->
-        <div class="col-span-1 lg:col-span-6 flex flex-col justify-center text-left">
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight">
+        <div
+          class="col-span-1 lg:col-span-6 flex flex-col justify-center text-left"
+        >
+          <h2
+            class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] dark:text-white mb-6 tracking-tight"
+          >
             Drive operational excellence with GO Focus Dash Cam
           </h2>
-          <p class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg">
-            Make smarter decisions with real-time video insights. Improve driver safety, reduce incident costs, and protect your business with advanced AI-powered fleet visibility.
+          <p
+            class="font-body-lg text-base sm:text-lg text-text-muted dark:text-surface-variant/90 leading-relaxed mb-8 max-w-lg"
+          >
+            Make smarter decisions with real-time video insights. Improve driver
+            safety, reduce incident costs, and protect your business with
+            advanced AI-powered fleet visibility.
           </p>
           <div class="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="#pricing" class="inline-flex items-center justify-center bg-[#0077c8] hover:bg-[#0060a3] text-white font-label-md px-7 py-3 rounded shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base">
+            <a
+              href="#pricing"
+              class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-7 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base"
+            >
               See Pricing
             </a>
-            <a href="#demo" class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#0077c8] dark:hover:text-accent-lime transition-all group text-base">
+            <a
+              href="#demo"
+              class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
+            >
               Book a Free Demo
-              <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">chevron_right</span>
+              <span
+                class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform"
+                >chevron_right</span
+              >
             </a>
           </div>
         </div>
 
         <!-- Right Column: Hardware Product Visual Presentation -->
-        <div class="col-span-1 lg:col-span-6 flex items-center justify-center relative">
-          <div class="relative w-full max-w-[520px] flex items-center justify-center group">
+        <div
+          class="col-span-1 lg:col-span-6 flex items-center justify-center relative"
+        >
+          <div
+            class="relative w-full max-w-[520px] flex items-center justify-center group"
+          >
             <!-- Subtle Radial Glow Effect -->
-            <div class="absolute inset-0 bg-radial from-[#0077c8]/10 via-transparent to-transparent rounded-full blur-2xl transform scale-90 group-hover:scale-105 transition-transform duration-500 pointer-events-none"></div>
-            
+            <div
+              class="absolute inset-0 bg-radial from-[#05D16E]/10 via-transparent to-transparent rounded-full blur-2xl transform scale-90 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+            ></div>
+
             <!-- Dash Cam Product Image -->
-            <img 
-              src="assets/dashcam_transparent.png" 
-              alt="GO Focus Dash Cam - AI Powered Dual Fleet Camera" 
+            <img
+              src="assets/dashcam_transparent.png"
+              alt="GO Focus Dash Cam - AI Powered Dual Fleet Camera"
               class="relative z-10 w-full h-auto object-contain max-h-[380px] drop-shadow-2xl transition-transform duration-500 hover:scale-[1.03]"
               loading="lazy"
             />
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- 3. Core Capabilities -->
-    <section class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]">
+    <section
+      class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]"
+    >
       <div class="max-w-max-width mx-auto">
         <div class="text-center mb-10 sm:mb-16 reveal">
           <span
             class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm"
             >WHAT FLEETMATRIX DOES</span
           >
-          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary mb-4">
+          <h2
+            class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary mb-4"
+          >
             One platform. Every layer of your fleet.
           </h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-gutter">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-gutter"
+        >
           <!-- Capability Card 1 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-1">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">location_on</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-1"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >location_on</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Live GPS Tracking</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Pinpoint exact vehicle locations in real-time with sub-second latency.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              Live GPS Tracking
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Pinpoint exact vehicle locations in real-time with sub-second
+              latency.
+            </p>
           </div>
           <!-- Capability Card 2 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-2">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">videocam</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-2"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >videocam</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">AI Safety Monitoring</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Proactively detect risky driving behaviors and prevent accidents before they happen.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              AI Safety Monitoring
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Proactively detect risky driving behaviors and prevent accidents
+              before they happen.
+            </p>
           </div>
           <!-- Capability Card 3 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-3">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">monitoring</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-3"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >monitoring</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Fleet Analytics</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Transform raw telematics data into actionable insights to optimize performance.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              Fleet Analytics
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Transform raw telematics data into actionable insights to optimize
+              performance.
+            </p>
           </div>
           <!-- Capability Card 4 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-4">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">verified</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-4"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >verified</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Automated Compliance</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Streamline HOS logging, DVIRs, and IFTA reporting automatically.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              Automated Compliance
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Streamline HOS logging, DVIRs, and IFTA reporting automatically.
+            </p>
           </div>
           <!-- Capability Card 5 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-5">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">notifications_active</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-5"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >notifications_active</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Smart Alerts &amp; Reporting</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Get instantly notified of critical events like speeding, idling, or maintenance needs.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              Smart Alerts &amp; Reporting
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Get instantly notified of critical events like speeding, idling,
+              or maintenance needs.
+            </p>
           </div>
           <!-- Capability Card 6 -->
-          <div class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-6">
-            <div class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors">
-              <span class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl" style="font-variation-settings: &quot;wght&quot; 300">cloud_sync</span>
+          <div
+            class="bg-bg-fog border border-border-silver rounded-xl p-6 sm:p-8 hover:border-[#05D16E] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group reveal stagger-6"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-[#05D16E]/10 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary group-hover:text-[#05D16E] transition-colors text-3xl"
+                style="font-variation-settings: &quot;wght&quot; 300"
+                >cloud_sync</span
+              >
             </div>
-            <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-3">Secure Cloud Access</h3>
-            <p class="font-body-md text-sm sm:text-body-md text-text-muted">Manage your entire fleet from any device, anywhere, with enterprise-grade security.</p>
+            <h3
+              class="font-headline-md text-xl sm:text-headline-md text-primary mb-3"
+            >
+              Secure Cloud Access
+            </h3>
+            <p class="font-body-md text-sm sm:text-body-md text-text-muted">
+              Manage your entire fleet from any device, anywhere, with
+              enterprise-grade security.
+            </p>
           </div>
         </div>
       </div>
     </section>
     <!-- 4. Solutions Cards (Fully Responsive Grid) -->
-    <section class="py-12 sm:py-16 lg:py-section-padding bg-bg-fog px-4 sm:px-8 md:px-12 lg:px-[96px]">
+    <section
+      class="py-12 sm:py-16 lg:py-section-padding bg-bg-fog px-4 sm:px-8 md:px-12 lg:px-[96px]"
+    >
       <div class="max-w-max-width mx-auto">
         <div class="mb-8 sm:mb-12 text-center sm:text-left reveal">
           <span
             class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm"
             >SOLUTIONS</span
           >
-          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary max-w-2xl">
+          <h2
+            class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-primary max-w-2xl"
+          >
             Built for however your fleet operates.
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
           <!-- Card 1 -->
           <div
             class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-1"
@@ -1184,18 +1161,33 @@
             <div>
               <div class="h-2 w-full bg-[#05D16E]"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">pin_drop</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >pin_drop</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Fleet Tracking</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Comprehensive visibility into your entire mobile operation with real-time location updates.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Fleet Tracking
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Comprehensive visibility into your entire mobile operation
+                  with real-time location updates.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#05D16E] group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#05D16E] group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
 
@@ -1206,18 +1198,33 @@
             <div>
               <div class="h-2 w-full bg-amber-500"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">videocam</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >videocam</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Fleet Dashcam</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Protect drivers and reduce liability with intelligent video telematics and event recording.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Fleet Dashcam
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Protect drivers and reduce liability with intelligent video
+                  telematics and event recording.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-amber-500 group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-amber-500 group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
 
@@ -1228,18 +1235,33 @@
             <div>
               <div class="h-2 w-full bg-[#01377D]"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">inventory_2</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >inventory_2</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Asset Tracking</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Monitor trailers, heavy equipment, and high-value non-powered assets round-the-clock.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Asset Tracking
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Monitor trailers, heavy equipment, and high-value non-powered
+                  assets round-the-clock.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#01377D] group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#01377D] group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
 
@@ -1250,18 +1272,33 @@
             <div>
               <div class="h-2 w-full bg-[#8BED02]"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">electric_car</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >electric_car</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Electric Vehicles</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Manage charge states, energy usage, charging schedules, and EV-specific routing.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Electric Vehicles
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Manage charge states, energy usage, charging schedules, and
+                  EV-specific routing.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
 
@@ -1272,18 +1309,33 @@
             <div>
               <div class="h-2 w-full bg-indigo-500"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">subtitles</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >subtitles</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Digital Tachograph</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Automated compliance for driver hours, rest periods, and remote downloads.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Digital Tachograph
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Automated compliance for driver hours, rest periods, and
+                  remote downloads.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-indigo-500 group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-indigo-500 group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
 
@@ -1294,66 +1346,156 @@
             <div>
               <div class="h-2 w-full bg-rose-500"></div>
               <div class="p-6 sm:p-8">
-                <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-2xl">alt_route</span>
+                <div
+                  class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >alt_route</span
+                  >
                 </div>
-                <h3 class="font-headline-md text-xl sm:text-headline-md text-primary mb-2">Route Optimisation</h3>
-                <p class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed">
-                  Reduce total mileage, cut fuel consumption, and improve on-time delivery performance.
+                <h3
+                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+                >
+                  Route Optimisation
+                </h3>
+                <p
+                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+                >
+                  Reduce total mileage, cut fuel consumption, and improve
+                  on-time delivery performance.
                 </p>
               </div>
             </div>
-            <div class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-rose-500 group-hover:translate-x-1 transition-transform">
+            <div
+              class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-rose-500 group-hover:translate-x-1 transition-transform"
+            >
               <span>Explore Solution</span>
-              <span class="material-symbols-outlined text-base">arrow_forward</span>
+              <span class="material-symbols-outlined text-base"
+                >arrow_forward</span
+              >
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- 5. Why Fleetmatrix (Stat Band) -->
-    <section class="py-16 sm:py-24 bg-[#01377D] relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]" id="stats-section">
+    <section
+      class="py-16 sm:py-24 bg-[#01377D] relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
+      id="stats-section"
+    >
       <!-- Animated background orbs -->
-      <div class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full opacity-10" style="background: radial-gradient(circle, #8BED02, transparent); transform: translate(-30%, -30%);"></div>
-      <div class="absolute bottom-0 right-0 w-60 sm:w-80 h-60 sm:h-80 rounded-full opacity-10" style="background: radial-gradient(circle, #05D16E, transparent); transform: translate(30%, 30%);"></div>
+      <div
+        class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full opacity-10"
+        style="
+          background: radial-gradient(circle, #8bed02, transparent);
+          transform: translate(-30%, -30%);
+        "
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-60 sm:w-80 h-60 sm:h-80 rounded-full opacity-10"
+        style="
+          background: radial-gradient(circle, #05d16e, transparent);
+          transform: translate(30%, 30%);
+        "
+      ></div>
       <div class="max-w-max-width mx-auto relative z-10">
         <div class="text-center mb-10 sm:mb-16 reveal">
-          <span class="font-label-sm text-[#8BED02] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm">WHY FLEETMATRIX</span>
-          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-white mb-4">Intelligence that scales with you.</h2>
+          <span
+            class="font-label-sm text-[#8BED02] tracking-[0.15em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm"
+            >WHY FLEETMATRIX</span
+          >
+          <h2
+            class="font-display-lg text-2xl sm:text-3xl lg:text-display-lg text-white mb-4"
+          >
+            Intelligence that scales with you.
+          </h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
           <div class="flex flex-col items-center reveal stagger-1 group">
-            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="15000" data-suffix="k+">15k+</span>
-            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Fleets Powered</span>
-            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+            <span
+              class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2"
+              data-target="15000"
+              data-suffix="k+"
+              >15k+</span
+            >
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim"
+              >Fleets Powered</span
+            >
+            <div
+              class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              style="background: linear-gradient(90deg, #8bed02, #05d16e)"
+            ></div>
           </div>
           <div class="flex flex-col items-center reveal stagger-2 group">
-            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="22" data-suffix="%">22%</span>
-            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Fuel Reduction</span>
-            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+            <span
+              class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2"
+              data-target="22"
+              data-suffix="%"
+              >22%</span
+            >
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim"
+              >Fuel Reduction</span
+            >
+            <div
+              class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              style="background: linear-gradient(90deg, #8bed02, #05d16e)"
+            ></div>
           </div>
           <div class="flex flex-col items-center reveal stagger-3 group">
-            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="50" data-suffix="M+">50M+</span>
-            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Miles Tracked</span>
-            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+            <span
+              class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2"
+              data-target="50"
+              data-suffix="M+"
+              >50M+</span
+            >
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim"
+              >Miles Tracked</span
+            >
+            <div
+              class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              style="background: linear-gradient(90deg, #8bed02, #05d16e)"
+            ></div>
           </div>
           <div class="flex flex-col items-center reveal stagger-4 group">
-            <span class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2" data-target="32" data-suffix="">32</span>
-            <span class="font-body-lg text-xs sm:text-base text-surface-dim">Countries</span>
-            <div class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(90deg, #8BED02, #05D16E);"></div>
+            <span
+              class="stat-number font-display-lg text-4xl sm:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2"
+              data-target="32"
+              data-suffix=""
+              >32</span
+            >
+            <span class="font-body-lg text-xs sm:text-base text-surface-dim"
+              >Countries</span
+            >
+            <div
+              class="w-8 sm:w-12 h-0.5 mt-2 sm:mt-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              style="background: linear-gradient(90deg, #8bed02, #05d16e)"
+            ></div>
           </div>
         </div>
       </div>
     </section>
     <!-- 6. Testimonial Carousel -->
-    <section class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]">
+    <section
+      class="py-12 sm:py-16 lg:py-section-padding bg-white px-4 sm:px-8 md:px-12 lg:px-[96px]"
+    >
       <div class="max-w-max-width mx-auto">
-        <div class="bg-bg-fog border-l-4 border-[#05D16E] p-6 sm:p-10 md:p-12 rounded-r-2xl shadow-sm relative reveal reveal-left overflow-hidden">
+        <div
+          class="bg-bg-fog border-l-4 border-[#05D16E] p-6 sm:p-10 md:p-12 rounded-r-2xl shadow-sm relative reveal reveal-left overflow-hidden"
+        >
           <!-- Animated background quote -->
-          <span class="material-symbols-outlined absolute top-2 right-2 text-7xl sm:text-[120px] text-primary/5 select-none" style="animation: floatY 5s ease-in-out infinite;">format_quote</span>
-          <span class="material-symbols-outlined absolute top-4 sm:top-8 left-4 sm:left-8 text-3xl sm:text-6xl text-primary/10">format_quote</span>
+          <span
+            class="material-symbols-outlined absolute top-2 right-2 text-7xl sm:text-[120px] text-primary/5 select-none"
+            style="animation: floatY 5s ease-in-out infinite"
+            >format_quote</span
+          >
+          <span
+            class="material-symbols-outlined absolute top-4 sm:top-8 left-4 sm:left-8 text-3xl sm:text-6xl text-primary/10"
+            >format_quote</span
+          >
           <div class="relative z-10 pl-4 sm:pl-8">
-            <p class="font-headline-md text-base sm:text-xl md:text-2xl text-primary italic mb-6 sm:mb-8 max-w-4xl leading-relaxed">
+            <p
+              class="font-headline-md text-base sm:text-xl md:text-2xl text-primary italic mb-6 sm:mb-8 max-w-4xl leading-relaxed"
+            >
               "Since implementing Fleetmatrix, we've seen a dramatic decrease in
               safety incidents and a significant drop in our fuel costs. The
               platform's ability to provide real-time insights across our entire
@@ -1361,10 +1503,20 @@
               basis."
             </p>
             <div class="flex items-center gap-3 sm:gap-4">
-              <div class="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg flex-shrink-0">SJ</div>
+              <div
+                class="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg flex-shrink-0"
+              >
+                SJ
+              </div>
               <div>
-                <div class="font-label-md text-primary font-bold text-sm sm:text-lg">Sarah Jenkins</div>
-                <div class="font-body-sm text-xs sm:text-sm text-text-muted">VP of Operations, TransNational Logistics</div>
+                <div
+                  class="font-label-md text-primary font-bold text-sm sm:text-lg"
+                >
+                  Sarah Jenkins
+                </div>
+                <div class="font-body-sm text-xs sm:text-sm text-text-muted">
+                  VP of Operations, TransNational Logistics
+                </div>
                 <!-- Star rating -->
                 <div class="flex gap-1 mt-0.5 sm:mt-1">
                   <span class="text-amber-400 text-xs sm:text-sm">★★★★★</span>
@@ -1376,22 +1528,60 @@
       </div>
     </section>
     <!-- 7. Closing CTA -->
-    <section class="py-16 sm:py-24 lg:py-32 cta-bg-animated relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]">
+    <section
+      class="py-16 sm:py-24 lg:py-32 cta-bg-animated relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
+    >
       <!-- Floating particles -->
-      <div class="particle w-3 h-3 bg-white/20" style="left:10%; top:70%; animation-duration:8s; animation-delay:0s;"></div>
-      <div class="particle w-2 h-2 bg-white/30" style="left:25%; top:80%; animation-duration:6s; animation-delay:1s;"></div>
-      <div class="particle w-4 h-4 bg-white/10" style="left:50%; top:85%; animation-duration:10s; animation-delay:2s;"></div>
-      <div class="particle w-2 h-2 bg-white/25" style="left:75%; top:75%; animation-duration:7s; animation-delay:0.5s;"></div>
-      <div class="particle w-3 h-3 bg-white/15" style="left:90%; top:60%; animation-duration:9s; animation-delay:3s;"></div>
+      <div
+        class="particle w-3 h-3 bg-white/20"
+        style="left: 10%; top: 70%; animation-duration: 8s; animation-delay: 0s"
+      ></div>
+      <div
+        class="particle w-2 h-2 bg-white/30"
+        style="left: 25%; top: 80%; animation-duration: 6s; animation-delay: 1s"
+      ></div>
+      <div
+        class="particle w-4 h-4 bg-white/10"
+        style="
+          left: 50%;
+          top: 85%;
+          animation-duration: 10s;
+          animation-delay: 2s;
+        "
+      ></div>
+      <div
+        class="particle w-2 h-2 bg-white/25"
+        style="
+          left: 75%;
+          top: 75%;
+          animation-duration: 7s;
+          animation-delay: 0.5s;
+        "
+      ></div>
+      <div
+        class="particle w-3 h-3 bg-white/15"
+        style="left: 90%; top: 60%; animation-duration: 9s; animation-delay: 3s"
+      ></div>
       <!-- Animated Chevron Background -->
-      <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-        <div class="chevron-divider text-[200px] sm:text-[350px] lg:text-[500px] leading-none text-white select-none" style="animation: gradientShift 8s ease infinite; opacity: 0.5;">&gt;&gt;&gt;</div>
+      <div
+        class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center"
+      >
+        <div
+          class="chevron-divider text-[200px] sm:text-[350px] lg:text-[500px] leading-none text-white select-none"
+          style="animation: gradientShift 8s ease infinite; opacity: 0.5"
+        >
+          &gt;&gt;&gt;
+        </div>
       </div>
       <div class="max-w-3xl mx-auto text-center relative z-10 reveal">
-        <h2 class="font-display-lg text-2xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6">
+        <h2
+          class="font-display-lg text-2xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6"
+        >
           Your fleet's potential is waiting.
         </h2>
-        <p class="font-body-lg text-white/90 mb-8 sm:mb-10 text-base sm:text-xl">
+        <p
+          class="font-body-lg text-white/90 mb-8 sm:mb-10 text-base sm:text-xl"
+        >
           Contact our team to see how Fleetmatrix can improve safety, cut costs,
           and give you total visibility — starting today.
         </p>
@@ -1399,7 +1589,10 @@
           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 bg-white text-primary rounded-full font-label-md font-bold text-base sm:text-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group"
         >
           Request a Demo
-          <span class="chevron-divider text-primary text-base sm:text-lg tracking-normal group-hover:translate-x-1 transition-transform inline-block">&gt;&gt;&gt;</span>
+          <span
+            class="chevron-divider text-primary text-base sm:text-lg tracking-normal group-hover:translate-x-1 transition-transform inline-block"
+            >&gt;&gt;&gt;</span
+          >
         </button>
       </div>
     </section>
@@ -1416,14 +1609,18 @@
             class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl"
             >Fleetmatrix</span
           >
-          <p class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6">
+          <p
+            class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6"
+          >
             Driving performance forward with intelligent fleet management
             solutions.
           </p>
         </div>
         <!-- Links Columns -->
         <div class="col-span-1 md:col-start-3">
-          <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
             Company
           </h4>
           <ul class="space-y-2 sm:space-y-3">
@@ -1451,7 +1648,9 @@
           </ul>
         </div>
         <div class="col-span-1">
-          <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
             Solutions
           </h4>
           <ul class="space-y-2 sm:space-y-3">
@@ -1499,82 +1698,92 @@
         </div>
       </div>
     </footer>
-  <script>
-    // ── Solutions Carousel Navigation ─────────────────────
-    const carouselContainer = document.querySelector('.snap-x');
-    const carouselPrevBtn = document.getElementById('carousel-prev');
-    const carouselNextBtn = document.getElementById('carousel-next');
-    if (carouselContainer && carouselPrevBtn && carouselNextBtn) {
-      carouselPrevBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: -320, behavior: 'smooth' });
-      });
-      carouselNextBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: 320, behavior: 'smooth' });
-      });
-    }
-
-    // ── Scroll-reveal via IntersectionObserver ─────────────
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // ── Animated stat counters ─────────────────────────────
-    const statEls = document.querySelectorAll('[data-target]');
-    let statsCounted = false;
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !statsCounted) {
-          statsCounted = true;
-          statEls.forEach(el => {
-            const target = parseInt(el.dataset.target, 10);
-            const suffix = el.dataset.suffix || '';
-            const duration = 1800;
-            const step = target / (duration / 16);
-            let current = 0;
-            const timer = setInterval(() => {
-              current = Math.min(current + step, target);
-              if (target >= 1000) {
-                el.textContent = Math.floor(current / 1000) + 'k' + suffix;
-              } else {
-                el.textContent = Math.floor(current) + suffix;
-              }
-              if (current >= target) clearInterval(timer);
-            }, 16);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    const statsSection = document.getElementById('stats-section');
-    if (statsSection) statsObserver.observe(statsSection);
-
-    // ── Nav scroll shadow ──────────────────────────────────
-    const nav = document.querySelector('nav, header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        nav && nav.classList.add('scrolled');
-      } else {
-        nav && nav.classList.remove('scrolled');
+    <script>
+      // ── Solutions Carousel Navigation ─────────────────────
+      const carouselContainer = document.querySelector(".snap-x");
+      const carouselPrevBtn = document.getElementById("carousel-prev");
+      const carouselNextBtn = document.getElementById("carousel-next");
+      if (carouselContainer && carouselPrevBtn && carouselNextBtn) {
+        carouselPrevBtn.addEventListener("click", () => {
+          carouselContainer.scrollBy({ left: -320, behavior: "smooth" });
+        });
+        carouselNextBtn.addEventListener("click", () => {
+          carouselContainer.scrollBy({ left: 320, behavior: "smooth" });
+        });
       }
-    }, { passive: true });
 
-    // ── Floating hero particles ────────────────────────────
-    const heroSection = document.querySelector('section');
-    if (heroSection) {
-      for (let i = 0; i < 12; i++) {
-        const dot = document.createElement('div');
-        const size = Math.random() * 6 + 3;
-        const left = Math.random() * 100;
-        const top = Math.random() * 100;
-        const dur = Math.random() * 8 + 6;
-        const delay = Math.random() * 5;
-        dot.style.cssText = `
+      // ── Scroll-reveal via IntersectionObserver ─────────────
+      const revealEls = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // ── Animated stat counters ─────────────────────────────
+      const statEls = document.querySelectorAll("[data-target]");
+      let statsCounted = false;
+      const statsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !statsCounted) {
+              statsCounted = true;
+              statEls.forEach((el) => {
+                const target = parseInt(el.dataset.target, 10);
+                const suffix = el.dataset.suffix || "";
+                const duration = 1800;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                  current = Math.min(current + step, target);
+                  if (target >= 1000) {
+                    el.textContent = Math.floor(current / 1000) + "k" + suffix;
+                  } else {
+                    el.textContent = Math.floor(current) + suffix;
+                  }
+                  if (current >= target) clearInterval(timer);
+                }, 16);
+              });
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      const statsSection = document.getElementById("stats-section");
+      if (statsSection) statsObserver.observe(statsSection);
+
+      // ── Nav scroll shadow ──────────────────────────────────
+      const nav = document.querySelector("nav, header");
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (window.scrollY > 20) {
+            nav && nav.classList.add("scrolled");
+          } else {
+            nav && nav.classList.remove("scrolled");
+          }
+        },
+        { passive: true },
+      );
+
+      // ── Floating hero particles ────────────────────────────
+      const heroSection = document.querySelector("section");
+      if (heroSection) {
+        for (let i = 0; i < 12; i++) {
+          const dot = document.createElement("div");
+          const size = Math.random() * 6 + 3;
+          const left = Math.random() * 100;
+          const top = Math.random() * 100;
+          const dur = Math.random() * 8 + 6;
+          const delay = Math.random() * 5;
+          dot.style.cssText = `
           position: absolute;
           width: ${size}px;
           height: ${size}px;
@@ -1586,20 +1795,20 @@
           animation: particleDrift ${dur}s ${delay}s linear infinite;
           z-index: 0;
         `;
-        heroSection.style.position = 'relative';
-        heroSection.appendChild(dot);
+          heroSection.style.position = "relative";
+          heroSection.appendChild(dot);
+        }
       }
-    }
 
-    // ── Live vehicle counter flicker ───────────────────────
-    const vehicleEl = document.getElementById('hero-vehicles');
-    if (vehicleEl) {
-      setInterval(() => {
-        const base = 4281;
-        const delta = Math.floor(Math.random() * 10) - 4;
-        vehicleEl.textContent = (base + delta).toLocaleString();
-      }, 3200);
-    }
-  </script>
+      // ── Live vehicle counter flicker ───────────────────────
+      const vehicleEl = document.getElementById("hero-vehicles");
+      if (vehicleEl) {
+        setInterval(() => {
+          const base = 4281;
+          const delta = Math.floor(Math.random() * 10) - 4;
+          vehicleEl.textContent = (base + delta).toLocaleString();
+        }, 3200);
+      }
+    </script>
   </body>
 </html>
