@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en" class="h-full bg-white">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Request a Demo - Fleetmatrix</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                navy: "#1c2d59",
+                "navy-dark": "#111c38",
+                "navy-light": "#2a4280",
+                primary: "#002254",
+                green: "#05D16E",
+                "green-dark": "#04b861",
+                gray: "#f4f6fa",
+                border: "#dce2ec",
+                "border-hover": "#a0aec0",
+                text: "#0f1c2d",
+                muted: "#5A6B84",
+              },
+            },
+            fontFamily: {
+              sans: ["IBM Plex Sans", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+        color: #0f1c2d;
+      }
+      .fade-step {
+        animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Custom radio and checkbox styling */
+      .custom-radio {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid #a0aec0;
+        border-radius: 50%;
+        outline: none;
+        transition: all 0.15s ease-in-out;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .custom-radio:checked {
+        border-color: #1c2d59;
+        background-color: white;
+      }
+      .custom-radio:checked::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #1c2d59;
+      }
+
+      .custom-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid #a0aec0;
+        border-radius: 4px;
+        outline: none;
+        transition: all 0.15s ease-in-out;
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .custom-checkbox:checked {
+        border-color: #1c2d59;
+        background-color: #1c2d59;
+      }
+      .custom-checkbox:checked::after {
+        content: "✓";
+        color: white;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      /* Option Card Highlight */
+      .option-card {
+        border: 1px solid #dce2ec;
+        transition: all 0.15s ease;
+      }
+      .option-card:hover {
+        border-color: #8c9eb5;
+        background-color: #fcfdfe;
+      }
+      .option-card.selected {
+        border-color: #1c2d59;
+        background-color: #f6f8fc;
+      }
+
+      /* Shake animation for validation */
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-6px); }
+        40%, 80% { transform: translateX(6px); }
+      }
+      .shake {
+        animation: shake 0.35s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="min-h-full flex flex-col bg-white text-brand-text antialiased selection:bg-brand-navy selection:text-white">
+    <!-- Top Header -->
+    <header class="w-full border-b border-gray-100 bg-white sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none" title="Return to home">
+          <img
+            alt="Fleetmatrix Logo"
+            class="h-7 sm:h-8 w-auto transition-transform group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+          />
+          <span class="text-xl sm:text-2xl font-bold tracking-tight text-brand-navy font-display">Fleetmatrix</span>
+        </a>
+
+        <!-- Close Button -->
+        <a
+          href="javascript:void(0)"
+          onclick="handleClose()"
+          class="p-2 -mr-2 text-gray-500 hover:text-gray-900 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center"
+          aria-label="Close demo request"
+          title="Close and return to page"
+        >
+          <span class="material-symbols-outlined text-2xl sm:text-3xl font-light">close</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col items-center justify-start pt-6 sm:pt-10 pb-16 px-4 sm:px-6">
+      <div class="w-full max-w-[540px] mx-auto">
+        <!-- Progress Indicator -->
+        <div id="progress-container" class="mb-6 sm:mb-8">
+          <div class="text-[13px] font-semibold text-[#1c2d59] mb-1.5 flex items-center justify-between">
+            <span id="progress-text">Progress 0%</span>
+            <span id="step-counter" class="text-xs font-normal text-gray-400">Step 1 of 7</span>
+          </div>
+          <div class="w-full bg-[#e9eef6] h-1.5 rounded-full overflow-hidden">
+            <div
+              id="progress-bar-fill"
+              class="h-full bg-[#1c2d59] transition-all duration-300 ease-out"
+              style="width: 0%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Form Container -->
+        <form id="wizard-form" onsubmit="event.preventDefault(); nextStep();" novalidate>
+          
+          <!-- STEP 1: How many vehicles in your fleet? (Image 2) -->
+          <div id="step-1" class="wizard-step fade-step">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              How many vehicles in your fleet?
+            </h1>
+
+            <div class="space-y-2.5 sm:space-y-3" id="step-1-options">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="1 - 4" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">1 - 4</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="5 - 19" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">5 - 19</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="20 - 49" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">20 - 49</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="50 - 99" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">50 - 99</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="100 - 199" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">100 - 199</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="200 - 499" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">200 - 499</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="500 - 4999" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">500 - 4999</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="5000 - 9999" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">5000 - 9999</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="radio" name="fleet_size" value="10k+" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">10k+</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Looking for a solution for: (Image 3) -->
+          <div id="step-2" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              Looking for a solution for:
+            </h1>
+
+            <div class="space-y-2.5 sm:space-y-3" id="step-2-options">
+              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-lg cursor-pointer">
+                <input type="radio" name="solution_for" value="Business use" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Business use</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-lg cursor-pointer">
+                <input type="radio" name="solution_for" value="Personal use" class="custom-radio" onchange="selectRadio(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Personal use</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 3: What features are you looking for? (Image 1) -->
+          <div id="step-3" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              What features are you looking for?
+            </h1>
+
+            <div class="space-y-2.5 sm:space-y-3" id="step-3-options">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Real-time GPS tracking" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Real-time GPS tracking</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Dashcam" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Dashcam</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Remote tachograph download" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Remote tachograph download</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Assets tracking" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Assets tracking</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Fuel efficiency monitoring" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Fuel efficiency monitoring</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Route optimisation" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Route optimisation</span>
+              </label>
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+                <input type="checkbox" name="features" value="Other" class="custom-checkbox" onchange="toggleCheckbox(this)" />
+                <span class="text-sm sm:text-base font-medium text-slate-800">Other</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 4: What is your company's name? (Image 4) -->
+          <div id="step-4" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              What is your company's name?
+            </h1>
+
+            <div class="mt-2">
+              <input
+                type="text"
+                id="company-name"
+                name="company_name"
+                placeholder="Company Name"
+                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                autocomplete="organization"
+                required
+              />
+              <p id="company-name-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter your company name to continue.</p>
+            </div>
+          </div>
+
+          <!-- STEP 5: What is your name? (Image 5) -->
+          <div id="step-5" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              What is your name?
+            </h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
+              <div>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first_name"
+                  placeholder="First Name"
+                  class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last_name"
+                  placeholder="Last Name"
+                  class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
+            <p id="name-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter your first and last name to continue.</p>
+          </div>
+
+          <!-- STEP 6: What's a good email to send your information? (Step 6 image) -->
+          <div id="step-6" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              What's a good email to send your information?
+            </h1>
+
+            <div class="mt-2">
+              <input
+                type="email"
+                id="email-address"
+                name="email"
+                placeholder="name@company.com"
+                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                autocomplete="email"
+                required
+              />
+              <p id="email-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter a valid email address.</p>
+            </div>
+          </div>
+
+          <!-- STEP 7: What's a good phone number to speak with you? (Step 7 image) -->
+          <div id="step-7" class="wizard-step fade-step hidden">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+              What's a good phone number to speak with you?
+            </h1>
+
+            <div class="mt-2">
+              <input
+                type="tel"
+                id="phone-number"
+                name="phone"
+                placeholder="Phone"
+                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                autocomplete="tel"
+                required
+              />
+              <p id="phone-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter a valid phone number to continue.</p>
+
+              <p class="text-xs text-gray-500 mt-4 text-center leading-relaxed">
+                Your information will be used in accordance with Fleetmatrix's privacy policy.
+              </p>
+            </div>
+          </div>
+
+          <!-- FINAL COMPLETION STATE -->
+          <div id="step-complete" class="wizard-step fade-step hidden text-center py-6">
+            <div class="w-16 h-16 bg-[#05D16E]/15 text-[#05D16E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-3xl font-bold">check_circle</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#162a55] mb-2" id="confirm-heading">
+              Demo Request Received!
+            </h2>
+            <p class="text-gray-600 text-sm sm:text-base max-w-md mx-auto mb-6 leading-relaxed" id="confirm-message">
+              Thank you! Our fleet specialist will reach out to you shortly to schedule your personalized Fleetmatrix walkthrough.
+            </p>
+
+            <!-- Summary details card -->
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-5 text-left border border-gray-200 mb-6 max-w-md mx-auto space-y-2 text-xs sm:text-sm">
+              <div class="flex justify-between border-b border-gray-200 pb-2">
+                <span class="text-gray-500">Contact:</span>
+                <span class="font-semibold text-slate-800" id="summary-name">-</span>
+              </div>
+              <div class="flex justify-between border-b border-gray-200 pb-2">
+                <span class="text-gray-500">Company:</span>
+                <span class="font-semibold text-slate-800" id="summary-company">-</span>
+              </div>
+              <div class="flex justify-between border-b border-gray-200 pb-2">
+                <span class="text-gray-500">Email:</span>
+                <span class="font-semibold text-slate-800" id="summary-email">-</span>
+              </div>
+              <div class="flex justify-between border-b border-gray-200 pb-2">
+                <span class="text-gray-500">Fleet Size:</span>
+                <span class="font-semibold text-slate-800" id="summary-fleet">-</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-500">Selected Features:</span>
+                <span class="font-semibold text-slate-800 text-right max-w-[200px]" id="summary-features">-</span>
+              </div>
+            </div>
+
+            <a
+              href="index.html"
+              class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1c2d59] text-white rounded-full text-sm font-semibold hover:bg-[#111c38] shadow-md hover:shadow-lg transition-all"
+            >
+              Return to Homepage
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Validation notice -->
+          <div id="validation-notice" class="hidden mt-3 p-2.5 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg text-center font-medium">
+            Please make a selection to continue.
+          </div>
+
+          <!-- Navigation Action Button Area -->
+          <div id="nav-buttons-container" class="mt-7">
+            <button
+              type="button"
+              id="continue-btn"
+              onclick="nextStep()"
+              class="w-full py-3.5 sm:py-4 px-6 bg-[#1c2d59] hover:bg-[#111c38] active:scale-[0.99] text-white font-semibold rounded-full flex items-center justify-center gap-2 shadow-sm transition-all text-sm sm:text-base cursor-pointer"
+            >
+              <span id="continue-btn-text">Continue</span>
+              <span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
+            </button>
+
+            <!-- Previous Link -->
+            <div class="mt-4 text-center">
+              <button
+                type="button"
+                id="prev-btn"
+                onclick="prevStep()"
+                class="hidden inline-flex items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-slate-700 hover:text-black py-1 px-3 transition-colors cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-sm font-bold">chevron_left</span>
+                <span>Previous</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Wizard JavaScript Logic -->
+    <script>
+      // Step Configuration matching all 7 reference images
+      const steps = [
+        { id: 1, elementId: 'step-1', progress: 0, progressLabel: 'Progress 0%' },
+        { id: 2, elementId: 'step-2', progress: 14, progressLabel: 'Progress 14%' },
+        { id: 3, elementId: 'step-3', progress: 29, progressLabel: 'Progress 29%' },
+        { id: 4, elementId: 'step-4', progress: 43, progressLabel: 'Progress 43%' },
+        { id: 5, elementId: 'step-5', progress: 57, progressLabel: 'Progress 57%' },
+        { id: 6, elementId: 'step-6', progress: 71, progressLabel: 'Progress 71%' },
+        { id: 7, elementId: 'step-7', progress: 86, progressLabel: 'Progress 86%' },
+      ];
+
+      let currentStepIndex = 0;
+      const formData = {
+        fleetSize: '',
+        solutionFor: '',
+        features: [],
+        companyName: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+      };
+
+      function updateUI() {
+        const step = steps[currentStepIndex];
+        const totalSteps = steps.length;
+
+        // Update progress bar
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const progressText = document.getElementById('progress-text');
+        const stepCounter = document.getElementById('step-counter');
+
+        if (progressBarFill && progressText) {
+          progressBarFill.style.width = step.progress + '%';
+          progressText.innerText = step.progressLabel;
+          stepCounter.innerText = `Step ${currentStepIndex + 1} of ${totalSteps}`;
+        }
+
+        // Show active step, hide others
+        steps.forEach((s, idx) => {
+          const el = document.getElementById(s.elementId);
+          if (el) {
+            if (idx === currentStepIndex) {
+              el.classList.remove('hidden');
+              el.classList.add('fade-step');
+            } else {
+              el.classList.add('hidden');
+              el.classList.remove('fade-step');
+            }
+          }
+        });
+
+        // Hide completion state if navigating back
+        const completeEl = document.getElementById('step-complete');
+        if (completeEl) completeEl.classList.add('hidden');
+        document.getElementById('nav-buttons-container').classList.remove('hidden');
+        document.getElementById('progress-container').classList.remove('hidden');
+
+        // Toggle Previous button
+        const prevBtn = document.getElementById('prev-btn');
+        if (prevBtn) {
+          if (currentStepIndex === 0) {
+            prevBtn.classList.add('hidden');
+          } else {
+            prevBtn.classList.remove('hidden');
+          }
+        }
+
+        // Update button text for final step
+        const continueBtnText = document.getElementById('continue-btn-text');
+        if (continueBtnText) {
+          continueBtnText.innerText = 'Continue';
+        }
+
+        // Hide validation messages on step change
+        hideValidationNotice();
+
+        // Focus input on text steps
+        setTimeout(() => {
+          if (currentStepIndex === 3) {
+            document.getElementById('company-name')?.focus();
+          } else if (currentStepIndex === 4) {
+            document.getElementById('first-name')?.focus();
+          } else if (currentStepIndex === 5) {
+            document.getElementById('email-address')?.focus();
+          } else if (currentStepIndex === 6) {
+            document.getElementById('phone-number')?.focus();
+          }
+        }, 100);
+      }
+
+      function selectRadio(input) {
+        // Remove selected styling from siblings
+        const container = input.closest('.wizard-step');
+        if (container) {
+          const cards = container.querySelectorAll('.option-card');
+          cards.forEach((c) => c.classList.remove('selected'));
+        }
+        // Add selected styling to this card
+        const card = input.closest('.option-card');
+        if (card) card.classList.add('selected');
+
+        hideValidationNotice();
+      }
+
+      function toggleCheckbox(input) {
+        const card = input.closest('.option-card');
+        if (card) {
+          if (input.checked) {
+            card.classList.add('selected');
+          } else {
+            card.classList.remove('selected');
+          }
+        }
+        hideValidationNotice();
+      }
+
+      function showValidationNotice(message = 'Please provide an answer to continue.') {
+        const notice = document.getElementById('validation-notice');
+        if (notice) {
+          notice.innerText = message;
+          notice.classList.remove('hidden');
+          notice.classList.add('shake');
+          setTimeout(() => notice.classList.remove('shake'), 400);
+        }
+      }
+
+      function hideValidationNotice() {
+        const notice = document.getElementById('validation-notice');
+        if (notice) notice.classList.add('hidden');
+        document.getElementById('company-name-error')?.classList.add('hidden');
+        document.getElementById('name-error')?.classList.add('hidden');
+        document.getElementById('email-error')?.classList.add('hidden');
+        document.getElementById('phone-error')?.classList.add('hidden');
+      }
+
+      function validateCurrentStep() {
+        if (currentStepIndex === 0) {
+          const selected = document.querySelector('input[name="fleet_size"]:checked');
+          if (!selected) {
+            showValidationNotice('Please select the number of vehicles in your fleet.');
+            return false;
+          }
+          formData.fleetSize = selected.value;
+          return true;
+        } else if (currentStepIndex === 1) {
+          const selected = document.querySelector('input[name="solution_for"]:checked');
+          if (!selected) {
+            showValidationNotice('Please select a solution type (Business or Personal).');
+            return false;
+          }
+          formData.solutionFor = selected.value;
+          return true;
+        } else if (currentStepIndex === 2) {
+          const checked = Array.from(document.querySelectorAll('input[name="features"]:checked')).map((c) => c.value);
+          if (checked.length === 0) {
+            showValidationNotice('Please select at least one feature you are interested in.');
+            return false;
+          }
+          formData.features = checked;
+          return true;
+        } else if (currentStepIndex === 3) {
+          const compInput = document.getElementById('company-name');
+          if (!compInput || !compInput.value.trim()) {
+            document.getElementById('company-name-error')?.classList.remove('hidden');
+            compInput?.focus();
+            return false;
+          }
+          formData.companyName = compInput.value.trim();
+          return true;
+        } else if (currentStepIndex === 4) {
+          const firstInput = document.getElementById('first-name');
+          const lastInput = document.getElementById('last-name');
+          if (!firstInput || !firstInput.value.trim() || !lastInput || !lastInput.value.trim()) {
+            document.getElementById('name-error')?.classList.remove('hidden');
+            if (!firstInput?.value.trim()) firstInput?.focus();
+            else lastInput?.focus();
+            return false;
+          }
+          formData.firstName = firstInput.value.trim();
+          formData.lastName = lastInput.value.trim();
+          return true;
+        } else if (currentStepIndex === 5) {
+          const emailInput = document.getElementById('email-address');
+          const emailVal = emailInput ? emailInput.value.trim() : '';
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailVal || !emailRegex.test(emailVal)) {
+            document.getElementById('email-error')?.classList.remove('hidden');
+            emailInput?.focus();
+            return false;
+          }
+          formData.email = emailVal;
+          return true;
+        } else if (currentStepIndex === 6) {
+          const phoneInput = document.getElementById('phone-number');
+          const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+          if (!phoneVal || phoneVal.length < 5) {
+            document.getElementById('phone-error')?.classList.remove('hidden');
+            phoneInput?.focus();
+            return false;
+          }
+          formData.phone = phoneVal;
+          return true;
+        }
+        return true;
+      }
+
+      function nextStep() {
+        if (!validateCurrentStep()) return;
+
+        if (currentStepIndex < steps.length - 1) {
+          currentStepIndex++;
+          updateUI();
+        } else {
+          // Reached end of all 7 steps -> Submit / Complete
+          showCompletionState();
+        }
+      }
+
+      function prevStep() {
+        if (currentStepIndex > 0) {
+          currentStepIndex--;
+          updateUI();
+        }
+      }
+
+      function showCompletionState() {
+        // Hide all step containers and navigation
+        steps.forEach((s) => {
+          document.getElementById(s.elementId)?.classList.add('hidden');
+        });
+        document.getElementById('nav-buttons-container')?.classList.add('hidden');
+        
+        // Show completion view
+        const completeEl = document.getElementById('step-complete');
+        if (completeEl) {
+          completeEl.classList.remove('hidden');
+        }
+
+        // Fill summary details
+        document.getElementById('summary-name').innerText = `${formData.firstName} ${formData.lastName}`;
+        document.getElementById('summary-company').innerText = formData.companyName;
+        document.getElementById('summary-email').innerText = formData.email;
+        document.getElementById('summary-fleet').innerText = `${formData.fleetSize} vehicles (${formData.solutionFor})`;
+        document.getElementById('summary-features').innerText = formData.features.join(', ') || 'General Fleet Management';
+
+        // Update progress bar to 100%
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const progressText = document.getElementById('progress-text');
+        const stepCounter = document.getElementById('step-counter');
+        if (progressBarFill && progressText) {
+          progressBarFill.style.width = '100%';
+          progressText.innerText = 'Progress 100%';
+          stepCounter.innerText = 'Completed';
+        }
+
+        console.log('Final Demo Request Payload:', formData);
+      }
+
+      function handleClose() {
+        if (document.referrer && document.referrer.includes(window.location.host)) {
+          window.location.href = document.referrer;
+        } else {
+          window.location.href = 'index.html';
+        }
+      }
+
+      // Enter key handler inside text inputs
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          const target = e.target;
+          if (target.tagName === 'INPUT' && (target.type === 'text' || target.type === 'email' || target.type === 'tel')) {
+            e.preventDefault();
+            nextStep();
+          }
+        }
+      });
+
+      // Initial setup
+      window.addEventListener('DOMContentLoaded', () => {
+        updateUI();
+      });
+    </script>
+  </body>
+</html>
