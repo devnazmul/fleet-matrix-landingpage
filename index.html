@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -97,14 +97,15 @@
               "stack-lg": "24px",
             },
             fontFamily: {
-              "label-md": ["IBM Plex Sans"],
-              "display-lg": ["Space Grotesk"],
-              "body-md": ["IBM Plex Sans"],
-              "headline-lg-mobile": ["Space Grotesk"],
-              "body-lg": ["IBM Plex Sans"],
-              "label-sm": ["IBM Plex Sans"],
-              "headline-md": ["Space Grotesk"],
-              "headline-lg": ["Space Grotesk"],
+              sans: ["Montserrat", "sans-serif"],
+              "label-md": ["Montserrat", "sans-serif"],
+              "display-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "headline-lg-mobile": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "label-sm": ["Montserrat", "sans-serif"],
+              "headline-md": ["Montserrat", "sans-serif"],
+              "headline-lg": ["Montserrat", "sans-serif"],
             },
             fontSize: {
               "label-md": [
@@ -172,10 +173,18 @@
       };
     </script>
     <style>
+      /* ── Base Global Font Rule ────────────────────── */
+      *, body, button, input, select, textarea {
+        font-family: "Montserrat", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined" !important;
+      }
+
       /* ── Base Utilities ───────────────────────────── */
       .chevron-divider {
         color: #01377d;
-        font-family: monospace;
+        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         letter-spacing: -2px;
       }
@@ -490,6 +499,72 @@
         );
         background-size: 300% 300%;
         animation: gradientShift 6s ease infinite;
+      }
+
+      /* ── Typewriter Animation Styling ─────────────── */
+      .typewriter-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 0.85em;
+        background-color: currentColor;
+        margin-left: 3px;
+        vertical-align: middle;
+        animation: typewriterBlink 0.75s infinite;
+      }
+      @keyframes typewriterBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .typewriter-heading {
+        min-height: 1.1em;
+      }
+      .tw-accent {
+        color: #05D16E;
+      }
+
+      /* ── Solutions Cards Top Bar Glow Effects ─────── */
+      .card-glow-emerald {
+        background-color: #05D16E;
+        box-shadow: 0 0 16px rgba(5, 209, 110, 0.7), 0 -4px 20px rgba(5, 209, 110, 0.5);
+      }
+      .card-glow-amber {
+        background-color: #f59e0b;
+        box-shadow: 0 0 16px rgba(245, 158, 11, 0.7), 0 -4px 20px rgba(245, 158, 11, 0.5);
+      }
+      .card-glow-blue {
+        background-color: #01377D;
+        box-shadow: 0 0 16px rgba(1, 55, 125, 0.7), 0 -4px 20px rgba(1, 55, 125, 0.5);
+      }
+      .card-glow-lime {
+        background-color: #8BED02;
+        box-shadow: 0 0 16px rgba(139, 237, 2, 0.8), 0 -4px 20px rgba(139, 237, 2, 0.6);
+      }
+      .card-glow-indigo {
+        background-color: #6366f1;
+        box-shadow: 0 0 16px rgba(99, 102, 241, 0.7), 0 -4px 20px rgba(99, 102, 241, 0.5);
+      }
+      .card-glow-rose {
+        background-color: #f43f5e;
+        box-shadow: 0 0 16px rgba(244, 63, 94, 0.7), 0 -4px 20px rgba(244, 63, 94, 0.5);
+      }
+
+      .group:hover .card-glow-emerald {
+        box-shadow: 0 0 24px rgba(5, 209, 110, 0.95), 0 -6px 28px rgba(5, 209, 110, 0.7);
+      }
+      .group:hover .card-glow-amber {
+        box-shadow: 0 0 24px rgba(245, 158, 11, 0.95), 0 -6px 28px rgba(245, 158, 11, 0.7);
+      }
+      .group:hover .card-glow-blue {
+        box-shadow: 0 0 24px rgba(1, 55, 125, 0.95), 0 -6px 28px rgba(1, 55, 125, 0.7);
+      }
+      .group:hover .card-glow-lime {
+        box-shadow: 0 0 24px rgba(139, 237, 2, 1), 0 -6px 28px rgba(139, 237, 2, 0.8);
+      }
+      .group:hover .card-glow-indigo {
+        box-shadow: 0 0 24px rgba(99, 102, 241, 0.95), 0 -6px 28px rgba(99, 102, 241, 0.7);
+      }
+      .group:hover .card-glow-rose {
+        box-shadow: 0 0 24px rgba(244, 63, 94, 0.95), 0 -6px 28px rgba(244, 63, 94, 0.7);
       }
     </style>
   </head>
@@ -1156,10 +1231,10 @@
         >
           <!-- Card 1 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-1"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-1 relative"
           >
             <div>
-              <div class="h-2 w-full bg-[#05D16E]"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-emerald transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform"
@@ -1193,10 +1268,10 @@
 
           <!-- Card 2 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-2"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-2 relative"
           >
             <div>
-              <div class="h-2 w-full bg-amber-500"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-amber transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform"
@@ -1230,10 +1305,10 @@
 
           <!-- Card 3 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-3"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-3 relative"
           >
             <div>
-              <div class="h-2 w-full bg-[#01377D]"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-blue transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform"
@@ -1267,10 +1342,10 @@
 
           <!-- Card 4 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-4"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-4 relative"
           >
             <div>
-              <div class="h-2 w-full bg-[#8BED02]"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-lime transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform"
@@ -1304,10 +1379,10 @@
 
           <!-- Card 5 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-5"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-5 relative"
           >
             <div>
-              <div class="h-2 w-full bg-indigo-500"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-indigo transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform"
@@ -1341,10 +1416,10 @@
 
           <!-- Card 6 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-6"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-6 relative"
           >
             <div>
-              <div class="h-2 w-full bg-rose-500"></div>
+              <div class="h-2 w-full rounded-t-xl card-glow-rose transition-all duration-300"></div>
               <div class="p-6 sm:p-8">
                 <div
                   class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform"
@@ -1809,6 +1884,142 @@
           vehicleEl.textContent = (base + delta).toLocaleString();
         }, 3200);
       }
+
+      // ── Typewriter Animation for Headings ──────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        // Hero Section Infinite Cycling Typewriter
+        const heroHeading = document.querySelector(".hero-heading");
+        if (heroHeading) {
+          initHeroInfiniteTypewriter(heroHeading);
+        }
+
+        // Section Headings (Single-pass typewriter on scroll for section titles only)
+        const sectionHeadings = document.querySelectorAll("h2");
+
+        const headingObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const heading = entry.target;
+                if (!heading.dataset.typed) {
+                  heading.dataset.typed = "true";
+                  startSectionTypewriter(heading);
+                }
+                headingObserver.unobserve(heading);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        sectionHeadings.forEach((heading) => {
+          const originalText = heading.textContent.trim();
+          if (!originalText) return;
+
+          heading.dataset.originalText = originalText;
+          heading.classList.add("typewriter-heading");
+          heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
+
+          headingObserver.observe(heading);
+        });
+
+        function initHeroInfiniteTypewriter(el) {
+          const heroPhrases = [
+            { main: "Fleet management, engineered for ", accent: "long-term growth." },
+            { main: "Real-time telematics, AI & ", accent: "advanced analytics." },
+            { main: "Total operational control for ", accent: "your entire fleet." },
+            { main: "Empowering vehicles, drivers & ", accent: "assets worldwide." }
+          ];
+
+          el.classList.add("typewriter-heading");
+          el.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span><span class="typewriter-cursor"></span>`;
+          const mainContainer = el.querySelector(".tw-main");
+          const accentContainer = el.querySelector(".tw-accent");
+
+          let phraseIdx = 0;
+          let charIdx = 0;
+          let isDeleting = false;
+
+          function cycleHero() {
+            const current = heroPhrases[phraseIdx];
+            const fullMain = current.main;
+            const fullAccent = current.accent;
+            const totalLen = fullMain.length + fullAccent.length;
+
+            if (!isDeleting) {
+              if (charIdx < fullMain.length) {
+                if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx + 1);
+                if (accentContainer) accentContainer.textContent = "";
+              } else {
+                if (mainContainer) mainContainer.textContent = fullMain;
+                const accentCharIdx = charIdx - fullMain.length;
+                if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx + 1);
+              }
+              charIdx++;
+
+              if (charIdx === totalLen) {
+                isDeleting = true;
+                setTimeout(cycleHero, 2400);
+                return;
+              }
+              setTimeout(cycleHero, 45);
+            } else {
+              if (charIdx > fullMain.length) {
+                const accentCharIdx = charIdx - fullMain.length;
+                if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx - 1);
+              } else {
+                if (accentContainer) accentContainer.textContent = "";
+                if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx - 1);
+              }
+              charIdx--;
+
+              if (charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % heroPhrases.length;
+                setTimeout(cycleHero, 400);
+                return;
+              }
+              setTimeout(cycleHero, 25);
+            }
+          }
+
+          cycleHero();
+        }
+
+        function startSectionTypewriter(heading) {
+          const text = heading.dataset.originalText || "";
+          const mainContainer = heading.querySelector(".tw-main");
+          const accentContainer = heading.querySelector(".tw-accent");
+
+          const words = text.split(" ");
+          let mainText = text;
+          let accentText = "";
+
+          if (words.length > 1) {
+            const accentCount = Math.max(1, Math.min(3, Math.floor(words.length * 0.35)));
+            mainText = words.slice(0, words.length - accentCount).join(" ") + " ";
+            accentText = words.slice(words.length - accentCount).join(" ");
+          }
+
+          let index = 0;
+          const totalLength = mainText.length + accentText.length;
+          const speed = 30 + Math.random() * 15;
+
+          function typeNextChar() {
+            if (index < totalLength) {
+              if (index < mainText.length) {
+                if (mainContainer) mainContainer.textContent += mainText.charAt(index);
+              } else {
+                const accentIdx = index - mainText.length;
+                if (accentContainer) accentContainer.textContent += accentText.charAt(accentIdx);
+              }
+              index++;
+              setTimeout(typeNextChar, speed);
+            }
+          }
+          typeNextChar();
+        }
+      });
     </script>
   </body>
 </html>
