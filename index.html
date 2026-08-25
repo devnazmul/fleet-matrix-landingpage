@@ -522,49 +522,99 @@
         color: #05D16E;
       }
 
-      /* ── Solutions Cards Top Bar Glow Effects ─────── */
-      .card-glow-emerald {
-        background-color: #05D16E;
-        box-shadow: 0 0 16px rgba(5, 209, 110, 0.7), 0 -4px 20px rgba(5, 209, 110, 0.5);
+      /* ── Solutions Cards Container Glow Effects ─────── */
+      .solution-card-emerald:hover {
+        box-shadow: 0 0 18px rgba(5, 209, 110, 0.35), 0 0 32px rgba(5, 209, 110, 0.15);
+        border-color: rgba(5, 209, 110, 0.7);
       }
-      .card-glow-amber {
-        background-color: #f59e0b;
-        box-shadow: 0 0 16px rgba(245, 158, 11, 0.7), 0 -4px 20px rgba(245, 158, 11, 0.5);
+      .solution-card-amber:hover {
+        box-shadow: 0 0 18px rgba(245, 158, 11, 0.35), 0 0 32px rgba(245, 158, 11, 0.15);
+        border-color: rgba(245, 158, 11, 0.7);
       }
-      .card-glow-blue {
-        background-color: #01377D;
-        box-shadow: 0 0 16px rgba(1, 55, 125, 0.7), 0 -4px 20px rgba(1, 55, 125, 0.5);
+      .solution-card-blue:hover {
+        box-shadow: 0 0 18px rgba(1, 55, 125, 0.4), 0 0 32px rgba(1, 55, 125, 0.2);
+        border-color: rgba(1, 55, 125, 0.7);
       }
-      .card-glow-lime {
-        background-color: #8BED02;
-        box-shadow: 0 0 16px rgba(139, 237, 2, 0.8), 0 -4px 20px rgba(139, 237, 2, 0.6);
+      .solution-card-lime:hover {
+        box-shadow: 0 0 18px rgba(139, 237, 2, 0.4), 0 0 32px rgba(139, 237, 2, 0.2);
+        border-color: rgba(139, 237, 2, 0.8);
       }
-      .card-glow-indigo {
-        background-color: #6366f1;
-        box-shadow: 0 0 16px rgba(99, 102, 241, 0.7), 0 -4px 20px rgba(99, 102, 241, 0.5);
+      .solution-card-indigo:hover {
+        box-shadow: 0 0 18px rgba(99, 102, 241, 0.35), 0 0 32px rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.7);
       }
-      .card-glow-rose {
-        background-color: #f43f5e;
-        box-shadow: 0 0 16px rgba(244, 63, 94, 0.7), 0 -4px 20px rgba(244, 63, 94, 0.5);
+      .solution-card-rose:hover {
+        box-shadow: 0 0 18px rgba(244, 63, 94, 0.35), 0 0 32px rgba(244, 63, 94, 0.15);
+        border-color: rgba(244, 63, 94, 0.7);
       }
 
-      .group:hover .card-glow-emerald {
-        box-shadow: 0 0 24px rgba(5, 209, 110, 0.95), 0 -6px 28px rgba(5, 209, 110, 0.7);
+      /* ── Top Accent Line Animated Fill Effect ─────── */
+      @keyframes fillTopBar {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
       }
-      .group:hover .card-glow-amber {
-        box-shadow: 0 0 24px rgba(245, 158, 11, 0.95), 0 -6px 28px rgba(245, 158, 11, 0.7);
+
+      .solution-card-emerald::before,
+      .solution-card-amber::before,
+      .solution-card-blue::before,
+      .solution-card-lime::before,
+      .solution-card-indigo::before,
+      .solution-card-rose::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3.5px;
+        width: 0%;
+        border-radius: 12px 12px 0 0;
+        z-index: 10;
       }
-      .group:hover .card-glow-blue {
-        box-shadow: 0 0 24px rgba(1, 55, 125, 0.95), 0 -6px 28px rgba(1, 55, 125, 0.7);
+
+      /* Animate top bar line ONLY when scrolled into view (.in-view) */
+      .reveal.in-view.solution-card-emerald::before,
+      .reveal.in-view.solution-card-amber::before,
+      .reveal.in-view.solution-card-blue::before,
+      .reveal.in-view.solution-card-lime::before,
+      .reveal.in-view.solution-card-indigo::before,
+      .reveal.in-view.solution-card-rose::before {
+        animation: fillTopBar 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
-      .group:hover .card-glow-lime {
-        box-shadow: 0 0 24px rgba(139, 237, 2, 1), 0 -6px 28px rgba(139, 237, 2, 0.8);
+
+      /* Staggered delay when cards scroll into view or on refresh */
+      .reveal.in-view.stagger-1::before { animation-delay: 0.1s; }
+      .reveal.in-view.stagger-2::before { animation-delay: 0.25s; }
+      .reveal.in-view.stagger-3::before { animation-delay: 0.4s; }
+      .reveal.in-view.stagger-4::before { animation-delay: 0.55s; }
+      .reveal.in-view.stagger-5::before { animation-delay: 0.7s; }
+      .reveal.in-view.stagger-6::before { animation-delay: 0.85s; }
+
+      .solution-card-emerald::before {
+        background-color: #05D16E;
+        box-shadow: 0 0 10px rgba(5, 209, 110, 0.8);
       }
-      .group:hover .card-glow-indigo {
-        box-shadow: 0 0 24px rgba(99, 102, 241, 0.95), 0 -6px 28px rgba(99, 102, 241, 0.7);
+      .solution-card-amber::before {
+        background-color: #f59e0b;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
       }
-      .group:hover .card-glow-rose {
-        box-shadow: 0 0 24px rgba(244, 63, 94, 0.95), 0 -6px 28px rgba(244, 63, 94, 0.7);
+      .solution-card-blue::before {
+        background-color: #01377D;
+        box-shadow: 0 0 10px rgba(1, 55, 125, 0.8);
+      }
+      .solution-card-lime::before {
+        background-color: #8BED02;
+        box-shadow: 0 0 10px rgba(139, 237, 2, 0.9);
+      }
+      .solution-card-indigo::before {
+        background-color: #6366f1;
+        box-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+      }
+      .solution-card-rose::before {
+        background-color: #f43f5e;
+        box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
       }
     </style>
   </head>
@@ -1234,30 +1284,27 @@
         >
           <!-- Card 1 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-1 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-emerald hover:-translate-y-1 transition-all duration-300 group reveal stagger-1 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-emerald transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-[#05D16E]/10 flex items-center justify-center text-[#05D16E] mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >pin_drop</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >pin_drop</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Fleet Tracking
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Comprehensive visibility into your entire mobile operation
-                  with real-time location updates.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Fleet Tracking
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Comprehensive visibility into your entire mobile operation
+                with real-time location updates.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#05D16E] group-hover:translate-x-1 transition-transform"
@@ -1271,30 +1318,27 @@
 
           <!-- Card 2 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-2 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-amber hover:-translate-y-1 transition-all duration-300 group reveal stagger-2 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-amber transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >videocam</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >videocam</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Fleet Dashcam
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Protect drivers and reduce liability with intelligent video
-                  telematics and event recording.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Fleet Dashcam
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Protect drivers and reduce liability with intelligent video
+                telematics and event recording.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-amber-500 group-hover:translate-x-1 transition-transform"
@@ -1308,30 +1352,27 @@
 
           <!-- Card 3 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-3 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-blue hover:-translate-y-1 transition-all duration-300 group reveal stagger-3 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-blue transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-[#01377D]/10 flex items-center justify-center text-[#01377D] mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >inventory_2</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >inventory_2</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Asset Tracking
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Monitor trailers, heavy equipment, and high-value non-powered
-                  assets round-the-clock.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Asset Tracking
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Monitor trailers, heavy equipment, and high-value non-powered
+                assets round-the-clock.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-[#01377D] group-hover:translate-x-1 transition-transform"
@@ -1345,30 +1386,27 @@
 
           <!-- Card 4 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-4 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-lime hover:-translate-y-1 transition-all duration-300 group reveal stagger-4 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-lime transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-[#8BED02]/20 flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >electric_car</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >electric_car</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Electric Vehicles
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Manage charge states, energy usage, charging schedules, and
-                  EV-specific routing.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Electric Vehicles
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Manage charge states, energy usage, charging schedules, and
+                EV-specific routing.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform"
@@ -1382,30 +1420,27 @@
 
           <!-- Card 5 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-5 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-indigo hover:-translate-y-1 transition-all duration-300 group reveal stagger-5 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-indigo transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >subtitles</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >subtitles</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Digital Tachograph
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Automated compliance for driver hours, rest periods, and
-                  remote downloads.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Digital Tachograph
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Automated compliance for driver hours, rest periods, and
+                remote downloads.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-indigo-500 group-hover:translate-x-1 transition-transform"
@@ -1419,30 +1454,27 @@
 
           <!-- Card 6 -->
           <div
-            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group reveal stagger-6 relative"
+            class="bg-white rounded-xl shadow-sm border border-border-silver flex flex-col justify-between solution-card-rose hover:-translate-y-1 transition-all duration-300 group reveal stagger-6 relative overflow-hidden"
           >
-            <div>
-              <div class="h-2 w-full rounded-t-xl card-glow-rose transition-all duration-300"></div>
-              <div class="p-6 sm:p-8">
-                <div
-                  class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform"
+            <div class="p-6 sm:p-8">
+              <div
+                class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >alt_route</span
                 >
-                  <span class="material-symbols-outlined text-2xl"
-                    >alt_route</span
-                  >
-                </div>
-                <h3
-                  class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
-                >
-                  Route Optimisation
-                </h3>
-                <p
-                  class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
-                >
-                  Reduce total mileage, cut fuel consumption, and improve
-                  on-time delivery performance.
-                </p>
               </div>
+              <h3
+                class="font-headline-md text-xl sm:text-headline-md text-primary mb-2"
+              >
+                Route Optimisation
+              </h3>
+              <p
+                class="text-text-muted font-body-md text-sm sm:text-base leading-relaxed"
+              >
+                Reduce total mileage, cut fuel consumption, and improve
+                on-time delivery performance.
+              </p>
             </div>
             <div
               class="px-6 sm:px-8 pb-6 pt-0 flex items-center gap-2 text-sm font-semibold text-rose-500 group-hover:translate-x-1 transition-transform"
