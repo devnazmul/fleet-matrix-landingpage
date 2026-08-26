@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fleetmatrix | Route Optimisation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#747782",
+                        "on-primary-fixed-variant": "#19448a",
+                        "on-surface-variant": "#434751",
+                        "error-container": "#ffdad6",
+                        "primary": "#002254",
+                        "tertiary": "#002b12",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#0f1c2d",
+                        "primary-container": "#01377d",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#00210c",
+                        "secondary": "#295caf",
+                        "surface-container-high": "#dde9ff",
+                        "border-silver": "#E4E9F0",
+                        "surface": "#f8f9ff",
+                        "surface-container-highest": "#d6e3fb",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#aec6ff",
+                        "primary-fixed": "#d8e2ff",
+                        "outline-variant": "#c3c6d2",
+                        "tertiary-fixed-dim": "#32e27d",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004494",
+                        "surface-container": "#e6eeff",
+                        "surface-dim": "#cedbf2",
+                        "text-muted": "#5A6B84",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#375da4",
+                        "bg-fog": "#F4F7FA",
+                        "surface-container-low": "#eff3ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#7ba8ff",
+                        "on-primary-container": "#7fa3ef",
+                        "on-secondary-fixed": "#001a41",
+                        "tertiary-container": "#00441f",
+                        "inverse-surface": "#253143",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#003b82",
+                        "background": "#f8f9ff",
+                        "brand-gradient": "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#60ff98",
+                        "inverse-on-surface": "#ebf1ff",
+                        "accent-lime": "#8BED02",
+                        "on-background": "#0f1c2d",
+                        "surface-variant": "#d6e3fb",
+                        "on-tertiary-container": "#00bd62",
+                        "primary-fixed-dim": "#aec6ff",
+                        "on-tertiary-fixed-variant": "#005227"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "sans": ["Montserrat", "sans-serif"],
+                        "display-lg": ["Montserrat", "sans-serif"],
+                        "headline-lg": ["Montserrat", "sans-serif"],
+                        "label-sm": ["Montserrat", "sans-serif"],
+                        "label-md": ["Montserrat", "sans-serif"],
+                        "body-lg": ["Montserrat", "sans-serif"],
+                        "body-md": ["Montserrat", "sans-serif"],
+                        "headline-lg-mobile": ["Montserrat", "sans-serif"],
+                        "headline-md": ["Montserrat", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes floatY {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .chevron-bullet::before {
+            content: '›';
+            color: #05D16E;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased pt-[72px]">
+<!-- TopNavBar -->
+ <nav
+      class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-md border-b border-border-silver dark:border-primary-container"
+    >
+      <div
+        class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop py-4 max-w-max-width mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Fleetmatrix Logo"
+            class="h-8 sm:h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+          />
+          <a href="index.html">
+            <span
+              class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl"
+              >Fleetmatrix</span
+            >
+          </a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <!-- <a
+            class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="index.html"
+            >Solutions</a
+          > -->
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="aboutus.html"
+            >About Us</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="gps_fleet_tracking.html"
+            >Fleet Tracking</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="dash_cam.html"
+            >AI Powered Dash Cam</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="asset_tracking.html"
+            >Asset Tracking</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="tachograph.html"
+            >Digital Tachograph</a
+          >
+          <!-- Page Switcher Dropdown -->
+          <div class="relative group">
+            <button
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300 flex items-center gap-1"
+            >
+              More
+              <span class="material-symbols-outlined text-sm">expand_more</span>
+            </button>
+            <div
+              class="absolute top-full right-0 mt-2 w-44 bg-white dark:bg-[#01377D] rounded-xl shadow-xl border border-border-silver dark:border-primary-container opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden"
+            >
+             <a
+                href="route_optimization.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >Route Optimization</a
+              >
+              <a
+                href="index.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >⚡ Design 1</a
+              >
+              <a
+                href="index2.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🔵 Design 2</a
+              >
+              <a
+                href="index3.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🌿 Design 3</a
+              >
+              <a
+                href="index4.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🎯 Design 4</a
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          onclick="window.location.href='request-demo.html'"
+          class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
+          id="mobile-menu-btn-idx1"
+          onclick="
+            document
+              .getElementById('mobile-menu-idx1')
+              .classList.toggle('hidden')
+          "
+          aria-label="Toggle menu"
+        >
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu-idx1"
+        class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto"
+      >
+        <a
+          href="index.html"
+          class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10"
+          >Home</a
+        >
+        <a
+          href="aboutus.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >About Us</a
+        >
+        <a
+          href="gps_fleet_tracking.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Fleet Tracking</a
+        >
+        <a
+          href="dash_cam.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >AI Powered Dash Cam</a
+        >
+        <a
+          href="asset_tracking.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Asset Tracking</a
+        >
+        <a
+          href="tachograph.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Digital Tachograph</a
+        >
+
+        <div
+          class="border-t border-border-silver dark:border-primary-container pt-3 mt-1"
+        >
+          <span
+            class="text-xs font-semibold text-text-muted dark:text-surface-variant uppercase tracking-wider px-3 mb-2 block"
+            >Switch Landing Page Design</span
+          >
+          <div class="grid grid-cols-2 gap-2 px-1">
+            <a
+                href="route_optimization.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >Route Optimization</a
+              >
+            <a
+              href="index.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-accent-lime/10 text-primary dark:text-white font-semibold"
+              >⚡ Design 1</a
+            >
+            <a
+              href="index2.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🔵 Design 2</a
+            >
+            <a
+              href="index3.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🌿 Design 3</a
+            >
+            <a
+              href="index4.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🎯 Design 4</a
+            >
+          </div>
+        </div>
+
+        <button
+          onclick="window.location.href='request-demo.html'"
+          class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+      </div>
+    </nav>
+<!-- Hero Section -->
+<section class="py-section-padding px-margin-desktop bg-white relative overflow-hidden">
+<!-- Abstract energetic background shapes -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-surface-container-high/50 to-transparent -z-10 rounded-bl-[100px] opacity-60"></div>
+<div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-lg">
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary font-label-sm rounded-full tracking-wider uppercase border border-border-silver">ROUTE OPTIMISATION</span>
+<h1 class="font-display-lg text-display-lg text-primary">
+                    Intelligent Route Optimisation &amp; Planning.
+                </h1>
+<p class="font-body-lg text-body-lg text-text-muted">
+                    AI-powered route planning that reduces fuel costs, increases daily job capacity, and keeps your entire fleet moving efficiently.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button onclick="window.location.href='request-demo.html'" class="bg-[#05D16E] hover:bg-[#00bd62] text-on-primary px-8 py-3 rounded-full font-label-md transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md flex items-center gap-2 cursor-pointer">
+                        Request a Demo
+                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="bg-transparent border border-outline hover:border-primary text-primary px-8 py-3 rounded-full font-label-md transition-colors shadow-sm hover:shadow-md">
+                        See Pricing
+                    </button>
+</div>
+</div>
+<div class="relative reveal reveal-scale stagger-1 flex items-center justify-center pt-4 pb-6">
+  <img
+    src="./assets/live_map.png"
+    alt="Route Optimisation Live Map"
+    class="w-full h-auto object-contain drop-shadow-2xl"
+    style="animation: floatY 6s ease-in-out infinite"
+  />
+</div>
+</div>
+</section>
+<!-- Social Proof / Value Highlights -->
+<section class="py-section-padding px-margin-desktop bg-bg-fog">
+<div class="max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<p class="font-headline-md text-headline-md text-primary-container font-bold flex items-center justify-center gap-2">
+<span class="text-accent-lime tracking-tighter">&gt;&gt;&gt;</span> Plan Smarter, Drive Less.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-white p-8 rounded-xl border border-border-silver hover:border-primary-container hover:shadow-[0px_4px_20px_rgba(14,27,44,0.08)] transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary font-bold mb-2">Measurable Fuel &amp; Cost Reductions</h3>
+<p class="font-body-md text-body-md text-text-muted">Minimize empty miles and optimize fuel consumption across every journey.</p>
+</div>
+<div class="bg-white p-8 rounded-xl border border-border-silver hover:border-primary-container hover:shadow-[0px_4px_20px_rgba(14,27,44,0.08)] transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary font-bold mb-2">Lightning-Fast Route Calculation</h3>
+<p class="font-body-md text-body-md text-text-muted">Generate complex, multi-stop itineraries in seconds, not hours.</p>
+</div>
+<div class="bg-white p-8 rounded-xl border border-border-silver hover:border-primary-container hover:shadow-[0px_4px_20px_rgba(14,27,44,0.08)] transition-all duration-300">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">alt_route</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary font-bold mb-2">Dynamic Re-Routing</h3>
+<p class="font-body-md text-body-md text-text-muted">Instantly adapt to traffic, weather, or new urgent jobs on the fly.</p>
+</div>
+</div>
+</div>
+</section><!-- Feature Deep-Dives -->
+<section class="py-section-padding px-margin-desktop bg-white">
+<div class="max-w-max-width mx-auto space-y-32">
+<!-- Row 1 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-lg">
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary font-label-sm rounded-full tracking-wider uppercase border border-border-silver">MULTI-STOP DISPATCH</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Multi-Stop Efficiency &amp; Smart Dispatch</h2>
+<p class="font-body-lg text-text-muted">Optimize complex delivery schedules in seconds. Fleetmatrix balances customer time windows, vehicle capacities, driver certifications, and service durations.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Automated multi-stop sequencing with live customer ETAs</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Skill- and capacity-based vehicle allocation</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Instant job dispatch synced directly to the driver mobile app</li>
+</ul>
+</div>
+<div class="bg-surface-container rounded-xl p-8 border border-border-silver shadow-sm">
+<div class="bg-white rounded-lg shadow-xl h-64 flex flex-col p-4">
+<div class="flex justify-between items-center mb-4 border-b pb-2">
+<span class="font-bold text-primary">Daily Sequence</span>
+<span class="text-xs bg-accent-lime px-2 py-1 rounded-full">98% Optimized</span>
+</div>
+<div class="space-y-3"><div class="flex items-center gap-3 p-2 bg-bg-fog rounded border-l-4 border-primary"><div class="w-8 h-8 rounded bg-primary text-white flex items-center justify-center text-xs font-bold">01</div><div class="flex-1"><div class="text-xs font-bold text-primary">High Street, London</div><div class="flex items-center gap-2"><div class="h-1.5 w-12 bg-accent-lime rounded-full"></div><span class="text-[10px] text-text-muted">92% Payload</span></div></div><div class="text-right"><div class="text-[10px] font-bold">09:30 AM</div><div class="text-[8px] text-on-tertiary-container font-bold uppercase">On Time</div></div></div><div class="flex items-center gap-3 p-2 bg-bg-fog rounded border-l-4 border-accent-lime"><div class="w-8 h-8 rounded bg-accent-lime text-primary flex items-center justify-center text-xs font-bold">02</div><div class="flex-1"><div class="text-xs font-bold text-primary">St. John's Way</div><div class="flex items-center gap-2"><div class="h-1.5 w-8 bg-accent-lime rounded-full"></div><span class="text-[10px] text-text-muted">65% Payload</span></div></div><div class="text-right"><div class="text-[10px] font-bold">10:15 AM</div><div class="text-[8px] text-on-tertiary-container font-bold uppercase">On Time</div></div></div></div>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="lg:order-2 space-y-stack-lg">
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary font-label-sm rounded-full tracking-wider uppercase border border-border-silver">TERRITORY INTELLIGENCE</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Territory Design Powered by Live Intelligence</h2>
+<p class="font-body-lg text-text-muted">Build balanced service zones based on customer density, delivery volume, and historical workloads to eliminate overlapping routes and prevent overtime.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Dynamic route recalculation around live traffic</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Balanced workloads to prevent driver fatigue</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Customizable routing rules tailored to your business</li>
+</ul>
+</div>
+<div class="lg:order-1 bg-surface-container rounded-xl p-8 border border-border-silver shadow-sm">
+<div class="bg-white rounded-lg shadow-xl h-64 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded border border-border-silver text-[10px] font-bold">ZONE A: NORTHERN HUB</div>
+<div class="flex items-center justify-center h-full"><div class="relative w-full h-full p-4"><svg class="w-full h-full" fill="none" viewbox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"><path d="M20 40C40 20 80 30 100 10C120 30 160 20 180 40C190 60 170 90 150 110C100 100 60 110 20 90C10 70 10 50 20 40Z" fill="#002254" fill-opacity="0.05" stroke="#002254" stroke-dasharray="2 2" stroke-width="0.5"></path><circle cx="60" cy="45" fill="#8BED02" fill-opacity="0.2" r="15" stroke="#8BED02" stroke-width="1"></circle><circle cx="140" cy="65" fill="#05D16E" fill-opacity="0.2" r="20" stroke="#05D16E" stroke-width="1"></circle><circle cx="65" cy="42" fill="#002254" r="2"></circle><circle cx="55" cy="48" fill="#002254" r="2"></circle><circle cx="145" cy="60" fill="#002254" r="2"></circle><circle cx="135" cy="70" fill="#002254" r="2"></circle></svg><div class="absolute bottom-4 right-4 flex flex-col gap-1"><div class="flex items-center gap-2 bg-white/90 px-2 py-1 rounded shadow-sm border border-border-silver"><div class="w-2 h-2 rounded-full bg-accent-lime"></div><span class="text-[8px] font-bold">North Hub</span></div><div class="flex items-center gap-2 bg-white/90 px-2 py-1 rounded shadow-sm border border-border-silver"><div class="w-2 h-2 rounded-full bg-on-tertiary-container"></div><span class="text-[8px] font-bold">South Hub</span></div></div></div></div>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-lg">
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary font-label-sm rounded-full tracking-wider uppercase border border-border-silver">REAL-TIME VISIBILITY</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Stay Ahead of Disruptions &amp; Track Plan vs. Reality</h2>
+<p class="font-body-lg text-text-muted">Bridge the gap between planned schedules and real-world execution. Instantly spot delays, detect route deviations, and reassign urgent jobs on the fly.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Proactive route deviation and delay alerts</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Plan vs. Actual journey performance metrics</li>
+<li class="flex items-start gap-2 font-body-md text-on-surface-variant"><span class="material-symbols-outlined text-on-tertiary-container text-[20px]">check_circle</span> Seamless turn-by-turn mobile navigation handoff</li>
+</ul>
+</div>
+<div class="bg-surface-container rounded-xl p-8 border border-border-silver shadow-sm">
+<div class="bg-white rounded-lg shadow-xl h-64 p-4 flex flex-col">
+<div class="bg-error/10 border border-error/20 p-3 rounded-lg flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<div class="flex-1"><div class="relative w-full h-full overflow-hidden rounded"><svg class="absolute inset-0 w-full h-full" viewbox="0 0 200 100"><path d="M20 80 Q 50 80, 80 50 T 140 20" fill="none" opacity="0.2" stroke="#002254" stroke-width="3"></path><path d="M80 50 T 110 35" fill="none" stroke="#ba1a1a" stroke-width="4"></path><circle cx="110" cy="35" fill="#ba1a1a" r="4"></circle></svg><div class="absolute top-2 right-2 bg-white p-2 rounded shadow-md border border-error/20"><div class="text-[10px] font-bold text-error">ETA BUMP</div><div class="text-lg font-bold text-primary">+18 min</div><div class="text-[8px] text-text-muted">Congestion on M25</div></div><div class="absolute bottom-2 left-1/2 -translate-x-1/2"><button class="bg-[#05D16E] text-white text-[10px] px-4 py-1.5 rounded-full font-bold shadow-lg flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">refresh</span> Re-optimise Route</button></div></div></div>
+<button class="bg-primary text-white text-[10px] px-3 py-1 rounded-full">Re-optimise</button>
+</div>
+<div class="flex-1 bg-bg-fog rounded border border-dashed border-border-silver flex items-center justify-center"><div class="relative w-full h-full overflow-hidden rounded"><svg class="absolute inset-0 w-full h-full" viewbox="0 0 200 100"><path d="M20 80 Q 50 80, 80 50 T 140 20" fill="none" opacity="0.2" stroke="#002254" stroke-width="3"></path><path d="M80 50 T 110 35" fill="none" stroke="#ba1a1a" stroke-width="4"></path><circle cx="110" cy="35" fill="#ba1a1a" r="4"></circle></svg><div class="absolute top-2 right-2 bg-white p-2 rounded shadow-md border border-error/20"><div class="text-[10px] font-bold text-error">ETA BUMP</div><div class="text-lg font-bold text-primary">+18 min</div><div class="text-[8px] text-text-muted">Congestion on M25</div></div><div class="absolute bottom-2 left-1/2 -translate-x-1/2"><button class="bg-[#05D16E] text-white text-[10px] px-4 py-1.5 rounded-full font-bold shadow-lg flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">refresh</span> Re-optimise Route</button></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid -->
+<section class="py-section-padding px-margin-desktop bg-bg-fog">
+<div class="max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary">Built for High-Performance Fleet Operations</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">speed</span>
+<h4 class="font-bold text-primary mb-2">Quicker Route Building</h4>
+<p class="text-sm text-text-muted">Reduce planning time from hours to minutes with automated batch processing.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">target</span>
+<h4 class="font-bold text-primary mb-2">Higher Accuracy</h4>
+<p class="text-sm text-text-muted">Precision geocoding and road-speed data ensure plans are realistic and achievable.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">savings</span>
+<h4 class="font-bold text-primary mb-2">Smarter Cost Control</h4>
+<p class="text-sm text-text-muted">Minimize fuel spend and vehicle wear by reducing unnecessary mileage.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">emergency</span>
+<h4 class="font-bold text-primary mb-2">Instant Emergency Dispatch</h4>
+<p class="text-sm text-text-muted">Find the nearest suitable driver for urgent call-outs in real-time.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">analytics</span>
+<h4 class="font-bold text-primary mb-2">Plan vs. Reality Tracking</h4>
+<p class="text-sm text-text-muted">Compare planned routes against actual GPS breadcrumbs to improve future plans.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">schedule</span>
+<h4 class="font-bold text-primary mb-2">Reliable ETAs</h4>
+<p class="text-sm text-text-muted">Keep customers informed with accurate arrival windows based on live traffic.</p>
+</div>
+<!-- Card 7 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">psychology</span>
+<h4 class="font-bold text-primary mb-2">Continuous Route Intelligence</h4>
+<p class="text-sm text-text-muted">Our AI learns from your historical data to suggest better routes over time.</p>
+</div>
+<!-- Card 8 -->
+<div class="bg-white p-6 rounded-xl border border-border-silver hover:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4">sync</span>
+<h4 class="font-bold text-primary mb-2">Dynamic Manifest Sync</h4>
+<p class="text-sm text-text-muted">Automatically update driver manifests as routes are adjusted throughout the day.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-padding px-margin-desktop bg-white">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Frequently Asked Questions</h2>
+<p class="text-text-muted">Everything you need to know about Fleetmatrix Route Optimisation.</p>
+</div>
+<div class="space-y-4"><details class="group border border-border-silver rounded-xl overflow-hidden" open=""><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">What is route optimisation?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">Advanced algorithmic scheduling that calculates the most efficient vehicle journeys by factoring in live traffic, delivery windows, vehicle capacity, driver hours, and operational constraints.</div></details><details class="group border border-border-silver rounded-xl overflow-hidden"><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">Why is automated route planning important?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">It cuts planning time from hours to minutes, reduces unnecessary mileage and fuel burn, increases daily completed jobs, and improves customer satisfaction.</div></details><details class="group border border-border-silver rounded-xl overflow-hidden"><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">Can the platform handle high-density multi-stop routes?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">Yes. Fleetmatrix is built to sequence dozens or hundreds of stops per vehicle while strictly observing delivery time windows and payload limits.</div></details><details class="group border border-border-silver rounded-xl overflow-hidden"><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">How does dynamic dispatch work during unexpected delays?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">Dispatchers can dynamically recalculate routes or reassign pending stops to the nearest available driver when breakdowns, traffic, or cancellations occur.</div></details><details class="group border border-border-silver rounded-xl overflow-hidden"><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">Do drivers receive live route navigation?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">Yes. Drivers receive clear, sequenced manifests and live navigation handoff directly through the Fleetmatrix mobile app.</div></details><details class="group border border-border-silver rounded-xl overflow-hidden"><summary class="flex justify-between items-center p-6 cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors"><span class="font-bold text-primary">Is Fleetmatrix suitable for different fleet types and industries?</span><span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span></summary><div class="p-6 text-on-surface-variant border-t border-border-silver">Yes. The platform supports courier delivery, field service, utilities, construction, maintenance, and trade fleets of any size.</div></details></div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-section-padding px-margin-desktop bg-white">
+<div class="max-w-max-width mx-auto">
+<div class="bg-primary rounded-[32px] p-12 md:p-20 text-center text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-accent-lime/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-display-lg text-display-lg mb-6">Turn Every Journey Into a More Efficient One.</h2>
+<p class="text-body-lg text-surface-variant/80 mb-10">Stop chasing paperwork and burning excess fuel. Plan better before the vehicle moves and do more with the fleet you have.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-[#05D16E] hover:bg-[#00bd62] text-on-primary px-8 py-4 rounded-full font-bold transition-transform hover:-translate-y-1 shadow-lg flex items-center gap-2">
+                        Request a Demo
+                        <span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="bg-transparent border border-white/30 hover:border-white text-white px-8 py-4 rounded-full font-bold transition-colors">
+                        Talk to a Specialist
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+ <footer
+      class="w-full py-12 sm:py-16 lg:py-section-padding bg-primary dark:bg-primary px-4 sm:px-8 md:px-margin-desktop"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-gutter max-w-max-width mx-auto"
+      >
+        <!-- Brand Column -->
+        <div class="col-span-1 sm:col-span-2 md:col-span-1 flex flex-col">
+          <span
+            class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl"
+            >Fleetmatrix</span
+          >
+          <p
+            class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6"
+          >
+            Driving performance forward with intelligent fleet management
+            solutions.
+          </p>
+        </div>
+        <!-- Links Columns -->
+        <div class="col-span-1 md:col-start-3">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
+            Company
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Careers</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
+            Solutions
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Tracking</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Safety</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Sustainability</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-max-width mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-surface-tint flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+      >
+        <span class="font-body-md text-xs sm:text-sm text-surface-variant/80"
+          >© 2024 Fleetmatrix. All rights reserved.</span
+        >
+        <div class="flex gap-6">
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">public</span></a
+          >
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">mail</span></a
+          >
+        </div>
+      </div>
+    </footer>
+</body></html>
