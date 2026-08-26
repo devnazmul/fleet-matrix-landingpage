@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fleetmatrix | GPS Fleet Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#001a41",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#00441f",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#002b12",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container": "#e6eeff",
+                        "outline-variant": "#c3c6d2",
+                        "border-silver": "#E4E9F0",
+                        "on-primary-container": "#7fa3ef",
+                        "text-muted": "#5A6B84",
+                        "inverse-primary": "#aec6ff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#003b82",
+                        "surface-container-highest": "#d6e3fb",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#375da4",
+                        "primary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#00210c",
+                        "primary-container": "#01377d",
+                        "background": "#f8f9ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary-container": "#7ba8ff",
+                        "outline": "#747782",
+                        "on-primary-fixed-variant": "#19448a",
+                        "primary": "#002254",
+                        "bg-fog": "#F4F7FA",
+                        "on-surface-variant": "#434751",
+                        "on-surface": "#0f1c2d",
+                        "surface-container-low": "#eff3ff",
+                        "secondary": "#295caf",
+                        "surface-container-high": "#dde9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#cedbf2",
+                        "surface-variant": "#d6e3fb",
+                        "primary-fixed-dim": "#aec6ff",
+                        "surface": "#f8f9ff",
+                        "brand-gradient": "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+                        "accent-lime": "#8BED02",
+                        "emerald-500": "#10B981", // Added for the specific request, normally we map to tertiary-fixed or similar but requested specifically "emerald"
+                        "on-tertiary-container": "#00bd62",
+                        "tertiary-fixed": "#60ff98",
+                        "tertiary-fixed-dim": "#32e27d",
+                        "on-background": "#0f1c2d",
+                        "inverse-surface": "#253143",
+                        "on-secondary-fixed-variant": "#004494",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "error": "#ba1a1a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "max-width": "1280px",
+                        "section-padding": "80px"
+                    },
+                    fontFamily: {
+                        "sans": ["Montserrat", "sans-serif"],
+                        "label-sm": ["Montserrat", "sans-serif"],
+                        "display-lg": ["Montserrat", "sans-serif"],
+                        "body-md": ["Montserrat", "sans-serif"],
+                        "headline-lg": ["Montserrat", "sans-serif"],
+                        "label-md": ["Montserrat", "sans-serif"],
+                        "body-lg": ["Montserrat", "sans-serif"],
+                        "headline-lg-mobile": ["Montserrat", "sans-serif"],
+                        "headline-md": ["Montserrat", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Glassmorphism nav base */
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Chevron line */
+        .chevron-line::after {
+            content: ">>>";
+            display: block;
+            font-family: monospace;
+            color: #10B981; /* Emerald */
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-top: 16px;
+        }
+
+        /* Ambient hover shadow */
+        .ambient-hover:hover {
+            box-shadow: 0px 4px 20px rgba(14, 27, 44, 0.08);
+            border-color: #002254; /* Primary Navy 900 */
+        }
+        @keyframes floatY {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+
+        /* ── Scroll-reveal base ───────────────────────── */
+        .reveal {
+          opacity: 0;
+          transform: translateY(28px);
+          transition:
+            opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.reveal-left {
+          transform: translateX(-28px);
+        }
+        .reveal.reveal-scale {
+          transform: scale(0.92);
+        }
+        .reveal.in-view {
+          opacity: 1;
+          transform: none;
+        }
+        .stagger-1 { transition-delay: 0.05s !important; }
+        .stagger-2 { transition-delay: 0.13s !important; }
+        .stagger-3 { transition-delay: 0.21s !important; }
+        .stagger-4 { transition-delay: 0.29s !important; }
+
+        /* ── Typewriter Animation Styling ─────────────── */
+        .typewriter-cursor {
+          display: inline-block;
+          width: 3px;
+          height: 0.85em;
+          background-color: currentColor;
+          margin-left: 3px;
+          vertical-align: middle;
+          animation: typewriterBlink 0.75s infinite;
+        }
+        @keyframes typewriterBlink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .typewriter-heading {
+          min-height: 1.1em;
+        }
+        .tw-accent {
+          color: #05D16E;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-md border-b border-border-silver dark:border-primary-container"
+    >
+      <div
+        class="flex justify-between items-center px-4 sm:px-8 md:px-margin-desktop py-4 max-w-max-width mx-auto"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            alt="Fleetmatrix Logo"
+            class="h-8 sm:h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+          />
+          <a href="index.html">
+            <span
+              class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl"
+              >Fleetmatrix</span
+            >
+          </a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <!-- <a
+            class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="index.html"
+            >Solutions</a
+          > -->
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="aboutus.html"
+            >About Us</a
+          >
+          <a
+            class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="gps_fleet_tracking.html"
+            >Fleet Tracking</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="dash_cam.html"
+            >AI Powered Dash Cam</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="asset_tracking.html"
+            >Asset Tracking</a
+          >
+          <a
+            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+            href="tachograph.html"
+            >Digital Tachograph</a
+          >
+          <!-- Page Switcher Dropdown -->
+          <div class="relative group">
+            <button
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300 flex items-center gap-1"
+            >
+              More
+              <span class="material-symbols-outlined text-sm">expand_more</span>
+            </button>
+            <div
+              class="absolute top-full right-0 mt-2 w-44 bg-white dark:bg-[#01377D] rounded-xl shadow-xl border border-border-silver dark:border-primary-container opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden"
+            >
+              <a
+                href="index.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >⚡ Design 1</a
+              >
+              <a
+                href="index2.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🔵 Design 2</a
+              >
+              <a
+                href="index3.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🌿 Design 3</a
+              >
+              <a
+                href="index4.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
+                >🎯 Design 4</a
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          onclick="window.location.href='request-demo.html'"
+          class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
+          id="mobile-menu-btn-idx1"
+          onclick="
+            document
+              .getElementById('mobile-menu-idx1')
+              .classList.toggle('hidden')
+          "
+          aria-label="Toggle menu"
+        >
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu-idx1"
+        class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto"
+      >
+        <a
+          href="index.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Home</a
+        >
+        <a
+          href="aboutus.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >About Us</a
+        >
+        <a
+          href="gps_fleet_tracking.html"
+          class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10"
+          >Fleet Tracking</a
+        >
+        <a
+          href="dash_cam.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >AI Powered Dash Cam</a
+        >
+        <a
+          href="asset_tracking.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Asset Tracking</a
+        >
+        <a
+          href="tachograph.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
+          >Digital Tachograph</a
+        >
+
+        <div
+          class="border-t border-border-silver dark:border-primary-container pt-3 mt-1"
+        >
+          <span
+            class="text-xs font-semibold text-text-muted dark:text-surface-variant uppercase tracking-wider px-3 mb-2 block"
+            >Switch Landing Page Design</span
+          >
+          <div class="grid grid-cols-2 gap-2 px-1">
+            <a
+              href="index.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-accent-lime/10 text-primary dark:text-white font-semibold"
+              >⚡ Design 1</a
+            >
+            <a
+              href="index2.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🔵 Design 2</a
+            >
+            <a
+              href="index3.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🌿 Design 3</a
+            >
+            <a
+              href="index4.html"
+              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
+              >🎯 Design 4</a
+            >
+          </div>
+        </div>
+
+        <button
+          onclick="window.location.href='request-demo.html'"
+          class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer"
+        >
+          Request a Demo
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+      </div>
+    </nav>
+<main class="pt-[90px]">
+<!-- Hero Section -->
+<section class="relative bg-surface py-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Content -->
+<div class="md:col-span-6 flex flex-col gap-stack-lg z-10 reveal">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-border-silver w-fit">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm" data-weight="fill">location_on</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">GPS Fleet Tracking</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary md:text-[56px] md:leading-[64px]">
+                        Total operational control, in real time.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Live GPS visibility, AI-driven insights, and connected fleet management — all from one intuitive dashboard.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a class="inline-flex items-center justify-center bg-emerald-500 text-white font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:bg-emerald-600 transition-all shadow-sm" href="request-demo.html" onclick="window.location.href='request-demo.html'">
+                            Request a Demo
+                        </a>
+<a class="inline-flex items-center justify-center bg-surface-container-lowest text-primary border border-border-silver font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:border-primary transition-all" href="#">
+                            See Pricing
+                        </a>
+</div>
+</div>
+<!-- Visual -->
+<div class="md:col-span-6 relative mt-12 md:mt-0 reveal reveal-scale stagger-1 flex items-center justify-center pt-4 pb-6">
+<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" data-alt="A high-fidelity modern UI mockup of a fleet tracking live map." src="./assets/live_map.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Overview Section -->
+<section class="bg-bg-fog py-section-padding px-margin-mobile md:px-margin-desktop">
+<div class="max-w-max-width mx-auto text-center max-w-3xl space-y-4 reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary">
+                    Streamlined Fleet Intelligence
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Track location, route history, fuel usage, and maintenance alerts across all your vehicles from a single pane of glass.
+                </p>
+</div>
+</section>
+<!-- Feature Showcase -->
+<section class="bg-surface py-section-padding px-margin-mobile md:px-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 space-y-6">
+<h3 class="font-headline-lg text-headline-lg text-primary">Unlock full potential using fewer resources</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Our platform analyzes millions of data points to identify operational bottlenecks. By optimizing routes, monitoring idle times, and predicting maintenance needs, you can do more with your existing assets while significantly reducing overhead costs.
+                        </p>
+<ul class="space-y-3 pt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-emerald-500 text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Reduce idle time across your entire fleet</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-emerald-500 text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Optimize routing for fuel efficiency</span>
+</li>
+</ul>
+</div>
+<div class="md:col-span-7">
+<div class="relative rounded-xl border border-border-silver overflow-hidden shadow-sm bg-surface-container-lowest p-2">
+<img class="w-full h-auto rounded-lg border border-border-silver/50" data-alt="A clean, high-fidelity UI dashboard screenshot showing analytics charts for fleet efficiency. It features modern line graphs, bar charts in navy and emerald colors against a bright white background. The data visualizations are sharp, professional, and indicative of an enterprise software platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ptYASsdEQX_1yXnLFyYom4T8ugveDA6Z2TjmHjzrJcnbq1ea6sVTh6R-10ICr4Zo-xbs6TcIsvtTo6f4wGaXVO96k1Qu-I75O2YpDjM4MhSbZW562Oxx5tE1fP-iYQOKrxplThmYchKS3ju6Nwpl_lu19NLdAtWz1vwWVjBUKAjzG61YndwWSNwX3MAKR1qe-gYO3q7GpxL3wCGp-DBABq6habWktltouT5gdmeJfCqedZ7BKZzXMg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Closing CTA -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-[image:var(--brand-gradient)] relative overflow-hidden">
+<!-- Abstract shapes overlay -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.8) 0%, transparent 50%);"></div>
+<div class="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-8 reveal">
+<h2 class="font-display-lg text-display-lg md:text-[56px]">See your fleet, in real time.</h2>
+<a class="inline-flex items-center justify-center bg-surface-container-lowest text-primary font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:shadow-lg transition-all" href="request-demo.html" onclick="window.location.href='request-demo.html'">
+                    Request a Demo
+                    <span class="material-symbols-outlined ml-2 text-[18px]">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer
+      class="w-full py-12 sm:py-16 lg:py-section-padding bg-primary dark:bg-primary px-4 sm:px-8 md:px-margin-desktop"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-gutter max-w-max-width mx-auto"
+      >
+        <!-- Brand Column -->
+        <div class="col-span-1 sm:col-span-2 md:col-span-1 flex flex-col">
+          <span
+            class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl"
+            >Fleetmatrix</span
+          >
+          <p
+            class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6"
+          >
+            Driving performance forward with intelligent fleet management
+            solutions.
+          </p>
+        </div>
+        <!-- Links Columns -->
+        <div class="col-span-1 md:col-start-3">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
+            Company
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Careers</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-span-1">
+          <h4
+            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
+          >
+            Solutions
+          </h4>
+          <ul class="space-y-2 sm:space-y-3">
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Tracking</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Safety</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
+                href="#"
+                >Sustainability</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-max-width mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-surface-tint flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+      >
+        <span class="font-body-md text-xs sm:text-sm text-surface-variant/80"
+          >© 2024 Fleetmatrix. All rights reserved.</span
+        >
+        <div class="flex gap-6">
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">public</span></a
+          >
+          <a
+            class="text-surface-variant/80 hover:text-white transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-xl">mail</span></a
+          >
+        </div>
+      </div>
+    </footer>
+
+<script>
+      // ── Scroll-reveal via IntersectionObserver ─────────────
+      const revealEls = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // ── Typewriter Animation for Headings ──────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        const sectionHeadings = document.querySelectorAll("h2");
+
+        const headingObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const heading = entry.target;
+                if (!heading.dataset.typed) {
+                  heading.dataset.typed = "true";
+                  startSectionTypewriter(heading);
+                }
+                headingObserver.unobserve(heading);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        sectionHeadings.forEach((heading) => {
+          const originalText = heading.textContent.trim();
+          if (!originalText) return;
+
+          heading.dataset.originalText = originalText;
+          heading.classList.add("typewriter-heading");
+          heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
+
+          headingObserver.observe(heading);
+        });
+
+        function startSectionTypewriter(heading) {
+          const text = heading.dataset.originalText || "";
+          const mainContainer = heading.querySelector(".tw-main");
+          const accentContainer = heading.querySelector(".tw-accent");
+
+          const words = text.split(" ");
+          let mainText = text;
+          let accentText = "";
+
+          if (words.length > 1) {
+            const accentCount = Math.max(1, Math.min(3, Math.floor(words.length * 0.35)));
+            mainText = words.slice(0, words.length - accentCount).join(" ") + " ";
+            accentText = words.slice(words.length - accentCount).join(" ");
+          }
+
+          let index = 0;
+          const totalLength = mainText.length + accentText.length;
+          const speed = 30 + Math.random() * 15;
+
+          function typeNextChar() {
+            if (index < totalLength) {
+              if (index < mainText.length) {
+                if (mainContainer) mainContainer.textContent += mainText.charAt(index);
+              } else {
+                const accentIdx = index - mainText.length;
+                if (accentContainer) accentContainer.textContent += accentText.charAt(accentIdx);
+              }
+              index++;
+              setTimeout(typeNextChar, speed);
+            }
+          }
+          typeNextChar();
+        }
+      });
+</script>
+</body></html>

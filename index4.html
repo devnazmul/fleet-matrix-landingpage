@@ -7,7 +7,7 @@
     <title>GPS Fleet Tracking | Fleetmatrix</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -92,14 +92,15 @@
               "stack-md": "16px",
             },
             fontFamily: {
-              "headline-lg": ["Space Grotesk", "sans-serif"],
-              "body-md": ["IBM Plex Sans", "sans-serif"],
-              "display-lg": ["Space Grotesk", "sans-serif"],
-              "body-lg": ["IBM Plex Sans", "sans-serif"],
-              "headline-lg-mobile": ["Space Grotesk", "sans-serif"],
-              "label-sm": ["IBM Plex Sans", "sans-serif"],
-              "headline-md": ["Space Grotesk", "sans-serif"],
-              "label-md": ["IBM Plex Sans", "sans-serif"],
+              sans: ["Montserrat", "sans-serif"],
+              "headline-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "display-lg": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "headline-lg-mobile": ["Montserrat", "sans-serif"],
+              "label-sm": ["Montserrat", "sans-serif"],
+              "headline-md": ["Montserrat", "sans-serif"],
+              "label-md": ["Montserrat", "sans-serif"],
             },
             fontSize: {
               "headline-lg": [
@@ -252,18 +253,28 @@
           <div class="hidden md:flex items-center gap-6">
             <a
               class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-              href="index.html"
-              >Solutions</a
-            >
-            <a
-              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-              href="index2.html"
+              href="aboutus.html"
               >About Us</a
             >
             <a
               class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-              href="index3.html"
-              >Customer Stories</a
+              href="gps_fleet_tracking.html"
+              >Fleet Tracking</a
+            >
+            <a
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+              href="dash_cam.html"
+              >AI Powered Dash Cam</a
+            >
+            <a
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+              href="asset_tracking.html"
+              >Asset Tracking</a
+            >
+            <a
+              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
+              href="tachograph.html"
+              >Digital Tachograph</a
             >
             <!-- Page Switcher Dropdown -->
             <div class="relative group">
@@ -335,17 +346,32 @@
         <a
           href="index.html"
           class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
-          >Solutions</a
+          >Home</a
         >
         <a
-          href="index2.html"
+          href="aboutus.html"
           class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
           >About Us</a
         >
         <a
-          href="index3.html"
+          href="gps_fleet_tracking.html"
           class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
-          >Customer Stories</a
+          >Fleet Tracking</a
+        >
+        <a
+          href="dash_cam.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
+          >AI Powered Dash Cam</a
+        >
+        <a
+          href="asset_tracking.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
+          >Asset Tracking</a
+        >
+        <a
+          href="tachograph.html"
+          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant"
+          >Digital Tachograph</a
         >
 
         <div
@@ -566,7 +592,8 @@
               See Pricing
             </a>
             <a
-              href="#demo"
+              href="request-demo.html"
+              onclick="window.location.href='request-demo.html'"
               class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
             >
               Book a Live Map Demo
@@ -636,7 +663,8 @@
               See Pricing
             </a>
             <a
-              href="#demo"
+              href="request-demo.html"
+              onclick="window.location.href='request-demo.html'"
               class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
             >
               Book a Free Demo
@@ -681,7 +709,8 @@
               See Pricing
             </a>
             <a
-              href="#demo"
+              href="request-demo.html"
+              onclick="window.location.href='request-demo.html'"
               class="inline-flex items-center gap-2 font-label-md font-semibold text-primary dark:text-tertiary-fixed hover:text-[#05D16E] dark:hover:text-accent-lime transition-all group text-base"
             >
               Book a Free Demo
