@@ -7,106 +7,158 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-secondary-fixed": "#001a41",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-container": "#00441f",
-                        "on-primary": "#ffffff",
-                        "tertiary": "#002b12",
-                        "on-tertiary": "#ffffff",
-                        "on-primary-fixed": "#001a42",
-                        "surface-container": "#e6eeff",
-                        "outline-variant": "#c3c6d2",
-                        "border-silver": "#E4E9F0",
-                        "on-primary-container": "#7fa3ef",
-                        "text-muted": "#5A6B84",
-                        "inverse-primary": "#aec6ff",
-                        "inverse-on-surface": "#ebf1ff",
-                        "on-error": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "on-secondary-container": "#003b82",
-                        "surface-container-highest": "#d6e3fb",
-                        "secondary-fixed-dim": "#adc6ff",
-                        "surface-bright": "#f8f9ff",
-                        "on-error-container": "#93000a",
-                        "surface-tint": "#375da4",
-                        "primary-fixed": "#d8e2ff",
-                        "on-tertiary-fixed": "#00210c",
-                        "primary-container": "#01377d",
-                        "background": "#f8f9ff",
-                        "secondary-fixed": "#d8e2ff",
-                        "secondary-container": "#7ba8ff",
-                        "outline": "#747782",
-                        "on-primary-fixed-variant": "#19448a",
-                        "primary": "#002254",
-                        "bg-fog": "#F4F7FA",
-                        "on-surface-variant": "#434751",
-                        "on-surface": "#0f1c2d",
-                        "surface-container-low": "#eff3ff",
-                        "secondary": "#295caf",
-                        "surface-container-high": "#dde9ff",
-                        "on-secondary": "#ffffff",
-                        "surface-dim": "#cedbf2",
-                        "surface-variant": "#d6e3fb",
-                        "primary-fixed-dim": "#aec6ff",
-                        "surface": "#f8f9ff",
-                        "brand-gradient": "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
-                        "accent-lime": "#8BED02",
-                        "emerald-500": "#10B981", // Added for the specific request, normally we map to tertiary-fixed or similar but requested specifically "emerald"
-                        "on-tertiary-container": "#00bd62",
-                        "tertiary-fixed": "#60ff98",
-                        "tertiary-fixed-dim": "#32e27d",
-                        "on-background": "#0f1c2d",
-                        "inverse-surface": "#253143",
-                        "on-secondary-fixed-variant": "#004494",
-                        "on-tertiary-fixed-variant": "#005227",
-                        "error": "#ba1a1a"
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    spacing: {
-                        "margin-mobile": "16px",
-                        "margin-desktop": "40px",
-                        "stack-lg": "24px",
-                        "stack-md": "16px",
-                        "gutter": "24px",
-                        "stack-sm": "8px",
-                        "max-width": "1280px",
-                        "section-padding": "80px"
-                    },
-                    fontFamily: {
-                        "sans": ["Montserrat", "sans-serif"],
-                        "label-sm": ["Montserrat", "sans-serif"],
-                        "display-lg": ["Montserrat", "sans-serif"],
-                        "body-md": ["Montserrat", "sans-serif"],
-                        "headline-lg": ["Montserrat", "sans-serif"],
-                        "label-md": ["Montserrat", "sans-serif"],
-                        "body-lg": ["Montserrat", "sans-serif"],
-                        "headline-lg-mobile": ["Montserrat", "sans-serif"],
-                        "headline-md": ["Montserrat", "sans-serif"]
-                    },
-                    fontSize: {
-                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
-                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
-                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
-                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
-                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
-                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
-                    }
-                }
-            }
-        }
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d6e3fb",
+              surface: "#f8f9ff",
+              "surface-container-lowest": "#ffffff",
+              "bg-fog": "#F4F7FA",
+              "accent-lime": "#8BED02",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed-variant": "#004494",
+              "tertiary-fixed-dim": "#32e27d",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001a42",
+              "inverse-primary": "#aec6ff",
+              "on-secondary-container": "#003b82",
+              "outline-variant": "#c3c6d2",
+              "on-surface": "#0f1c2d",
+              "surface-dim": "#cedbf2",
+              outline: "#747782",
+              tertiary: "#002b12",
+              "on-surface-variant": "#434751",
+              primary: "#002254",
+              "error-container": "#ffdad6",
+              "brand-gradient":
+                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+              "primary-fixed-dim": "#aec6ff",
+              "on-background": "#0f1c2d",
+              "surface-tint": "#375da4",
+              secondary: "#295caf",
+              "secondary-fixed": "#d8e2ff",
+              "tertiary-fixed": "#60ff98",
+              "on-primary-fixed-variant": "#19448a",
+              "on-error-container": "#93000a",
+              background: "#f8f9ff",
+              "on-tertiary-fixed": "#00210c",
+              "primary-container": "#01377d",
+              "inverse-on-surface": "#ebf1ff",
+              "surface-container-low": "#eff3ff",
+              "border-silver": "#E4E9F0",
+              "on-tertiary-fixed-variant": "#005227",
+              "surface-variant": "#d6e3fb",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#00bd62",
+              "surface-container-high": "#dde9ff",
+              "on-tertiary": "#ffffff",
+              "text-muted": "#5A6B84",
+              "tertiary-container": "#00441f",
+              "on-secondary-fixed": "#001a41",
+              "primary-fixed": "#d8e2ff",
+              "surface-container": "#e6eeff",
+              error: "#ba1a1a",
+              "on-primary-container": "#7fa3ef",
+              "inverse-surface": "#253143",
+              "surface-bright": "#f8f9ff",
+              "secondary-container": "#7ba8ff",
+              "emerald-500": "#10B981",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-padding": "80px",
+              gutter: "24px",
+              "margin-desktop": "40px",
+              "margin-mobile": "16px",
+              "max-width": "1280px",
+              "stack-sm": "8px",
+              "stack-md": "16px",
+              "stack-lg": "24px",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              "label-md": ["Montserrat", "sans-serif"],
+              "display-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "headline-lg-mobile": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "label-sm": ["Montserrat", "sans-serif"],
+              "headline-md": ["Montserrat", "sans-serif"],
+              "headline-lg": ["Montserrat", "sans-serif"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                {
+                  lineHeight: "36px",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "400",
+                },
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
     </script>
 <style>
         .material-symbols-outlined {
@@ -202,7 +254,7 @@
           <img
             alt="Fleetmatrix Logo"
             class="h-8 sm:h-10 w-auto"
-            src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+            src="./assets/fleetmatrix_logo.png"
           />
           <a href="index.html">
             <span
@@ -385,82 +437,93 @@
     </nav>
 <main class="pt-[90px]">
 <!-- Hero Section -->
-<section class="relative bg-surface py-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
-<div class="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<section class="relative py-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-max-width mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center relative z-10">
 <!-- Content -->
 <div class="md:col-span-6 flex flex-col gap-stack-lg z-10 reveal">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-border-silver w-fit">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm" data-weight="fill">location_on</span>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">GPS Fleet Tracking</span>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/20 w-fit">
+<span class="material-symbols-outlined text-[#8BED02] text-sm" data-weight="fill">location_on</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">GPS Fleet Tracking</span>
 </div>
-<h1 class="font-display-lg text-display-lg text-primary md:text-[56px] md:leading-[64px]">
+<h1 class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg  font-bold mb-2 leading-tight">
                         Total operational control, in real time.
                     </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+<p class="font-body-lg text-base sm:text-lg max-w-xl font-semibold">
                         Live GPS visibility, AI-driven insights, and connected fleet management — all from one intuitive dashboard.
                     </p>
 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-<a class="inline-flex items-center justify-center bg-emerald-500 text-white font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:bg-emerald-600 transition-all shadow-sm" href="request-demo.html" onclick="window.location.href='request-demo.html'">
+<a class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base" href="request-demo.html" onclick="window.location.href='request-demo.html'">
                             Request a Demo
                         </a>
-<a class="inline-flex items-center justify-center bg-surface-container-lowest text-primary border border-border-silver font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:border-primary transition-all" href="#">
+<a class="inline-flex items-center justify-center border-2 border-[#05D16E] hover:bg-[#05D16E]/10 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300" href="#">
                             See Pricing
                         </a>
 </div>
 </div>
 <!-- Visual -->
-<div class="md:col-span-6 relative mt-12 md:mt-0 reveal reveal-scale stagger-1 flex items-center justify-center pt-4 pb-6">
-<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" data-alt="A high-fidelity modern UI mockup of a fleet tracking live map." src="./assets/live_map.png"/>
-</div>
+<div class="md:col-span-6 relative mt-12 md:mt-0 reveal reveal-scale stagger-1 flex items-center justify-center pt-4 pb-6 min-h-[300px]">
+  <!-- Image Skeleton Placeholder -->
+  <div id="hero-img-skeleton" class="absolute inset-0 bg-[#002254]/10 rounded-2xl animate-pulse flex items-center justify-center border border-border-silver/40">
+    <div class="flex flex-col items-center gap-2 text-text-muted/60">
+      <span class="material-symbols-outlined text-4xl animate-bounce">map</span>
+      <span class="text-xs font-semibold uppercase tracking-wider">Loading Fleet Map...</span>
+    </div>
+  </div>
+  <img 
+    class="w-full h-auto object-contain drop-shadow-2xl opacity-0 transition-opacity duration-500" 
+    style="animation: floatY 6s ease-in-out infinite" 
+    data-alt="A high-fidelity modern UI mockup of a fleet tracking live map." 
+    src="./assets/live_map.png"
+    onload="this.classList.remove('opacity-0'); document.getElementById('hero-img-skeleton')?.remove();"
+    onerror="this.classList.remove('opacity-0'); document.getElementById('hero-img-skeleton')?.remove();"
+  />
 </div>
 </div>
 </section>
 <!-- Overview Section -->
-<section class="bg-bg-fog py-section-padding px-margin-mobile md:px-margin-desktop">
+<section class="bg-white py-section-padding px-margin-mobile md:px-margin-desktop border-t border-border-silver/60">
 <div class="max-w-max-width mx-auto text-center max-w-3xl space-y-4 reveal">
-<h2 class="font-headline-lg text-headline-lg text-primary">
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] tracking-tight">
                     Streamlined Fleet Intelligence
                 </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
+<p class="font-body-lg text-base sm:text-lg text-text-muted leading-relaxed">
                     Track location, route history, fuel usage, and maintenance alerts across all your vehicles from a single pane of glass.
                 </p>
 </div>
 </section>
 <!-- Feature Showcase -->
-<section class="bg-surface py-section-padding px-margin-mobile md:px-margin-desktop">
+<section class="bg-[#F4F7FA] py-section-padding px-margin-mobile md:px-margin-desktop">
 <div class="max-w-max-width mx-auto">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 <div class="md:col-span-5 space-y-6">
-<h3 class="font-headline-lg text-headline-lg text-primary">Unlock full potential using fewer resources</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">
+<h3 class="font-display-lg text-3xl sm:text-4xl lg:text-[38px] lg:leading-[46px] font-bold text-[#002254] tracking-tight">Unlock full potential using fewer resources</h3>
+<p class="font-body-md text-base text-text-muted leading-relaxed">
                             Our platform analyzes millions of data points to identify operational bottlenecks. By optimizing routes, monitoring idle times, and predicting maintenance needs, you can do more with your existing assets while significantly reducing overhead costs.
                         </p>
 <ul class="space-y-3 pt-4">
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-emerald-500 text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Reduce idle time across your entire fleet</span>
+<span class="material-symbols-outlined text-[#05D16E] text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
+<span class="font-body-md text-base text-text-muted">Reduce idle time across your entire fleet</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-emerald-500 text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Optimize routing for fuel efficiency</span>
+<span class="material-symbols-outlined text-[#05D16E] text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
+<span class="font-body-md text-base text-text-muted">Optimize routing for fuel efficiency</span>
 </li>
 </ul>
 </div>
 <div class="md:col-span-7">
-<div class="relative rounded-xl border border-border-silver overflow-hidden shadow-sm bg-surface-container-lowest p-2">
-<img class="w-full h-auto rounded-lg border border-border-silver/50" data-alt="A clean, high-fidelity UI dashboard screenshot showing analytics charts for fleet efficiency. It features modern line graphs, bar charts in navy and emerald colors against a bright white background. The data visualizations are sharp, professional, and indicative of an enterprise software platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ptYASsdEQX_1yXnLFyYom4T8ugveDA6Z2TjmHjzrJcnbq1ea6sVTh6R-10ICr4Zo-xbs6TcIsvtTo6f4wGaXVO96k1Qu-I75O2YpDjM4MhSbZW562Oxx5tE1fP-iYQOKrxplThmYchKS3ju6Nwpl_lu19NLdAtWz1vwWVjBUKAjzG61YndwWSNwX3MAKR1qe-gYO3q7GpxL3wCGp-DBABq6habWktltouT5gdmeJfCqedZ7BKZzXMg"/>
+<div class="relative rounded-2xl border border-border-silver overflow-hidden shadow-sm bg-white p-2">
+<img class="w-full h-auto rounded-xl border border-border-silver/50" data-alt="A clean, high-fidelity UI dashboard screenshot showing analytics charts for fleet efficiency. It features modern line graphs, bar charts in navy and emerald colors against a bright white background. The data visualizations are sharp, professional, and indicative of an enterprise software platform." src="./assets/analytics.png"/>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Closing CTA -->
-<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-[image:var(--brand-gradient)] relative overflow-hidden">
-<!-- Abstract shapes overlay -->
-<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.8) 0%, transparent 50%);"></div>
-<div class="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-8 reveal">
-<h2 class="font-display-lg text-display-lg md:text-[56px]">See your fleet, in real time.</h2>
-<a class="inline-flex items-center justify-center bg-surface-container-lowest text-primary font-label-md text-label-md rounded-full px-8 py-4 hover:-translate-y-0.5 hover:shadow-lg transition-all" href="request-demo.html" onclick="window.location.href='request-demo.html'">
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-[#001a41] relative overflow-hidden">
+<div class="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-6 reveal">
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white tracking-tight">See your fleet, in real time.</h2>
+<a class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer" href="request-demo.html" onclick="window.location.href='request-demo.html'">
                     Request a Demo
                     <span class="material-symbols-outlined ml-2 text-[18px]">chevron_right</span>
 </a>

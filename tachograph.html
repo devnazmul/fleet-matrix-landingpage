@@ -7,106 +7,158 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "surface-container-highest": "#d6e3fb",
-                      "on-background": "#0f1c2d",
-                      "tertiary-fixed-dim": "#32e27d",
-                      "primary-container": "#01377d",
-                      "primary": "#002254",
-                      "surface-container": "#e6eeff",
-                      "on-tertiary-fixed": "#00210c",
-                      "inverse-on-surface": "#ebf1ff",
-                      "secondary-fixed": "#d8e2ff",
-                      "on-primary-container": "#7fa3ef",
-                      "secondary-container": "#7ba8ff",
-                      "on-tertiary-fixed-variant": "#005227",
-                      "on-tertiary-container": "#00bd62",
-                      "brand-gradient": "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
-                      "background": "#f8f9ff",
-                      "outline-variant": "#c3c6d2",
-                      "secondary": "#295caf",
-                      "error-container": "#ffdad6",
-                      "on-primary": "#ffffff",
-                      "on-secondary": "#ffffff",
-                      "on-error-container": "#93000a",
-                      "surface-dim": "#cedbf2",
-                      "on-surface-variant": "#434751",
-                      "tertiary": "#002b12",
-                      "inverse-surface": "#253143",
-                      "tertiary-fixed": "#60ff98",
-                      "on-error": "#ffffff",
-                      "text-muted": "#5A6B84",
-                      "primary-fixed": "#d8e2ff",
-                      "on-tertiary": "#ffffff",
-                      "outline": "#747782",
-                      "border-silver": "#E4E9F0",
-                      "on-primary-fixed-variant": "#19448a",
-                      "on-secondary-container": "#003b82",
-                      "surface-tint": "#375da4",
-                      "surface-container-low": "#eff3ff",
-                      "on-surface": "#0f1c2d",
-                      "primary-fixed-dim": "#aec6ff",
-                      "error": "#ba1a1a",
-                      "inverse-primary": "#aec6ff",
-                      "tertiary-container": "#00441f",
-                      "accent-lime": "#8BED02",
-                      "on-secondary-fixed-variant": "#004494",
-                      "surface": "#f8f9ff",
-                      "surface-variant": "#d6e3fb",
-                      "surface-container-lowest": "#ffffff",
-                      "on-primary-fixed": "#001a42",
-                      "secondary-fixed-dim": "#adc6ff",
-                      "bg-fog": "#F4F7FA",
-                      "surface-bright": "#f8f9ff",
-                      "surface-container-high": "#dde9ff",
-                      "on-secondary-fixed": "#001a41",
-                      "emerald-500": "#10B981"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "section-padding": "80px",
-                      "margin-mobile": "16px",
-                      "stack-lg": "24px",
-                      "margin-desktop": "40px",
-                      "stack-md": "16px",
-                      "gutter": "24px",
-                      "stack-sm": "8px",
-                      "max-width": "1280px"
-              },
-              "fontFamily": {
-                      "sans": ["Montserrat", "sans-serif"],
-                      "headline-md": ["Montserrat", "sans-serif"],
-                      "label-sm": ["Montserrat", "sans-serif"],
-                      "headline-lg-mobile": ["Montserrat", "sans-serif"],
-                      "body-lg": ["Montserrat", "sans-serif"],
-                      "headline-lg": ["Montserrat", "sans-serif"],
-                      "body-md": ["Montserrat", "sans-serif"],
-                      "display-lg": ["Montserrat", "sans-serif"],
-                      "label-md": ["Montserrat", "sans-serif"]
-              },
-              "fontSize": {
-                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
-                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
-                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
-              }
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d6e3fb",
+              surface: "#f8f9ff",
+              "surface-container-lowest": "#ffffff",
+              "bg-fog": "#F4F7FA",
+              "accent-lime": "#8BED02",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed-variant": "#004494",
+              "tertiary-fixed-dim": "#32e27d",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001a42",
+              "inverse-primary": "#aec6ff",
+              "on-secondary-container": "#003b82",
+              "outline-variant": "#c3c6d2",
+              "on-surface": "#0f1c2d",
+              "surface-dim": "#cedbf2",
+              outline: "#747782",
+              tertiary: "#002b12",
+              "on-surface-variant": "#434751",
+              primary: "#002254",
+              "error-container": "#ffdad6",
+              "brand-gradient":
+                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+              "primary-fixed-dim": "#aec6ff",
+              "on-background": "#0f1c2d",
+              "surface-tint": "#375da4",
+              secondary: "#295caf",
+              "secondary-fixed": "#d8e2ff",
+              "tertiary-fixed": "#60ff98",
+              "on-primary-fixed-variant": "#19448a",
+              "on-error-container": "#93000a",
+              background: "#f8f9ff",
+              "on-tertiary-fixed": "#00210c",
+              "primary-container": "#01377d",
+              "inverse-on-surface": "#ebf1ff",
+              "surface-container-low": "#eff3ff",
+              "border-silver": "#E4E9F0",
+              "on-tertiary-fixed-variant": "#005227",
+              "surface-variant": "#d6e3fb",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#00bd62",
+              "surface-container-high": "#dde9ff",
+              "on-tertiary": "#ffffff",
+              "text-muted": "#5A6B84",
+              "tertiary-container": "#00441f",
+              "on-secondary-fixed": "#001a41",
+              "primary-fixed": "#d8e2ff",
+              "surface-container": "#e6eeff",
+              error: "#ba1a1a",
+              "on-primary-container": "#7fa3ef",
+              "inverse-surface": "#253143",
+              "surface-bright": "#f8f9ff",
+              "secondary-container": "#7ba8ff",
+              "emerald-500": "#10B981",
             },
-          }
-        }
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-padding": "80px",
+              gutter: "24px",
+              "margin-desktop": "40px",
+              "margin-mobile": "16px",
+              "max-width": "1280px",
+              "stack-sm": "8px",
+              "stack-md": "16px",
+              "stack-lg": "24px",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              "label-md": ["Montserrat", "sans-serif"],
+              "display-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+              "headline-lg-mobile": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "label-sm": ["Montserrat", "sans-serif"],
+              "headline-md": ["Montserrat", "sans-serif"],
+              "headline-lg": ["Montserrat", "sans-serif"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                {
+                  lineHeight: "36px",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "400",
+                },
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
     </script>
 <style>
         .chevron-divider {
@@ -175,7 +227,7 @@
       <img
         alt="Fleetmatrix Logo"
         class="h-8 sm:h-10 w-auto"
-        src="https://lh3.googleusercontent.com/aida/AEtjO1W5Bhqaqdj5XFAVismCdgoW6w6sWJ4tH_UXFNpV9nsNbVnnuh-MxkRTFEjvrRwIGcHFQ8JML2PfJj3H6xJowSZARrlW1-cne-oN2L8QHuSdnnVd4Z51_zrNa-akIOvYzZlFLg9nfNhA7nKe53XTPifp8DvRNaxRPqnqjCezdCXZcmTVy1EqeiTsH5CUqNyclbjaVjiyiJl2IzRqx0scn35vr_W-PggsQP4oNO_WPLBZMWGQk731g4W6MFuk"
+        src="./assets/fleetmatrix_logo.png"
       />
       <a href="index.html">
         <span class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl">Fleetmatrix</span>
@@ -195,6 +247,11 @@
           <span class="material-symbols-outlined text-sm">expand_more</span>
         </button>
         <div class="absolute top-full right-0 mt-2 w-44 bg-white dark:bg-[#01377D] rounded-xl shadow-xl border border-border-silver dark:border-primary-container opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+          <a
+                href="route_optimization.html"
+                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
+                >Route Optimization</a
+              >
           <a href="index.html" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all">⚡ Design 1</a>
           <a href="index2.html" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all">🔵 Design 2</a>
           <a href="index3.html" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all">🌿 Design 3</a>
@@ -236,7 +293,7 @@
       </div>
     </div>
 
-    <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer">
+    <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5  bg-[#05D16E] hover:bg-[#01944d] text-whiterounded-full font-label-md cursor-pointer">
       Request a Demo
       <span class="material-symbols-outlined text-sm">chevron_right</span>
     </button>
@@ -245,22 +302,22 @@
 <!-- Main Content -->
 <main class="pt-24 pb-section-padding">
 <!-- Hero Section -->
-<section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-section-padding flex flex-col items-center text-center reveal">
-<div class="mb-6 flex items-center space-x-2 text-primary font-label-sm uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">verified</span>
+<section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-section-padding flex flex-col items-center text-center reveal border-b border-border-silver/60">
+<div class="mb-6 flex items-center space-x-2 bg-[#002254]/5 border border-border-silver px-3 py-1 rounded-full text-[#002254] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm text-[#05D16E]">verified</span>
 <span>DIGITAL TACHOGRAPH COMPLIANCE</span>
 </div>
-<h1 class="font-display-lg text-display-lg text-primary mb-6 max-w-4xl">
+<h1 class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg font-bold text-[#002254] mb-6 max-w-4xl leading-tight">
                 Tachograph compliance, made simple.
             </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+<p class="font-body-lg text-base sm:text-lg text-text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
                 Automate your tachograph downloads, monitor driver hours in real-time, and ensure total compliance across your entire fleet without the administrative headache.
             </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto mb-16">
-<a class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-emerald-500 text-on-primary font-label-md btn-hover-effect" href="request-demo.html">
+<a class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base" href="request-demo.html" onclick="window.location.href='request-demo.html'">
                     Request a Demo
                 </a>
-<a class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-transparent border-2 border-primary text-primary font-label-md btn-hover-effect hover:bg-surface-container" href="#">
+<a class="inline-flex items-center justify-center border-2 border-[#002254] text-[#002254] hover:bg-[#002254]/5 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300 bg-white" href="#">
                     See Pricing
                 </a>
 </div>
@@ -269,9 +326,9 @@
 </div>
 </section>
 <!-- Overview Section -->
-<section class="bg-bg-fog py-section-padding reveal">
+<section class="bg-[#F4F7FA] py-section-padding reveal">
 <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-6">More automation. Less hassle.</h2>
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#002254] mb-6 tracking-tight">More automation. Less hassle.</h2>
 </div>
 </section>
 <!-- Key Benefits -->
@@ -279,24 +336,24 @@
 <div class="max-w-[700px] mx-auto">
 <ul class="space-y-4">
 <li class="flex items-start">
-<span class="text-primary font-bold mr-3 mt-1">»</span>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Automated remote downloads of vehicle units and driver cards.</p>
+<span class="text-[#05D16E] font-bold mr-3 mt-1 text-lg">»</span>
+<p class="font-body-lg text-base sm:text-lg text-text-muted">Automated remote downloads of vehicle units and driver cards.</p>
 </li>
 <li class="flex items-start">
-<span class="text-primary font-bold mr-3 mt-1">»</span>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Real-time visibility into driver working hours and infringements.</p>
+<span class="text-[#05D16E] font-bold mr-3 mt-1 text-lg">»</span>
+<p class="font-body-lg text-base sm:text-lg text-text-muted">Real-time visibility into driver working hours and infringements.</p>
 </li>
 <li class="flex items-start">
-<span class="text-primary font-bold mr-3 mt-1">»</span>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Secure, cloud-based storage meeting all legal data retention requirements.</p>
+<span class="text-[#05D16E] font-bold mr-3 mt-1 text-lg">»</span>
+<p class="font-body-lg text-base sm:text-lg text-text-muted">Secure, cloud-based storage meeting all legal data retention requirements.</p>
 </li>
 <li class="flex items-start">
-<span class="text-primary font-bold mr-3 mt-1">»</span>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Proactive alerts for upcoming deadlines and compliance risks.</p>
+<span class="text-[#05D16E] font-bold mr-3 mt-1 text-lg">»</span>
+<p class="font-body-lg text-base sm:text-lg text-text-muted">Proactive alerts for upcoming deadlines and compliance risks.</p>
 </li>
 <li class="flex items-start">
-<span class="text-primary font-bold mr-3 mt-1">»</span>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Comprehensive reporting for audits and fleet management optimization.</p>
+<span class="text-[#05D16E] font-bold mr-3 mt-1 text-lg">»</span>
+<p class="font-body-lg text-base sm:text-lg text-text-muted">Comprehensive reporting for audits and fleet management optimization.</p>
 </li>
 </ul>
 </div>
@@ -306,23 +363,23 @@
 <!-- Section 4 -->
 <div class="grid md:grid-cols-2 gap-12 items-center reveal">
 <div class="order-2 md:order-1">
-<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Remote downloads | no vehicle visit required</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">
+<h3 class="font-display-lg text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#002254] mb-4 tracking-tight">Remote downloads | no vehicle visit required</h3>
+<p class="font-body-md text-base text-text-muted leading-relaxed">
                         Eliminate the need to manually retrieve data from vehicles. Our system automatically schedules and executes secure downloads from both the mass memory and driver cards, regardless of vehicle location.
                     </p>
 </div>
-<div class="order-1 md:order-2 rounded-xl border border-border-silver overflow-hidden shadow-[0px_4px_20px_rgba(14,27,44,0.08)] bg-white h-64 relative">
+<div class="order-1 md:order-2 rounded-2xl border border-border-silver overflow-hidden shadow-sm bg-white h-64 relative">
 <img class="w-full h-full object-cover" data-alt="A clean, modern enterprise UI mockup showing a successful remote download notification. The screen features a green success indicator, a timestamp of the last synchronization, and a list of updated vehicle IDs. Corporate, crisp, and utilizing a navy and white palette with subtle positive status colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKW2HJs3TNuRmoU97ab8828wY98MC3bvCbjslheUp1xwnJx7hkpgcslOK6gVVJvJ9SrLZampFeqKYaWv_pxFCxe4buIRN_FGV-RWqygih36Tuc58uIF0HHY86qhOMKTVHCCKTvUE54s8DxXC_knOWUnBSfBvXJD428qUrIVp9XoJclXsRECkptIqb4rGCF1-e8ZHYolhsBTLdOaMvTupsOKvZld3tjuEMQ1zukGVSsT6JYZ9k4fgJzPg"/>
 </div>
 </div>
 <!-- Section 5 -->
 <div class="grid md:grid-cols-2 gap-12 items-center reveal">
-<div class="rounded-xl border border-border-silver overflow-hidden shadow-[0px_4px_20px_rgba(14,27,44,0.08)] bg-white h-64 relative">
+<div class="rounded-2xl border border-border-silver overflow-hidden shadow-sm bg-white h-64 relative">
 <img class="w-full h-full object-cover" data-alt="A sophisticated fleet tracking map interface displaying vehicle locations across a stylized terrain. Map pins act as tooltips showing specific Driver Names, Hours Driven (e.g., 4h 30m), and Hours Remaining. The map uses a muted, professional color scheme with precise, technical iconography." data-location="Europe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6MH-LhXsoUiBzDkTZko5i_sgezbEtIUn3jC3EzwhleOwmTQBBv31cTITjmwYC8E18tKh637CWhJHMYBc93O966BGoluYOD9NYl5xTL-bCD9Ay2Dmd8cbYGruVQeorkSNEDfNJzJKsrvL2YB4N1x8YlnDO4SHOl2hEVQa8lWW7NKB5G8Lj_NdE7RSLam1oOq3D6aOKzNo9mgW7kquVtWiJGmnf9AY_PyMB25yiCg0Mdwas3Jy0Jz1EhA"/>
 </div>
 <div>
-<h3 class="font-headline-lg text-headline-lg text-primary mb-4">See your whole fleet on one map</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">
+<h3 class="font-display-lg text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#002254] mb-4 tracking-tight">See your whole fleet on one map</h3>
+<p class="font-body-md text-base text-text-muted leading-relaxed">
                         Gain complete situational awareness with live mapping. Instantly view driver status, current driving hours, and remaining available time to optimize dispatching and prevent fatigue-related violations.
                     </p>
 </div>
@@ -334,140 +391,139 @@
 <section class="py-section-padding max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop reveal">
 <div class="grid md:grid-cols-2 gap-12 items-center">
 <div class="order-2 md:order-1">
-<div class="mb-4 text-primary font-label-sm uppercase tracking-wider">HARDWARE &amp; TELEMATICS</div>
-<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Smart hardware. Reliable data.</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+<div class="mb-4 text-[#002254] font-label-sm uppercase tracking-wider font-semibold">HARDWARE &amp; TELEMATICS</div>
+<h3 class="font-display-lg text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#002254] mb-4 tracking-tight">Smart hardware. Reliable data.</h3>
+<p class="font-body-md text-base text-text-muted mb-6 leading-relaxed">
                 Fleetmatrix hardware connects directly with compatible digital tachographs to securely capture and transmit vehicle and driver telemetry to the cloud in real time.
             </p>
 <ul class="space-y-3">
 <li class="flex items-start">
-<span class="material-symbols-outlined text-emerald-500 mr-2 text-body-md">check_circle</span>
-<p class="font-body-md text-on-surface-variant">Secure digital authentication &amp; automated driver ID.</p>
+<span class="material-symbols-outlined text-[#05D16E] mr-2 text-body-md">check_circle</span>
+<p class="font-body-md text-text-muted">Secure digital authentication &amp; automated driver ID.</p>
 </li>
 <li class="flex items-start">
-<span class="material-symbols-outlined text-emerald-500 mr-2 text-body-md">check_circle</span>
-<p class="font-body-md text-on-surface-variant">Direct mass memory &amp; driver card remote data sync.</p>
+<span class="material-symbols-outlined text-[#05D16E] mr-2 text-body-md">check_circle</span>
+<p class="font-body-md text-text-muted">Direct mass memory &amp; driver card remote data sync.</p>
 </li>
 <li class="flex items-start">
-<span class="material-symbols-outlined text-emerald-500 mr-2 text-body-md">check_circle</span>
-<p class="font-body-md text-on-surface-variant">Real-time tachograph status &amp; operational event telemetry.</p>
+<span class="material-symbols-outlined text-[#05D16E] mr-2 text-body-md">check_circle</span>
+<p class="font-body-md text-text-muted">Real-time tachograph status &amp; operational event telemetry.</p>
 </li>
 <li class="flex items-start">
-<span class="material-symbols-outlined text-emerald-500 mr-2 text-body-md">check_circle</span>
-<p class="font-body-md text-on-surface-variant">Direct integration with the wider Fleetmatrix ecosystem.</p>
+<span class="material-symbols-outlined text-[#05D16E] mr-2 text-body-md">check_circle</span>
+<p class="font-body-md text-text-muted">Direct integration with the wider Fleetmatrix ecosystem.</p>
 </li>
 </ul>
 </div>
-<div class="order-1 md:order-2 rounded-xl border border-border-silver overflow-hidden shadow-[0px_4px_20px_rgba(14,27,44,0.08)] bg-white h-64 md:h-80 relative">
+<div class="order-1 md:order-2 rounded-2xl border border-border-silver overflow-hidden shadow-sm bg-white h-64 md:h-80 relative">
 <img alt="Professional telematics hardware device mockup" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5ghx--05f_1bkIMQMs8HTnXYCi98f6upbfS1F-OiGnrkrU_ezBkKpYa_9FGARNmT1LW7f4y44Ve0WNgDEcwf4ZtsyGlnjMJVx5pLZXssflW90zvKobKzU9XTRHGpbaX1i7USnC2YL6nF3bWGqRQpegITcz95IUfsRbnJaZmKAKYaPeVX1AAJMESdlnJmfOCI1D9eLzZ1_4I6FodEQGg10iuDqegau7rM4_cJc8_cfp3eVoH2HWM32Hw"/>
 </div>
 </div>
 </section>
 <!-- End-to-End Platform Value -->
 <section class="py-section-padding px-margin-mobile md:px-margin-desktop reveal">
-<div class="max-w-max-width mx-auto bg-bg-fog rounded-xl p-8 md:p-16 text-center">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Simplify with an end-to-end solution.</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+<div class="max-w-max-width mx-auto bg-[#F4F7FA] rounded-2xl p-8 md:p-16 text-center border border-border-silver/60">
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#002254] mb-6 tracking-tight">Simplify with an end-to-end solution.</h2>
+<p class="font-body-lg text-base sm:text-lg text-text-muted max-w-3xl mx-auto leading-relaxed">
             Tachograph compliance works best when connected with your entire fleet workflow. Fleetmatrix seamlessly unifies compliance data, GPS tracking, and vehicle diagnostics into a single dashboard.
         </p>
 </div>
 </section>
 <!-- Pre-Footer CTA Banner -->
-<section class="bg-primary py-24">
+<section class="bg-[#001a41] py-20">
 <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
-<div class="mb-4 text-on-primary-container font-label-sm uppercase tracking-wider">MODERN COMPLIANCE</div>
-<h2 class="font-display-lg text-headline-lg md:text-display-lg text-white mb-6">Reduce Compliance Pressure. Keep Your Fleet Moving.</h2>
-<p class="font-body-lg text-body-lg text-on-primary/80 mb-10 max-w-2xl mx-auto">
+<div class="mb-4 text-[#8BED02] font-label-sm uppercase tracking-wider font-semibold">MODERN COMPLIANCE</div>
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white mb-6 tracking-tight">Reduce Compliance Pressure. Keep Your Fleet Moving.</h2>
+<p class="font-body-lg text-base sm:text-lg text-white/90 mb-10 max-w-2xl mx-auto">
             Let Fleetmatrix automate the repetitive paperwork so your team can focus on running an efficient, compliant operation.
         </p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-emerald-500 text-on-primary font-label-md btn-hover-effect" href="request-demo.html" onclick="window.location.href='request-demo.html'">
+<a class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer" href="request-demo.html" onclick="window.location.href='request-demo.html'">
                 Request a Demo
             </a>
-<a class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-transparent border-2 border-white text-white font-label-md btn-hover-effect hover:bg-white/10" href="#">
+<a class="inline-flex items-center justify-center border-2 border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300" href="#">
                 Talk to a Specialist
             </a>
 </div>
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-section-padding max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop reveal">
-<div class="text-center mb-12">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Frequently Asked Questions</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Everything you need to know about digital tachograph compliance and Fleetmatrix.</p>
-</div>
+<section class="bg-[#F4F7FA] py-section-padding px-margin-mobile md:px-margin-desktop border-t border-border-silver/60">
+<div class="max-w-[800px] mx-auto">
+<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#002254] text-center mb-12 tracking-tight">Frequently Asked Questions</h2>
 <div class="space-y-4">
-<div class="faq-item active border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>How often are tachograph downloads performed?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Downloads are scheduled automatically based on your compliance requirements, typically every 24 hours for driver cards and weekly for vehicle units, ensuring you never miss a legal deadline.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>Is the hardware compatible with all vehicle types?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Yes, our hardware is designed to integrate with all major digital tachograph brands and models across HGVs, LGVs, and buses.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>How is the data stored and secured?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">All data is encrypted and stored in secure, ISO-certified cloud servers, meeting all GDPR and legal data retention requirements for transport authorities.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>Can I see driver hours in real-time?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Absolutely. The dashboard provides live updates on driving time, rest periods, and remaining availability for every driver in your fleet.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>Does the system alert me to infringements?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Yes, Fleetmatrix automatically detects potential infringements and sends proactive alerts to managers, allowing for immediate corrective action and training.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>How long does installation take?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Standard installation typically takes less than 45 minutes per vehicle and can be performed by our certified technicians or your own maintenance team.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>Can I export reports for audits?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">Yes, you can generate comprehensive, audit-ready reports in multiple formats (PDF, CSV) with just a few clicks.</p>
-</div>
-</div>
-<div class="faq-item border border-border-silver rounded-lg overflow-hidden">
-<button class="w-full flex justify-between items-center p-4 bg-white text-left font-label-md text-primary">
-<span>What kind of support do you offer?</span>
-<span class="material-symbols-outlined faq-icon">expand_more</span>
-</button>
-<div class="faq-content bg-white px-4 pb-4">
-<p class="font-body-md text-on-surface-variant">We provide 24/7 technical support, dedicated account management, and regular compliance training sessions for your staff.</p>
-</div>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">How often are tachograph downloads performed?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Downloads are scheduled automatically based on your compliance requirements, typically every 24 hours for driver cards and weekly for vehicle units, ensuring you never miss a legal deadline.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">Is the hardware compatible with all vehicle types?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Yes, our hardware is designed to integrate with all major digital tachograph brands and models across HGVs, LGVs, and buses.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">How is the data stored and secured?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    All data is encrypted and stored in secure, ISO-certified cloud servers, meeting all GDPR and legal data retention requirements for transport authorities.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">Can I see driver hours in real-time?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Absolutely. The dashboard provides live updates on driving time, rest periods, and remaining availability for every driver in your fleet.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">Does the system alert me to infringements?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Yes, Fleetmatrix automatically detects potential infringements and sends proactive alerts to managers, allowing for immediate corrective action and training.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">How long does installation take?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Standard installation typically takes less than 45 minutes per vehicle and can be performed by our certified technicians or your own maintenance team.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">Can I export reports for audits?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    Yes, you can generate comprehensive, audit-ready reports in multiple formats (PDF, CSV) with just a few clicks.
+                </div>
+</details>
+<details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg text-[#002254]">What kind of support do you offer?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-text-muted leading-[1.7]">
+                    We provide 24/7 technical support, dedicated account management, and regular compliance training sessions for your staff.
+                </div>
+</details>
 </div>
 </div>
 </section>
