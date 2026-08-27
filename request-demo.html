@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full bg-white">
+<html lang="en" class="h-full bg-surface">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -17,22 +17,69 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              brand: {
-                navy: "#1c2d59",
-                "navy-dark": "#111c38",
-                "navy-light": "#2a4280",
-                primary: "#002254",
-                green: "#05D16E",
-                "green-dark": "#04b861",
-                gray: "#f4f6fa",
-                border: "#dce2ec",
-                "border-hover": "#a0aec0",
-                text: "#0f1c2d",
-                muted: "#5A6B84",
-              },
+              "surface-container-highest": "#d6e3fb",
+              surface: "#f8f9ff",
+              "surface-container-lowest": "#ffffff",
+              "bg-fog": "#F4F7FA",
+              "accent-lime": "#8BED02",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed-variant": "#004494",
+              "tertiary-fixed-dim": "#32e27d",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001a42",
+              "inverse-primary": "#aec6ff",
+              "on-secondary-container": "#003b82",
+              "outline-variant": "#c3c6d2",
+              "on-surface": "#0f1c2d",
+              "surface-dim": "#cedbf2",
+              outline: "#747782",
+              tertiary: "#002b12",
+              "on-surface-variant": "#434751",
+              primary: "#002254",
+              "error-container": "#ffdad6",
+              "brand-gradient":
+                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+              "primary-fixed-dim": "#aec6ff",
+              "on-background": "#0f1c2d",
+              "surface-tint": "#375da4",
+              secondary: "#295caf",
+              "secondary-fixed": "#d8e2ff",
+              "tertiary-fixed": "#60ff98",
+              "on-primary-fixed-variant": "#19448a",
+              "on-error-container": "#93000a",
+              background: "#f8f9ff",
+              "on-tertiary-fixed": "#00210c",
+              "primary-container": "#01377d",
+              "inverse-on-surface": "#ebf1ff",
+              "surface-container-low": "#eff3ff",
+              "border-silver": "#E4E9F0",
+              "on-tertiary-fixed-variant": "#005227",
+              "surface-variant": "#d6e3fb",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#00bd62",
+              "surface-container-high": "#dde9ff",
+              "on-tertiary": "#ffffff",
+              "text-muted": "#5A6B84",
+              "tertiary-container": "#00441f",
+              "on-secondary-fixed": "#001a41",
+              "primary-fixed": "#d8e2ff",
+              "surface-container": "#e6eeff",
+              error: "#ba1a1a",
+              "on-primary-container": "#7fa3ef",
+              "inverse-surface": "#253143",
+              "surface-bright": "#f8f9ff",
+              "secondary-container": "#7ba8ff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
             },
             fontFamily: {
               sans: ["Montserrat", "sans-serif"],
@@ -46,6 +93,7 @@
       body {
         font-family: "Montserrat", sans-serif;
         color: #0f1c2d;
+        background-color: #f8f9ff;
       }
       .fade-step {
         animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -60,56 +108,73 @@
           transform: translateY(0);
         }
       }
-      /* Custom radio and checkbox styling */
-      .custom-radio {
-        appearance: none;
-        -webkit-appearance: none;
+      /* Custom radio and checkbox styling matching green #05d16e theme */
+      .custom-radio,
+      input[type='radio'].custom-radio {
+        appearance: none !important;
+        -webkit-appearance: none !important;
         width: 18px;
         height: 18px;
-        border: 1.5px solid #a0aec0;
-        border-radius: 50%;
-        outline: none;
+        border: 2px solid #747782 !important;
+        border-radius: 50% !important;
+        outline: none !important;
         transition: all 0.15s ease-in-out;
         position: relative;
         flex-shrink: 0;
+        background-image: none !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+        color: #05d16e !important;
       }
-      .custom-radio:checked {
-        border-color: #1c2d59;
-        background-color: white;
+      .custom-radio:checked,
+      input[type='radio'].custom-radio:checked {
+        border-color: #05d16e !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        color: #05d16e !important;
       }
-      .custom-radio:checked::after {
-        content: "";
+      .custom-radio:checked::after,
+      input[type='radio'].custom-radio:checked::after {
+        content: "" !important;
         position: absolute;
         top: 3px;
         left: 3px;
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: #1c2d59;
+        background: #05d16e !important;
       }
 
-      .custom-checkbox {
-        appearance: none;
-        -webkit-appearance: none;
+      .custom-checkbox,
+      input[type='checkbox'].custom-checkbox {
+        appearance: none !important;
+        -webkit-appearance: none !important;
         width: 18px;
         height: 18px;
-        border: 1.5px solid #a0aec0;
-        border-radius: 4px;
-        outline: none;
+        border: 2px solid #747782 !important;
+        border-radius: 4px !important;
+        outline: none !important;
         transition: all 0.15s ease-in-out;
         position: relative;
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-image: none !important;
+        box-shadow: none !important;
+        color: #05d16e !important;
       }
-      .custom-checkbox:checked {
-        border-color: #1c2d59;
-        background-color: #1c2d59;
+      .custom-checkbox:checked,
+      input[type='checkbox'].custom-checkbox:checked {
+        border-color: #05d16e !important;
+        background-color: #05d16e !important;
+        background-image: none !important;
+        color: white !important;
       }
-      .custom-checkbox:checked::after {
-        content: "✓";
-        color: white;
+      .custom-checkbox:checked::after,
+      input[type='checkbox'].custom-checkbox:checked::after {
+        content: "✓" !important;
+        color: white !important;
         font-size: 13px;
         font-weight: 700;
         line-height: 1;
@@ -117,16 +182,17 @@
 
       /* Option Card Highlight */
       .option-card {
-        border: 1px solid #dce2ec;
+        border: 1px solid #E4E9F0;
+        background-color: #ffffff;
         transition: all 0.15s ease;
       }
       .option-card:hover {
-        border-color: #8c9eb5;
-        background-color: #fcfdfe;
+        border-color: #05d16e;
+        background-color: rgba(5, 209, 110, 0.095);
       }
       .option-card.selected {
-        border-color: #1c2d59;
-        background-color: #f6f8fc;
+        border-color: #05d16e;
+        background-color: rgba(5, 209, 110, 0.108);
       }
 
       /* Shake animation for validation */
@@ -140,25 +206,25 @@
       }
     </style>
   </head>
-  <body class="min-h-full flex flex-col bg-white text-brand-text antialiased selection:bg-brand-navy selection:text-white">
+  <body class="min-h-full flex flex-col bg-surface text-on-surface antialiased selection:bg-primary selection:text-white">
     <!-- Top Header -->
-    <header class="w-full border-b border-gray-100 bg-white sticky top-0 z-40">
+    <header class="w-full border-b border-border-silver bg-white/90 backdrop-blur-md sticky top-0 z-40">
       <div class="max-w-6xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none" title="Return to home">
           <img
             alt="Fleetmatrix Logo"
-            class="h-8 sm:h-10 w-auto"
+            class="h-8 sm:h-10 w-auto transition-transform group-hover:scale-105"
             src="./assets/fleetmatrix_logo.png"
           />
-          <span class="text-xl sm:text-2xl font-bold tracking-tight text-brand-navy font-display">Fleetmatrix</span>
+          <span class="text-xl sm:text-2xl font-bold tracking-tight text-primary font-display">Fleetmatrix</span>
         </a>
 
         <!-- Close Button -->
         <a
           href="javascript:void(0)"
           onclick="handleClose()"
-          class="p-2 -mr-2 text-gray-500 hover:text-gray-900 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center"
+          class="p-2 -mr-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container transition-colors flex items-center justify-center"
           aria-label="Close demo request"
           title="Close and return to page"
         >
@@ -169,17 +235,18 @@
 
     <!-- Main Content Area -->
     <main class="flex-1 flex flex-col items-center justify-start pt-6 sm:pt-10 pb-16 px-4 sm:px-6">
-      <div class="w-full max-w-[540px] mx-auto">
+      <div class="w-full max-w-[560px] mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-border-silver shadow-sm">
+        
         <!-- Progress Indicator -->
         <div id="progress-container" class="mb-6 sm:mb-8">
-          <div class="text-[13px] font-semibold text-[#1c2d59] mb-1.5 flex items-center justify-between">
+          <div class="text-[13px] font-semibold text-primary mb-1.5 flex items-center justify-between">
             <span id="progress-text">Progress 0%</span>
-            <span id="step-counter" class="text-xs font-normal text-gray-400">Step 1 of 7</span>
+            <span id="step-counter" class="text-xs font-medium text-primary">Step 1 of 8</span>
           </div>
-          <div class="w-full bg-[#e9eef6] h-1.5 rounded-full overflow-hidden">
+          <div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden border border-border-silver/50">
             <div
               id="progress-bar-fill"
-              class="h-full bg-[#1c2d59] transition-all duration-300 ease-out"
+              class="h-full bg-primary transition-all duration-300 ease-out"
               style="width: 0%"
             ></div>
           </div>
@@ -188,108 +255,99 @@
         <!-- Form Container -->
         <form id="wizard-form" onsubmit="event.preventDefault(); nextStep();" novalidate>
           
-          <!-- STEP 1: How many vehicles in your fleet? (Image 2) -->
+          <!-- STEP 1: How many vehicles in your fleet? -->
           <div id="step-1" class="wizard-step fade-step">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               How many vehicles in your fleet?
             </h1>
 
             <div class="space-y-2.5 sm:space-y-3" id="step-1-options">
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
-                <input type="radio" name="fleet_size" value="1 - 4" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">1 - 4</span>
-              </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
-                <input type="radio" name="fleet_size" value="5 - 19" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">5 - 19</span>
-              </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="20 - 49" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">20 - 49</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">20 - 49</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="50 - 99" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">50 - 99</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">50 - 99</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="100 - 199" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">100 - 199</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">100 - 199</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="200 - 499" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">200 - 499</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">200 - 499</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="500 - 4999" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">500 - 4999</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">500 - 4999</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="5000 - 9999" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">5000 - 9999</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">5000 - 9999</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="radio" name="fleet_size" value="10k+" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">10k+</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">10k+</span>
               </label>
             </div>
           </div>
 
-          <!-- STEP 2: Looking for a solution for: (Image 3) -->
+          <!-- STEP 2: Looking for a solution for: -->
           <div id="step-2" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               Looking for a solution for:
             </h1>
 
             <div class="space-y-2.5 sm:space-y-3" id="step-2-options">
-              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-xl cursor-pointer">
                 <input type="radio" name="solution_for" value="Business use" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Business use</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Business use</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-4 rounded-xl cursor-pointer">
                 <input type="radio" name="solution_for" value="Personal use" class="custom-radio" onchange="selectRadio(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Personal use</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Personal use</span>
               </label>
             </div>
           </div>
 
-          <!-- STEP 3: What features are you looking for? (Image 1) -->
+          <!-- STEP 3: What features are you looking for? -->
           <div id="step-3" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               What features are you looking for?
             </h1>
 
             <div class="space-y-2.5 sm:space-y-3" id="step-3-options">
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Real-time GPS tracking" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Real-time GPS tracking</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Real-time GPS tracking</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Dashcam" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Dashcam</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Dashcam</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Remote tachograph download" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Remote tachograph download</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Remote tachograph download</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Assets tracking" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Assets tracking</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Assets tracking</span>
               </label>
-           
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Route optimisation" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Route optimisation</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Route optimisation</span>
               </label>
-              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-lg cursor-pointer">
+              <label class="option-card flex items-center gap-3.5 px-4 py-3.5 rounded-xl cursor-pointer">
                 <input type="checkbox" name="features" value="Other" class="custom-checkbox" onchange="toggleCheckbox(this)" />
-                <span class="text-sm sm:text-base font-medium text-slate-800">Other</span>
+                <span class="text-sm sm:text-base font-medium text-on-surface">Other</span>
               </label>
             </div>
           </div>
 
-          <!-- STEP 4: What is your company's name? (Image 4) -->
+          <!-- STEP 4: What is your company's name? -->
           <div id="step-4" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               What is your company's name?
             </h1>
 
@@ -299,17 +357,17 @@
                 id="company-name"
                 name="company_name"
                 placeholder="Company Name"
-                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                class="w-full px-4 py-3.5 rounded-xl border border-border-silver text-on-surface placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-[#05d16e]/30 focus:border-[#05d16e] transition-all text-sm sm:text-base"
                 autocomplete="organization"
                 required
               />
-              <p id="company-name-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter your company name to continue.</p>
+              <p id="company-name-error" class="hidden text-xs text-error mt-2 font-medium">Please enter your company name to continue.</p>
             </div>
           </div>
 
-          <!-- STEP 5: What is your name? (Image 5) -->
+          <!-- STEP 5: What is your name? -->
           <div id="step-5" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               What is your name?
             </h1>
 
@@ -320,7 +378,7 @@
                   id="first-name"
                   name="first_name"
                   placeholder="First Name"
-                  class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                  class="w-full px-4 py-3.5 rounded-xl border border-border-silver text-on-surface placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-[#05d16e]/30 focus:border-[#05d16e] transition-all text-sm sm:text-base"
                   autocomplete="given-name"
                   required
                 />
@@ -331,18 +389,18 @@
                   id="last-name"
                   name="last_name"
                   placeholder="Last Name"
-                  class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                  class="w-full px-4 py-3.5 rounded-xl border border-border-silver text-on-surface placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-[#05d16e]/30 focus:border-[#05d16e] transition-all text-sm sm:text-base"
                   autocomplete="family-name"
                   required
                 />
               </div>
             </div>
-            <p id="name-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter your first and last name to continue.</p>
+            <p id="name-error" class="hidden text-xs text-error mt-2 font-medium">Please enter your first and last name to continue.</p>
           </div>
 
-          <!-- STEP 6: What's a good email to send your information? (Step 6 image) -->
+          <!-- STEP 6: What's a good email to send your information? -->
           <div id="step-6" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               What's a good email to send your information?
             </h1>
 
@@ -352,17 +410,17 @@
                 id="email-address"
                 name="email"
                 placeholder="name@company.com"
-                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                class="w-full px-4 py-3.5 rounded-xl border border-border-silver text-on-surface placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-[#05d16e]/30 focus:border-[#05d16e] transition-all text-sm sm:text-base"
                 autocomplete="email"
                 required
               />
-              <p id="email-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter a valid email address.</p>
+              <p id="email-error" class="hidden text-xs text-error mt-2 font-medium">Please enter a valid email address.</p>
             </div>
           </div>
 
-          <!-- STEP 7: What's a good phone number to speak with you? (Step 7 image) -->
+          <!-- STEP 7: What's a good phone number to speak with you? -->
           <div id="step-7" class="wizard-step fade-step hidden">
-            <h1 class="text-2xl sm:text-[26px] font-bold text-[#162a55] tracking-tight mb-5 leading-snug">
+            <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-5 leading-snug font-display">
               What's a good phone number to speak with you?
             </h1>
 
@@ -372,90 +430,234 @@
                 id="phone-number"
                 name="phone"
                 placeholder="Phone"
-                class="w-full px-4 py-3.5 rounded-lg border border-[#dce2ec] text-slate-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1c2d59]/20 focus:border-[#1c2d59] transition-all text-sm sm:text-base"
+                class="w-full px-4 py-3.5 rounded-xl border border-border-silver text-on-surface placeholder:text-text-muted/60 focus:outline-none focus:ring-2 focus:ring-[#05d16e]/30 focus:border-[#05d16e] transition-all text-sm sm:text-base"
                 autocomplete="tel"
                 required
               />
-              <p id="phone-error" class="hidden text-xs text-red-500 mt-2 font-medium">Please enter a valid phone number to continue.</p>
+              <p id="phone-error" class="hidden text-xs text-error mt-2 font-medium">Please enter a valid phone number to continue.</p>
 
-              <p class="text-xs text-gray-500 mt-4 text-center leading-relaxed">
+              <p class="text-xs text-text-muted mt-4 text-center leading-relaxed">
                 Your information will be used in accordance with Fleetmatrix's privacy policy.
               </p>
             </div>
           </div>
 
-          <!-- FINAL COMPLETION STATE -->
-          <div id="step-complete" class="wizard-step fade-step hidden text-center py-6">
-            <div class="w-16 h-16 bg-[#05D16E]/15 text-[#05D16E] rounded-full flex items-center justify-center mx-auto mb-4">
+          <!-- STEP 8: PREVIEW & REVIEW STEP -->
+          <div id="step-preview" class="wizard-step fade-step hidden">
+            <div class="text-center mb-5">
+              <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-3 border border-primary/20">
+                <span class="material-symbols-outlined text-2xl font-bold">assignment</span>
+              </div>
+              <h1 class="text-2xl sm:text-[26px] font-bold text-primary tracking-tight mb-1.5 leading-snug font-display">
+                Review Your Demo Request
+              </h1>
+              <p class="text-text-muted text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+                Please verify your information below. Click <strong>Go Back</strong> to make changes or <strong>Submit</strong> to finalize.
+              </p>
+            </div>
+
+            <!-- Summary details card -->
+            <div class="bg-surface-container-low/70 rounded-2xl p-4 sm:p-5 text-left border border-border-silver mb-6 space-y-3 text-xs sm:text-sm">
+              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+                <div class="flex items-center gap-2 overflow-hidden pr-2">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Contact:</span>
+                  <span class="font-semibold text-on-surface truncate" id="preview-name">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(4)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Contact Name"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+                <div class="flex items-center gap-2 overflow-hidden pr-2">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Company:</span>
+                  <span class="font-semibold text-on-surface truncate" id="preview-company">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(3)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Company Name"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+                <div class="flex items-center gap-2 overflow-hidden pr-2">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Email:</span>
+                  <span class="font-semibold text-on-surface truncate" id="preview-email">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(5)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Email Address"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+                <div class="flex items-center gap-2 overflow-hidden pr-2">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Phone:</span>
+                  <span class="font-semibold text-on-surface truncate" id="preview-phone">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(6)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Phone Number"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+                <div class="flex items-center gap-2 overflow-hidden pr-2">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Fleet Size:</span>
+                  <span class="font-semibold text-on-surface truncate" id="preview-fleet">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(0)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Fleet Size"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+              <div class="flex justify-between items-start pt-0.5">
+                <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 pr-2 overflow-hidden">
+                  <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px] shrink-0">Selected Features:</span>
+                  <span class="font-semibold text-on-surface max-w-[200px]" id="preview-features">-</span>
+                </div>
+                <button
+                  type="button"
+                  onclick="goToStep(2)"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-primary hover:text-primary-container bg-white border border-border-silver hover:bg-surface-container hover:border-primary/40 rounded-lg transition-all shadow-2xs shrink-0 cursor-pointer"
+                  title="Edit Selected Features"
+                >
+                  <span class="material-symbols-outlined text-sm font-semibold text-primary">edit</span>
+                  <span>Edit</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Preview Action Buttons: Go Back and Submit -->
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+              <button
+                type="button"
+                id="preview-back-btn"
+                onclick="prevStep()"
+                class="w-full sm:w-1/2 py-3.5 px-6 border border-border-silver bg-white hover:bg-surface-container-low active:scale-[0.99] text-primary font-semibold rounded-full flex items-center justify-center gap-2 shadow-xs transition-all text-sm sm:text-base cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Go Back</span>
+              </button>
+              <button
+                type="button"
+                id="preview-submit-btn"
+                onclick="submitDemoRequest()"
+                class="w-full sm:w-1/2 py-3.5 px-6 bg-primary hover:bg-primary-container active:scale-[0.99] text-white font-semibold rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all text-sm sm:text-base cursor-pointer"
+              >
+                <span>Submit Request</span>
+                <span class="material-symbols-outlined text-lg">check</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- FINAL COMPLETION STATE (After Submit) -->
+          <div id="step-complete" class="wizard-step fade-step hidden text-center py-4">
+            <div class="w-16 h-16 bg-[#05D16E]/15 text-[#05D16E] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#05D16E]/30">
               <span class="material-symbols-outlined text-3xl font-bold">check_circle</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[#162a55] mb-2" id="confirm-heading">
+            <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-2 font-display" id="confirm-heading">
               Demo Request Received!
             </h2>
-            <p class="text-gray-600 text-sm sm:text-base max-w-md mx-auto mb-6 leading-relaxed" id="confirm-message">
+            <p class="text-text-muted text-sm sm:text-base max-w-md mx-auto mb-6 leading-relaxed" id="confirm-message">
               Thank you! Our fleet specialist will reach out to you shortly to schedule your personalized Fleetmatrix walkthrough.
             </p>
 
-            <!-- Summary details card -->
-            <div class="bg-gray-50 rounded-xl p-4 sm:p-5 text-left border border-gray-200 mb-6 max-w-md mx-auto space-y-2 text-xs sm:text-sm">
-              <div class="flex justify-between border-b border-gray-200 pb-2">
-                <span class="text-gray-500">Contact:</span>
-                <span class="font-semibold text-slate-800" id="summary-name">-</span>
+            <!-- Final Submitted details card -->
+            <div class="bg-surface-container-low/70 rounded-2xl p-4 sm:p-5 text-left border border-border-silver mb-6 max-w-md mx-auto space-y-2.5 text-xs sm:text-sm">
+              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+                <span class="text-text-muted">Contact:</span>
+                <span class="font-semibold text-on-surface" id="summary-name">-</span>
               </div>
-              <div class="flex justify-between border-b border-gray-200 pb-2">
-                <span class="text-gray-500">Company:</span>
-                <span class="font-semibold text-slate-800" id="summary-company">-</span>
+              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+                <span class="text-text-muted">Company:</span>
+                <span class="font-semibold text-on-surface" id="summary-company">-</span>
               </div>
-              <div class="flex justify-between border-b border-gray-200 pb-2">
-                <span class="text-gray-500">Email:</span>
-                <span class="font-semibold text-slate-800" id="summary-email">-</span>
+              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+                <span class="text-text-muted">Email:</span>
+                <span class="font-semibold text-on-surface" id="summary-email">-</span>
               </div>
-              <div class="flex justify-between border-b border-gray-200 pb-2">
-                <span class="text-gray-500">Fleet Size:</span>
-                <span class="font-semibold text-slate-800" id="summary-fleet">-</span>
+              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+                <span class="text-text-muted">Phone:</span>
+                <span class="font-semibold text-on-surface" id="summary-phone">-</span>
+              </div>
+              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+                <span class="text-text-muted">Fleet Size:</span>
+                <span class="font-semibold text-on-surface" id="summary-fleet">-</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-gray-500">Selected Features:</span>
-                <span class="font-semibold text-slate-800 text-right max-w-[200px]" id="summary-features">-</span>
+                <span class="text-text-muted">Selected Features:</span>
+                <span class="font-semibold text-on-surface text-right max-w-[200px]" id="summary-features">-</span>
               </div>
             </div>
 
             <a
               href="index.html"
-              class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1c2d59] text-white rounded-full text-sm font-semibold hover:bg-[#111c38] shadow-md hover:shadow-lg transition-all"
+              class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary hover:bg-primary-container text-white rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all"
             >
-              Return to Homepage
+              <span>Return to Homepage</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </div>
 
           <!-- Validation notice -->
-          <div id="validation-notice" class="hidden mt-3 p-2.5 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg text-center font-medium">
+          <div id="validation-notice" class="hidden mt-3 p-3 bg-red-50 border border-red-200 text-error text-xs rounded-xl text-center font-medium">
             Please make a selection to continue.
           </div>
 
-          <!-- Navigation Action Button Area -->
+          <!-- Navigation Action Button Area for Steps 1-7 -->
           <div id="nav-buttons-container" class="mt-7">
             <button
               type="button"
               id="continue-btn"
               onclick="nextStep()"
-              class="w-full py-3.5 sm:py-4 px-6 bg-[#1c2d59] hover:bg-[#111c38] active:scale-[0.99] text-white font-semibold rounded-full flex items-center justify-center gap-2 shadow-sm transition-all text-sm sm:text-base cursor-pointer"
+              class="w-full py-3.5 sm:py-4 px-6 bg-primary hover:bg-primary-container active:scale-[0.99] text-white font-semibold rounded-full flex items-center justify-center gap-2 shadow-sm hover:shadow transition-all text-sm sm:text-base cursor-pointer"
             >
               <span id="continue-btn-text">Continue</span>
               <span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
             </button>
 
-            <!-- Previous Link -->
-            <div class="mt-4 text-center">
+            <!-- Previous & Return to Review Links -->
+            <div class="mt-4 flex items-center justify-center gap-4">
               <button
                 type="button"
                 id="prev-btn"
                 onclick="prevStep()"
-                class="hidden inline-flex items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-slate-700 hover:text-black py-1 px-3 transition-colors cursor-pointer"
+                class="hidden inline-flex items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-text-muted hover:text-primary py-1 px-3 transition-colors cursor-pointer"
               >
                 <span class="material-symbols-outlined text-sm font-bold">chevron_left</span>
                 <span>Previous</span>
+              </button>
+              <button
+                type="button"
+                id="return-review-btn"
+                onclick="returnToPreview()"
+                class="hidden inline-flex items-center justify-center gap-1 text-xs sm:text-sm font-semibold text-primary hover:text-primary-container py-1 px-3 bg-surface-container-low border border-border-silver rounded-lg transition-all cursor-pointer"
+              >
+                <span>Return to Review</span>
+                <span class="material-symbols-outlined text-sm font-bold">chevron_right</span>
               </button>
             </div>
           </div>
@@ -465,18 +667,20 @@
 
     <!-- Wizard JavaScript Logic -->
     <script>
-      // Step Configuration matching all 7 reference images
+      // Step Configuration matching 8 steps (Step 1-7 inputs + Step 8 Preview)
       const steps = [
         { id: 1, elementId: 'step-1', progress: 0, progressLabel: 'Progress 0%' },
         { id: 2, elementId: 'step-2', progress: 14, progressLabel: 'Progress 14%' },
-        { id: 3, elementId: 'step-3', progress: 29, progressLabel: 'Progress 29%' },
-        { id: 4, elementId: 'step-4', progress: 43, progressLabel: 'Progress 43%' },
+        { id: 3, elementId: 'step-3', progress: 28, progressLabel: 'Progress 28%' },
+        { id: 4, elementId: 'step-4', progress: 42, progressLabel: 'Progress 42%' },
         { id: 5, elementId: 'step-5', progress: 57, progressLabel: 'Progress 57%' },
         { id: 6, elementId: 'step-6', progress: 71, progressLabel: 'Progress 71%' },
-        { id: 7, elementId: 'step-7', progress: 86, progressLabel: 'Progress 86%' },
+        { id: 7, elementId: 'step-7', progress: 85, progressLabel: 'Progress 85%' },
+        { id: 8, elementId: 'step-preview', progress: 100, progressLabel: 'Preview Request' },
       ];
 
       let currentStepIndex = 0;
+      let isEditingFromPreview = false;
       const formData = {
         fleetSize: '',
         solutionFor: '',
@@ -517,29 +721,55 @@
           }
         });
 
-        // Hide completion state if navigating back
+        // Hide final completion state if navigating wizard
         const completeEl = document.getElementById('step-complete');
         if (completeEl) completeEl.classList.add('hidden');
-        document.getElementById('nav-buttons-container').classList.remove('hidden');
-        document.getElementById('progress-container').classList.remove('hidden');
+        document.getElementById('progress-container')?.classList.remove('hidden');
 
-        // Toggle Previous button
-        const prevBtn = document.getElementById('prev-btn');
-        if (prevBtn) {
-          if (currentStepIndex === 0) {
-            prevBtn.classList.add('hidden');
-          } else {
-            prevBtn.classList.remove('hidden');
+        // Handle navigation controls layout depending on step
+        const navContainer = document.getElementById('nav-buttons-container');
+        if (currentStepIndex === 7) {
+          // On Preview step (Step 8), preview block has its own Go Back and Submit buttons
+          if (navContainer) navContainer.classList.add('hidden');
+          isEditingFromPreview = false;
+          populatePreviewData();
+        } else {
+          if (navContainer) navContainer.classList.remove('hidden');
+
+          // Toggle Previous button
+          const prevBtn = document.getElementById('prev-btn');
+          if (prevBtn) {
+            if (currentStepIndex === 0) {
+              prevBtn.classList.add('hidden');
+            } else {
+              prevBtn.classList.remove('hidden');
+            }
+          }
+
+          // Toggle Return to Review button
+          const returnReviewBtn = document.getElementById('return-review-btn');
+          if (returnReviewBtn) {
+            if (isEditingFromPreview) {
+              returnReviewBtn.classList.remove('hidden');
+            } else {
+              returnReviewBtn.classList.add('hidden');
+            }
+          }
+
+          // Update main continue button text
+          const continueBtnText = document.getElementById('continue-btn-text');
+          if (continueBtnText) {
+            if (isEditingFromPreview) {
+              continueBtnText.innerText = 'Save & Return to Review';
+            } else if (currentStepIndex === 6) {
+              continueBtnText.innerText = 'Preview Request';
+            } else {
+              continueBtnText.innerText = 'Continue';
+            }
           }
         }
 
-        // Update button text for final step
-        const continueBtnText = document.getElementById('continue-btn-text');
-        if (continueBtnText) {
-          continueBtnText.innerText = 'Continue';
-        }
-
-        // Hide validation messages on step change
+        // Hide validation notices on step change
         hideValidationNotice();
 
         // Focus input on text steps
@@ -554,6 +784,22 @@
             document.getElementById('phone-number')?.focus();
           }
         }, 100);
+      }
+
+      function populatePreviewData() {
+        const nameEl = document.getElementById('preview-name');
+        const companyEl = document.getElementById('preview-company');
+        const emailEl = document.getElementById('preview-email');
+        const phoneEl = document.getElementById('preview-phone');
+        const fleetEl = document.getElementById('preview-fleet');
+        const featuresEl = document.getElementById('preview-features');
+
+        if (nameEl) nameEl.innerText = `${formData.firstName} ${formData.lastName}`.trim() || '-';
+        if (companyEl) companyEl.innerText = formData.companyName || '-';
+        if (emailEl) emailEl.innerText = formData.email || '-';
+        if (phoneEl) phoneEl.innerText = formData.phone || '-';
+        if (fleetEl) fleetEl.innerText = formData.fleetSize ? `${formData.fleetSize} vehicles (${formData.solutionFor || 'Business/Personal'})` : '-';
+        if (featuresEl) featuresEl.innerText = formData.features.length ? formData.features.join(', ') : 'General Fleet Management';
       }
 
       function selectRadio(input) {
@@ -672,15 +918,39 @@
         return true;
       }
 
+      function goToStep(stepIndex) {
+        if (currentStepIndex === 7 && stepIndex < 7) {
+          isEditingFromPreview = true;
+        }
+        if (stepIndex >= 0 && stepIndex < steps.length) {
+          currentStepIndex = stepIndex;
+          updateUI();
+        }
+      }
+
+      function returnToPreview() {
+        if (!validateCurrentStep()) return;
+        isEditingFromPreview = false;
+        currentStepIndex = 7;
+        updateUI();
+      }
+
       function nextStep() {
         if (!validateCurrentStep()) return;
+
+        if (isEditingFromPreview) {
+          isEditingFromPreview = false;
+          currentStepIndex = 7;
+          updateUI();
+          return;
+        }
 
         if (currentStepIndex < steps.length - 1) {
           currentStepIndex++;
           updateUI();
         } else {
-          // Reached end of all 7 steps -> Submit / Complete
-          showCompletionState();
+          // Submitting from Preview Step
+          submitDemoRequest();
         }
       }
 
@@ -691,7 +961,7 @@
         }
       }
 
-      function showCompletionState() {
+      function submitDemoRequest() {
         // Hide all step containers and navigation
         steps.forEach((s) => {
           document.getElementById(s.elementId)?.classList.add('hidden');
@@ -704,14 +974,15 @@
           completeEl.classList.remove('hidden');
         }
 
-        // Fill summary details
-        document.getElementById('summary-name').innerText = `${formData.firstName} ${formData.lastName}`;
-        document.getElementById('summary-company').innerText = formData.companyName;
-        document.getElementById('summary-email').innerText = formData.email;
-        document.getElementById('summary-fleet').innerText = `${formData.fleetSize} vehicles (${formData.solutionFor})`;
+        // Fill final summary details
+        document.getElementById('summary-name').innerText = `${formData.firstName} ${formData.lastName}`.trim() || '-';
+        document.getElementById('summary-company').innerText = formData.companyName || '-';
+        document.getElementById('summary-email').innerText = formData.email || '-';
+        document.getElementById('summary-phone').innerText = formData.phone || '-';
+        document.getElementById('summary-fleet').innerText = formData.fleetSize ? `${formData.fleetSize} vehicles (${formData.solutionFor || 'Business/Personal'})` : '-';
         document.getElementById('summary-features').innerText = formData.features.join(', ') || 'General Fleet Management';
 
-        // Update progress bar to 100%
+        // Update progress bar to 100% Completed
         const progressBarFill = document.getElementById('progress-bar-fill');
         const progressText = document.getElementById('progress-text');
         const stepCounter = document.getElementById('step-counter');
@@ -721,7 +992,7 @@
           stepCounter.innerText = 'Completed';
         }
 
-        console.log('Final Demo Request Payload:', formData);
+        console.log('Submitted Demo Request Payload:', formData);
       }
 
       function handleClose() {
