@@ -276,12 +276,31 @@
       };
     </script>
 <style>
-      /* ── Base Global Font Rule ────────────────────── */
+      /* ── Base Global Font & Layout Stability Rules ────────────────────── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
       *, body, button, input, select, textarea {
         font-family: "Montserrat", sans-serif;
       }
       .material-symbols-outlined {
         font-family: "Material Symbols Outlined" !important;
+        flex-shrink: 0;
+      }
+      p, h1, h2, h3, h4, h5, h6, span, a, li, label, td, th {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .flex > *, .grid > * {
+        min-width: 0;
+      }
+      img, svg, video, iframe {
+        max-width: 100%;
+        height: auto;
       }
 
       /* ── Base Utilities ───────────────────────────── */
@@ -618,8 +637,9 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
-      .typewriter-heading {
-        min-height: 1.1em;
+      .typewriter-heading, .hero-heading {
+        display: block;
+        min-height: 2.4em;
       }
       .tw-accent {
         color: #05D16E;
@@ -781,34 +801,34 @@
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="index.html">Home</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="aboutus.html">About Us</a>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined">location_on</span>Vehicle Tracking</a>
-            <a href="dash_cam.html"><span class="material-symbols-outlined">videocam</span>Driver Safety &amp; Dashcams</a>
-            <a href="asset_tracking.html"><span class="material-symbols-outlined">inventory_2</span>Asset Tracking</a>
-            <a href="tachograph.html"><span class="material-symbols-outlined">badge</span>Digital Tachograph</a>
-            <a href="route_optimization.html"><span class="material-symbols-outlined">alt_route</span>Route Optimisation</a>
+            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined shrink-0">location_on</span>Vehicle Tracking</a>
+            <a href="dash_cam.html"><span class="material-symbols-outlined shrink-0">videocam</span>Driver Safety &amp; Dashcams</a>
+            <a href="asset_tracking.html"><span class="material-symbols-outlined shrink-0">inventory_2</span>Asset Tracking</a>
+            <a href="tachograph.html"><span class="material-symbols-outlined shrink-0">badge</span>Digital Tachograph</a>
+            <a href="route_optimization.html"><span class="material-symbols-outlined shrink-0">alt_route</span>Route Optimisation</a>
           </div>
         </div>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="industry-logistics.html"><span class="material-symbols-outlined">local_shipping</span>Logistics &amp; Delivery</a>
-            <a href="industry-construction.html"><span class="material-symbols-outlined">construction</span>Construction &amp; Plant</a>
-            <a href="industry-field-services.html"><span class="material-symbols-outlined">engineering</span>Field Services</a>
-            <a href="industry-utilities.html"><span class="material-symbols-outlined">electric_bolt</span>Utilities</a>
-            <a href="industry-transport.html"><span class="material-symbols-outlined">directions_bus</span>Transport</a>
-            <a href="industry-small-business.html"><span class="material-symbols-outlined">store</span>Small Business</a>
+            <a href="industry-logistics.html"><span class="material-symbols-outlined shrink-0">local_shipping</span>Logistics &amp; Delivery</a>
+            <a href="industry-construction.html"><span class="material-symbols-outlined shrink-0">construction</span>Construction &amp; Plant</a>
+            <a href="industry-field-services.html"><span class="material-symbols-outlined shrink-0">engineering</span>Field Services</a>
+            <a href="industry-utilities.html"><span class="material-symbols-outlined shrink-0">electric_bolt</span>Utilities</a>
+            <a href="industry-transport.html"><span class="material-symbols-outlined shrink-0">directions_bus</span>Transport</a>
+            <a href="industry-small-business.html"><span class="material-symbols-outlined shrink-0">store</span>Small Business</a>
           </div>
         </div>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="faq.html">FAQs</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="pricing.html">Pricing</a>
       </div>
       <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
       <button class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors" id="mob-menu-btn" onclick="document.getElementById('mob-menu').classList.toggle('hidden')" aria-label="Toggle menu">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+        <span class="material-symbols-outlined shrink-0 text-2xl">menu</span>
       </button>
     </div>
     <div id="mob-menu" class="hidden md:hidden bg-white border-t border-border-silver px-4 py-4 flex flex-col gap-2 shadow-xl max-h-[85vh] overflow-y-auto">
@@ -834,7 +854,7 @@
       <a href="faq.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">FAQs</a>
       <a href="pricing.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">Pricing</a>
       <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
     </div>
   </nav>
@@ -860,7 +880,7 @@
       <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 hero-cta">
         <button onclick="window.location.href='request-demo.html'" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] hover:bg-[#01944d] text-white rounded-full font-label-md font-semibold text-base shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
           Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
         </button>
         <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 rounded-full font-label-md font-semibold text-base transition-all duration-300 cursor-pointer">
           See Pricing
@@ -889,17 +909,17 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <div class="bg-white border border-border-silver rounded-2xl p-6 card-hover space-y-4 reveal stagger-1 shadow-sm">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] transition-colors">construction</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] transition-colors">construction</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254]">Heavy Equipment Monitoring</h3>
 <p class="font-body-md text-base text-text-muted">Keep tabs on excavators, bulldozers, and cranes across multiple job sites to ensure maximum utilization.</p>
 </div>
 <div class="bg-white border border-border-silver rounded-2xl p-6 card-hover space-y-4 reveal stagger-2 shadow-sm">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] transition-colors">local_shipping</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] transition-colors">local_shipping</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254]">Trailer Tracking</h3>
 <p class="font-body-md text-base text-text-muted">Monitor trailer locations, door status, and cargo conditions to optimize routing and improve security.</p>
 </div>
 <div class="bg-white border border-border-silver rounded-2xl p-6 card-hover space-y-4 reveal stagger-3 shadow-sm">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] transition-colors">inventory_2</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] transition-colors">inventory_2</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254]">High Value Assets</h3>
 <p class="font-body-md text-base text-text-muted">Track generators, light towers, and specialized tools with ruggedized, long-lasting GPS beacons.</p>
 </div>
@@ -917,23 +937,23 @@
                     </p>
 <ul class="space-y-3 pt-4">
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Live GPS pinpointing on interactive maps.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Custom geofence alerts for unauthorized movement.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Instant status updates (Active, Idle, Maintenance).</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Historical location playback for route analysis.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Automated daily yard checks and inventory reports.</span>
 </li>
 </ul>
@@ -958,23 +978,23 @@
                     </p>
 <ul class="space-y-3 pt-4">
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Track actual engine hours vs. physical presence.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Identify hoarding behavior on job sites.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Compare performance metrics across asset classes.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Automated utilization threshold alerts.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Exportable data for ERP integration and billing.</span>
 </li>
 </ul>
@@ -993,23 +1013,23 @@
                     </p>
 <ul class="space-y-3 pt-4">
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Usage-based PM (Preventative Maintenance) scheduling.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Digital driver walkaround checks &amp; vehicle defect reporting.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Automated service reminders via email/SMS.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Centralized digital service records and compliance logs.</span>
 </li>
 <li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-sm mt-1">double_arrow</span>
+<span class="material-symbols-outlined shrink-0 text-[#05D16E] text-sm mt-1">double_arrow</span>
 <span class="font-body-md text-base text-text-muted">Defect tracking to resolution workflows.</span>
 </li>
 </ul>
@@ -1027,22 +1047,22 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
 <div class="bg-white p-6 rounded-2xl border border-border-silver transition-all duration-300 hover:shadow-[0_8px_24px_rgba(1,55,125,0.08)] group">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] mb-4">gps_fixed</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] mb-4">gps_fixed</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254] mb-2">Durable GPS Devices</h3>
 <p class="text-text-muted text-base">Rugged hardware designed to withstand the harshest industrial environments.</p>
 </div>
 <div class="bg-white p-6 rounded-2xl border border-border-silver transition-all duration-300 hover:shadow-[0_8px_24px_rgba(1,55,125,0.08)] group">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] mb-4">battery_full</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] mb-4">battery_full</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254] mb-2">Extended Battery Life</h3>
 <p class="text-text-muted text-base">Long-lasting power for non-powered assets that stay in the field for months.</p>
 </div>
 <div class="bg-white p-6 rounded-2xl border border-border-silver transition-all duration-300 hover:shadow-[0_8px_24px_rgba(1,55,125,0.08)] group">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] mb-4">signal_cellular_alt</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] mb-4">signal_cellular_alt</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254] mb-2">3G / 4G Connectivity</h3>
 <p class="text-text-muted text-base">Reliable data transmission across global cellular networks for constant updates.</p>
 </div>
 <div class="bg-white p-6 rounded-2xl border border-border-silver transition-all duration-300 hover:shadow-[0_8px_24px_rgba(1,55,125,0.08)] group">
-<span class="material-symbols-outlined text-4xl text-[#05D16E] mb-4">tune</span>
+<span class="material-symbols-outlined shrink-0 text-4xl text-[#05D16E] mb-4">tune</span>
 <h3 class="font-headline-md text-xl font-bold text-[#002254] mb-2">Customisable Tracking</h3>
 <p class="text-text-muted text-base">Adjust ping frequency based on movement or specific operational needs.</p>
 </div>
@@ -1057,7 +1077,7 @@
 <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
 <span class="font-bold text-lg text-[#002254]">What types of assets can I track?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+<span class="material-symbols-outlined shrink-0 transition-transform group-open:rotate-180 text-primary">expand_more</span>
 </summary>
 <div class="px-6 pb-6 text-text-muted leading-[1.7]">
                     You can track virtually any asset, including trailers, containers, heavy machinery, generators, and even smaller tools using our range of powered and non-powered GPS devices.
@@ -1066,7 +1086,7 @@
 <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
 <span class="font-bold text-lg text-[#002254]">How long does the battery last on non-powered trackers?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+<span class="material-symbols-outlined shrink-0 transition-transform group-open:rotate-180 text-primary">expand_more</span>
 </summary>
 <div class="px-6 pb-6 text-text-muted leading-[1.7]">
                     Depending on the ping frequency, our long-life battery devices can last up to 5-7 years on a single charge, making them ideal for assets without a power source.
@@ -1085,7 +1105,7 @@
 <div class="pt-2">
 <button onclick="window.location.href='request-demo.html'" class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer">
                 Request a Demo
-                <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">chevron_right</span>
+                <span class="material-symbols-outlined shrink-0 ml-2 group-hover:translate-x-1 transition-transform">chevron_right</span>
 </button>
 </div>
 </div>
@@ -1194,6 +1214,10 @@
     sectionHeadings.forEach((heading) => {
       const originalText = heading.textContent.trim();
       if (!originalText) return;
+      const initialH = heading.offsetHeight;
+      if (initialH > 0) {
+        heading.style.minHeight = initialH + "px";
+      }
       heading.dataset.originalText = originalText;
       heading.classList.add("typewriter-heading");
       heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
@@ -1236,6 +1260,12 @@
 
     function initHeroInfiniteTypewriter(el, phrases) {
       if (!phrases || !phrases.length) return;
+      const initialH = el.offsetHeight;
+      if (initialH > 0) {
+        el.style.minHeight = initialH + "px";
+      } else {
+        el.style.minHeight = "2.4em";
+      }
       el.classList.add("typewriter-heading");
       el.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span><span class="typewriter-cursor"></span>`;
       const mainContainer = el.querySelector(".tw-main");
