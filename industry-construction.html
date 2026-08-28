@@ -1,174 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>About Us - Fleetmatrix</title>
-  <meta name="description" content="Learn how Fleetmatrix is redefining fleet mobility through intelligent telematics, automated compliance, and connected operations."/>
-  
-  <!-- Google Fonts -->
+  <title>Fleet Management for Construction & Plant | Fleetmatrix UK</title>
+  <meta name="description" content="Track vehicles, plant machinery and site equipment across UK construction projects. Manage your construction fleet with Fleetmatrix."/>
+  <link rel="canonical" href="https://www.fleetmatrix.co.uk/industry-construction.html"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  
-  <!-- Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
-  <!-- Tailwind Configuration matching index.html -->
-  <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "surface-container-highest": "#d6e3fb",
-              surface: "#f8f9ff",
-              "surface-container-lowest": "#ffffff",
-              "bg-fog": "#F4F7FA",
-              "accent-lime": "#8BED02",
-              "secondary-fixed-dim": "#adc6ff",
-              "on-secondary-fixed-variant": "#004494",
-              "tertiary-fixed-dim": "#32e27d",
-              "on-error": "#ffffff",
-              "on-primary-fixed": "#001a42",
-              "inverse-primary": "#aec6ff",
-              "on-secondary-container": "#003b82",
-              "outline-variant": "#c3c6d2",
-              "on-surface": "#0f1c2d",
-              "surface-dim": "#cedbf2",
-              outline: "#747782",
-              tertiary: "#002b12",
-              "on-surface-variant": "#434751",
-              primary: "#002254",
-              "error-container": "#ffdad6",
-              "brand-gradient":
-                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
-              "primary-fixed-dim": "#aec6ff",
-              "on-background": "#0f1c2d",
-              "surface-tint": "#375da4",
-              secondary: "#295caf",
-              "secondary-fixed": "#d8e2ff",
-              "tertiary-fixed": "#60ff98",
-              "on-primary-fixed-variant": "#19448a",
-              "on-error-container": "#93000a",
-              background: "#f8f9ff",
-              "on-tertiary-fixed": "#00210c",
-              "primary-container": "#01377d",
-              "inverse-on-surface": "#ebf1ff",
-              "surface-container-low": "#eff3ff",
-              "border-silver": "#E4E9F0",
-              "on-tertiary-fixed-variant": "#005227",
-              "surface-variant": "#d6e3fb",
-              "on-secondary": "#ffffff",
-              "on-primary": "#ffffff",
-              "on-tertiary-container": "#00bd62",
-              "surface-container-high": "#dde9ff",
-              "on-tertiary": "#ffffff",
-              "text-muted": "#5A6B84",
-              "tertiary-container": "#00441f",
-              "on-secondary-fixed": "#001a41",
-              "primary-fixed": "#d8e2ff",
-              "surface-container": "#e6eeff",
-              error: "#ba1a1a",
-              "on-primary-container": "#7fa3ef",
-              "inverse-surface": "#253143",
-              "surface-bright": "#f8f9ff",
-              "secondary-container": "#7ba8ff",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "section-padding": "80px",
-              gutter: "24px",
-              "margin-desktop": "40px",
-              "margin-mobile": "16px",
-              "max-width": "1280px",
-              "stack-sm": "8px",
-              "stack-md": "16px",
-              "stack-lg": "24px",
-            },
-            fontFamily: {
-              sans: ["Montserrat", "sans-serif"],
-              "label-md": ["Montserrat", "sans-serif"],
-              "display-lg": ["Montserrat", "sans-serif"],
-              "body-md": ["Montserrat", "sans-serif"],
-              "headline-lg-mobile": ["Montserrat", "sans-serif"],
-              "body-lg": ["Montserrat", "sans-serif"],
-              "label-sm": ["Montserrat", "sans-serif"],
-              "headline-md": ["Montserrat", "sans-serif"],
-              "headline-lg": ["Montserrat", "sans-serif"],
-            },
-            fontSize: {
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  letterSpacing: "0.01em",
-                  fontWeight: "500",
-                },
-              ],
-              "display-lg": [
-                "48px",
-                {
-                  lineHeight: "56px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg-mobile": [
-                "28px",
-                {
-                  lineHeight: "36px",
-                  fontWeight: "700",
-                },
-              ],
-              "body-lg": [
-                "18px",
-                {
-                  lineHeight: "28px",
-                  fontWeight: "400",
-                },
-              ],
-              "label-sm": [
-                "12px",
-                {
-                  lineHeight: "16px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-md": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-lg": [
-                "32px",
-                {
-                  lineHeight: "40px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-            },
-          },
-        },
-      };
-    </script>
-
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { surface: "#F4F7FA", primary: "#002254", "border-silver": "#E4E9F0", "text-muted": "#5A6B84", "accent-green": "#05D16E", "accent-lime": "#8BED02" }, fontFamily: { sans: ["Montserrat","sans-serif"] } } }
+    };
+  </script>
   <style>
       /* ── Base Global Font Rule ────────────────────── */
       *, body, button, input, select, textarea {
@@ -662,9 +509,8 @@
 
   </style>
 </head>
-<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-primary selection:text-white">
+<body class="bg-surface text-[#0f1c2d] min-h-screen flex flex-col">
 
-  <!-- TopNavBar matching index.html -->
     <!-- SHARED NAVBAR -->
   <nav class="fixed top-0 w-full z-50 bg-surface backdrop-blur-md border-b border-border-silver">
     <div class="flex justify-between items-center px-4 sm:px-8 w-full max-w-none py-4">
@@ -734,45 +580,44 @@
     </div>
   </nav>
 
-  <!-- Main Content Workspace -->
   <main class="flex-grow">
-    
-    <!-- 1. Hero Section -->
+        <!-- 1. Hero Section (index.html style) -->
     <section
-      class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[75vh] lg:min-h-[85vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
+      class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[85vh] lg:min-h-[90vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
     >
       <!-- Hero Background Image -->
       <div
-        class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('./assets/aboutus_hero_bg.png')] bg-cover bg-center bg-no-repeat"
+        class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('assets/industry_construction_hero_bg.png')] bg-cover bg-center bg-no-repeat"
       ></div>
       <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-[#001738]/75 pointer-events-none z-0"></div>
+      <div class="absolute inset-0 bg-[#001738]/70 pointer-events-none z-0"></div>
       <div
         class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10"
       >
+        <!-- Text Content -->
         <div
-          class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0 reveal"
+          class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0"
         >
           <span
             class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold"
           >
             <span class="live-dot"></span>
-            ABOUT FLEETMATRIX
+            FLEET & PLANT TRACKING FOR UK CONSTRUCTION
           </span>
           <h1
             class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6 hero-heading leading-tight max-w-4xl font-bold"
           >
-            Redefining Fleet Mobility Through Intelligent Telematics &amp; Connected Operations.
+            Fleet &amp; plant tracking for UK construction projects.
           </h1>
           <p
             class="font-body-lg text-base sm:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl font-semibold hero-body1 mx-auto"
           >
-            We unite vehicle tracking, compliance, driver safety, and route intelligence into a single platform — transforming fragmented telematics data into clear, actionable operational decisions.
+            Monitor vehicles, heavy plant machinery, and site equipment across all active projects — from one single high-visibility workspace.
           </p>
           <p
             class="font-body-md text-sm sm:text-base text-white/80 mb-6 sm:mb-8 max-w-2xl hero-body2 mx-auto"
           >
-            Built around the real-world operational challenges of modern transport, utilities, construction, and field services to give managers full clarity.
+            Reduce downtime, prevent unauthorised out-of-hours movement, and keep your equipment working where it is needed most.
           </p>
           <div
             class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 hero-cta"
@@ -786,222 +631,110 @@
                 >chevron_right</span
               >
             </button>
-            <a
-              href="#purpose"
+            <button
+              onclick="window.location.href='asset_tracking.html'"
               class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-white/10 hover:shadow-md transition-all duration-300 cursor-pointer"
             >
-              Explore the Platform
-              <span class="material-symbols-outlined text-sm">arrow_downward</span>
-            </a>
+              See Asset Tracking
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. 2-COLUMN STORY SECTION (The Problem & Who We Are) -->
-    <section id="purpose" class="py-8 sm:py-12 md:py-section-padding bg-white border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Copy Column -->
-        <div class="lg:col-span-6 flex flex-col reveal">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            OUR PURPOSE
-          </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight leading-tight mb-6 font-display">
-            One Connected Ecosystem. Zero Fragmentation.
-          </h2>
-          <div class="space-y-4 sm:space-y-5 text-text-muted font-body-md text-base sm:text-lg leading-relaxed">
-            <p>
-              Traditional fleet management forces operators to juggle disjointed systems for GPS tracking, tachograph compliance, driver safety, asset monitoring, and maintenance.
-            </p>
-            <p>
-              Fleetmatrix eliminates this complexity. We combine real-time IoT hardware telemetry, automated compliance workflows, and predictive analytics into a unified cloud workspace. Built around the real-world operational challenges of modern transport, utilities, construction, and field services, we give managers full operational clarity without the administrative friction.
-            </p>
-          </div>
+    <!-- CHALLENGES -->
+    <section class="py-16 bg-white border-b border-border-silver px-4 sm:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-3">Challenges construction fleet managers face</h2>
         </div>
-
-        <!-- Right Visual Column -->
-        <div class="lg:col-span-6 reveal reveal-scale stagger-1">
-          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-[#001a41]">
-            <img 
-              src="./assets/aboutus_connected_ecosystem_hub.png" 
-              alt="Fleetmatrix B2B SaaS Architecture Diagram showing data streams converging into a central cloud hub" 
-              class="w-full h-auto object-cover"
-            />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">construction</span>
+            <h3 class="font-bold text-primary">Equipment spread across multiple sites</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Plant, tools and machinery spread across multiple project locations with no clear view of where everything is.</p>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 3. PLATFORM PILLARS (2x2 Bento Grid) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto">
-        
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            ENGINEERED FOR EXCELLENCE
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">security</span>
+            <h3 class="font-bold text-primary">Plant theft and unauthorised movement</h3>
+            <p class="text-text-muted text-sm leading-relaxed">High-value plant and machinery at risk of theft outside of working hours, with limited visibility of movement.</p>
           </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight font-display">
-            Technology Engineered to Scale With Your Fleet
-          </h2>
-        </div>
-
-        <!-- 2x2 Bento Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          
-          <!-- Card 1 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-1 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">hub</span>
-            </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Unified by Design
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Centralises vehicles, drivers, OBD-II/CAN-bus diagnostics, and assets into one high-visibility live map.
-            </p>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">schedule</span>
+            <h3 class="font-bold text-primary">Vehicle utilisation and idle time</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Difficulty knowing which vehicles and equipment are being used efficiently and which are sitting unused between jobs.</p>
           </div>
-
-          <!-- Card 2 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-2 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">psychology</span>
-            </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Intelligence-Driven
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Leverages automated route optimization and AI-powered driver safety to move beyond passive tracking.
-            </p>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">route</span>
+            <h3 class="font-bold text-primary">Site access and vehicle activity</h3>
+            <p class="text-text-muted text-sm leading-relaxed">No clear record of which vehicles visited which sites, when they arrived and how long they were there.</p>
           </div>
-
-          <!-- Card 3 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-3 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">verified</span>
-            </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Frictionless Compliance
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Automates remote digital tachograph downloads, driver card syncing, and proactive infringement prevention.
-            </p>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">engineering</span>
+            <h3 class="font-bold text-primary">Maintenance planning</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Planning vehicle and plant servicing without accurate mileage and usage data to work from.</p>
           </div>
-
-          <!-- Card 4 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-4 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">shield</span>
-            </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Enterprise Resilience
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Built on modern cloud infrastructure designed for high throughput, robust security hardening, and high uptime.
-            </p>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-6 space-y-2 reveal">
+            <span class="material-symbols-outlined text-[#05D16E] text-2xl">people</span>
+            <h3 class="font-bold text-primary">Driver safety on construction routes</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Vehicles travelling to and from sites with limited oversight of driving standards and safety incidents.</p>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 4. MISSION & VISION (Split Contrast Box) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-white border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto reveal">
-        <div class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden border border-border-silver shadow-md">
-          
-          <!-- Left Side (Dark Theme: Mission) -->
-          <div class="bg-[#001a41] p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-4 text-white">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#05D16E] flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg">flag</span>
-              <span>OUR MISSION</span>
-            </div>
-            <p class="font-display-lg text-lg sm:text-xl lg:text-2xl font-semibold leading-relaxed text-white/95">
-              To empower organisations with intelligent fleet technology that turns complex telematics data into measurable cost savings, elevated safety, and streamlined compliance.
-            </p>
+    <!-- HOW IT HELPS -->
+    <section class="py-16 bg-surface border-b border-border-silver px-4 sm:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-3">How Fleetmatrix helps construction fleets</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">map</span></div>
+            <h3 class="font-bold text-xl text-primary">Live vehicle and plant location</h3>
+            <p class="text-text-muted text-sm leading-relaxed">View your vehicles and assets on a live map across all active project sites. Understand which resources are on site and which are in transit.</p>
           </div>
-
-          <!-- Right Side (Light Theme: Vision) -->
-          <div class="bg-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-4 text-primary border-t lg:border-t-0 lg:border-l border-border-silver">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#05D16E] flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg">visibility</span>
-              <span>OUR VISION</span>
-            </div>
-            <p class="font-display-lg text-lg sm:text-xl lg:text-2xl font-semibold leading-relaxed text-primary">
-              To lead the future of connected commercial mobility—bridging AI, electric fleet readiness, and real-time operations into one intuitive platform.
-            </p>
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">polyline</span></div>
+            <h3 class="font-bold text-xl text-primary">Site geofencing</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Set virtual boundaries around project sites and receive automatic notifications when vehicles or plant arrive or leave, including out-of-hours movements.</p>
           </div>
-
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">location_on</span></div>
+            <h3 class="font-bold text-xl text-primary">Non-powered asset tracking</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Track trailers, skips, generators and plant with battery-powered GPS devices. Long battery life and IP67 weatherproof casing for harsh site environments.</p>
+          </div>
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">notifications_active</span></div>
+            <h3 class="font-bold text-xl text-primary">Tamper and theft alerts</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Receive movement alerts outside operating hours to help identify potential unauthorised use or theft of high-value plant and equipment.</p>
+          </div>
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">assessment</span></div>
+            <h3 class="font-bold text-xl text-primary">Mileage and usage reports</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Generate clear usage reports across your fleet and plant to inform maintenance scheduling, cost allocation and project billing.</p>
+          </div>
+          <div class="card bg-white p-7 rounded-2xl border border-border-silver space-y-3 reveal">
+            <div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">videocam</span></div>
+            <h3 class="font-bold text-xl text-primary">Dashcam and driver safety</h3>
+            <p class="text-text-muted text-sm leading-relaxed">Monitor driving behaviours and review incident footage to support safer driving practices for vehicles travelling between depots and construction sites.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. TEAM & EXPERTISE (Left Aligned Photo Layout) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Image Column -->
-        <div class="lg:col-span-6 reveal reveal-left">
-          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
-            <img 
-              src="./assets/aboutus_engineering_team.png" 
-              alt="Fleetmatrix engineering and logistics specialists collaborating in a modern office" 
-              class="w-full h-auto object-cover max-h-[480px]"
-            />
-          </div>
-        </div>
-
-        <!-- Right Copy Column -->
-        <div class="lg:col-span-6 flex flex-col reveal stagger-1">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            ENGINEERED BY PRACTITIONERS
-          </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight leading-tight mb-6 font-display">
-            Built by Fleet Specialists &amp; Software Engineers
-          </h2>
-          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
-            Fleetmatrix brings together multidisciplinary expertise across telematics engineering, cloud infrastructure, AI video safety, and frontline transport management. Every platform release is guided directly by feedback from dispatchers, compliance managers, and fleet directors on the road.
-          </p>
-        </div>
-
+    <!-- CTA -->
+    <section class="py-16 bg-[#002254] text-white text-center px-4 sm:px-8">
+      <div class="max-w-2xl mx-auto reveal">
+        <h2 class="text-3xl font-bold mb-4">Talk to us about your construction fleet</h2>
+        <p class="text-white/80 mb-8">Book a demo to see how Fleetmatrix works for vehicle, plant and equipment tracking on UK construction projects.</p>
+        <a href="request-demo.html" class="inline-block px-8 py-3.5 bg-[#05D16E] hover:bg-[#04b861] text-white rounded-full font-semibold transition-all">Book a Demo</a>
       </div>
     </section>
-
-    <!-- 6. PRE-FOOTER CALL TO ACTION (Navy Banner matching index.html) -->
-    <section class="bg-[#001a41] py-10 sm:py-14 md:py-20 relative overflow-hidden px-4 sm:px-8 md:px-margin-desktop">
-      <!-- Floating particles -->
-      <div class="particle w-3 h-3 bg-[#05D16E]/30" style="left: 12%; top: 75%; animation-duration: 9s; animation-delay: 0s;"></div>
-      <div class="particle w-2 h-2 bg-white/20" style="left: 30%; top: 80%; animation-duration: 7s; animation-delay: 1s;"></div>
-      <div class="particle w-4 h-4 bg-[#8BED02]/20" style="left: 65%; top: 85%; animation-duration: 11s; animation-delay: 2s;"></div>
-
-      <div class="max-w-max-width mx-auto text-center relative z-10 reveal">
-        <div class="mb-4 text-[#8BED02] font-label-sm uppercase tracking-wider font-semibold">
-          MODERN FLEET OPERATIONS
-        </div>
-        <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white mb-6 tracking-tight">
-          Ready to Modernise Your Fleet Operations?
-        </h2>
-        <p class="font-body-lg text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-          Discover how Fleetmatrix simplifies compliance, cuts fuel burn, and gives you total situational control.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="request-demo.html" class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#04b861] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer">
-            Request a Demo
-          </a>
-          <a href="request-demo.html" class="inline-flex items-center justify-center border-2 border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300">
-            Talk to Our Team
-          </a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- Footer matching index.html -->
+  <!-- FOOTER -->
     <!-- SHARED FOOTER -->
   <footer class="w-full py-12 sm:py-16 bg-primary px-4 sm:px-8 md:px-margin-desktop">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-max-width mx-auto pb-10 border-b border-[#375da4]">
@@ -1056,25 +789,7 @@
       <span class="text-xs text-[#d6e3fb]/55">support@fleetmatrix.co.uk &nbsp;|&nbsp; 100 Bishopsgate, London, EC2N 4AG</span>
     </div>
   </footer>
-
-  <!-- Scroll Reveal Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const revealEls = document.querySelectorAll(".reveal");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
-    });
-  </script>
+  
   <script>
     const _obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });

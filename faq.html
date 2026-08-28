@@ -1,174 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>About Us - Fleetmatrix</title>
-  <meta name="description" content="Learn how Fleetmatrix is redefining fleet mobility through intelligent telematics, automated compliance, and connected operations."/>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  
-  <!-- Tailwind CSS -->
+  <title>Fleet Management FAQs | Fleetmatrix UK</title>
+  <meta name="description" content="Answers to the most common questions about Fleetmatrix fleet management software — vehicle tracking, dashcams, tachographs, pricing, contracts and data privacy."/>
+  <link rel="canonical" href="https://www.fleetmatrix.co.uk/faq.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
-  <!-- Tailwind Configuration matching index.html -->
-  <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "surface-container-highest": "#d6e3fb",
-              surface: "#f8f9ff",
-              "surface-container-lowest": "#ffffff",
-              "bg-fog": "#F4F7FA",
-              "accent-lime": "#8BED02",
-              "secondary-fixed-dim": "#adc6ff",
-              "on-secondary-fixed-variant": "#004494",
-              "tertiary-fixed-dim": "#32e27d",
-              "on-error": "#ffffff",
-              "on-primary-fixed": "#001a42",
-              "inverse-primary": "#aec6ff",
-              "on-secondary-container": "#003b82",
-              "outline-variant": "#c3c6d2",
-              "on-surface": "#0f1c2d",
-              "surface-dim": "#cedbf2",
-              outline: "#747782",
-              tertiary: "#002b12",
-              "on-surface-variant": "#434751",
-              primary: "#002254",
-              "error-container": "#ffdad6",
-              "brand-gradient":
-                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
-              "primary-fixed-dim": "#aec6ff",
-              "on-background": "#0f1c2d",
-              "surface-tint": "#375da4",
-              secondary: "#295caf",
-              "secondary-fixed": "#d8e2ff",
-              "tertiary-fixed": "#60ff98",
-              "on-primary-fixed-variant": "#19448a",
-              "on-error-container": "#93000a",
-              background: "#f8f9ff",
-              "on-tertiary-fixed": "#00210c",
-              "primary-container": "#01377d",
-              "inverse-on-surface": "#ebf1ff",
-              "surface-container-low": "#eff3ff",
-              "border-silver": "#E4E9F0",
-              "on-tertiary-fixed-variant": "#005227",
-              "surface-variant": "#d6e3fb",
-              "on-secondary": "#ffffff",
-              "on-primary": "#ffffff",
-              "on-tertiary-container": "#00bd62",
-              "surface-container-high": "#dde9ff",
-              "on-tertiary": "#ffffff",
-              "text-muted": "#5A6B84",
-              "tertiary-container": "#00441f",
-              "on-secondary-fixed": "#001a41",
-              "primary-fixed": "#d8e2ff",
-              "surface-container": "#e6eeff",
-              error: "#ba1a1a",
-              "on-primary-container": "#7fa3ef",
-              "inverse-surface": "#253143",
-              "surface-bright": "#f8f9ff",
-              "secondary-container": "#7ba8ff",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "section-padding": "80px",
-              gutter: "24px",
-              "margin-desktop": "40px",
-              "margin-mobile": "16px",
-              "max-width": "1280px",
-              "stack-sm": "8px",
-              "stack-md": "16px",
-              "stack-lg": "24px",
-            },
-            fontFamily: {
-              sans: ["Montserrat", "sans-serif"],
-              "label-md": ["Montserrat", "sans-serif"],
-              "display-lg": ["Montserrat", "sans-serif"],
-              "body-md": ["Montserrat", "sans-serif"],
-              "headline-lg-mobile": ["Montserrat", "sans-serif"],
-              "body-lg": ["Montserrat", "sans-serif"],
-              "label-sm": ["Montserrat", "sans-serif"],
-              "headline-md": ["Montserrat", "sans-serif"],
-              "headline-lg": ["Montserrat", "sans-serif"],
-            },
-            fontSize: {
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  letterSpacing: "0.01em",
-                  fontWeight: "500",
-                },
-              ],
-              "display-lg": [
-                "48px",
-                {
-                  lineHeight: "56px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg-mobile": [
-                "28px",
-                {
-                  lineHeight: "36px",
-                  fontWeight: "700",
-                },
-              ],
-              "body-lg": [
-                "18px",
-                {
-                  lineHeight: "28px",
-                  fontWeight: "400",
-                },
-              ],
-              "label-sm": [
-                "12px",
-                {
-                  lineHeight: "16px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-md": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-lg": [
-                "32px",
-                {
-                  lineHeight: "40px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-            },
-          },
-        },
-      };
-    </script>
-
+  <script>tailwind.config={theme:{extend:{colors:{surface:"#F4F7FA",primary:"#002254","border-silver":"#E4E9F0","text-muted":"#5A6B84","accent-green":"#05D16E","accent-lime":"#8BED02"},fontFamily:{sans:["Montserrat","sans-serif"]}}}};</script>
   <style>
       /* ── Base Global Font Rule ────────────────────── */
       *, body, button, input, select, textarea {
@@ -662,9 +503,7 @@
 
   </style>
 </head>
-<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-primary selection:text-white">
-
-  <!-- TopNavBar matching index.html -->
+<body class="bg-surface text-[#0f1c2d] min-h-screen flex flex-col">
     <!-- SHARED NAVBAR -->
   <nav class="fixed top-0 w-full z-50 bg-surface backdrop-blur-md border-b border-border-silver">
     <div class="flex justify-between items-center px-4 sm:px-8 w-full max-w-none py-4">
@@ -734,274 +573,239 @@
     </div>
   </nav>
 
-  <!-- Main Content Workspace -->
   <main class="flex-grow">
-    
-    <!-- 1. Hero Section -->
-    <section
-      class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[75vh] lg:min-h-[85vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
-    >
-      <!-- Hero Background Image -->
-      <div
-        class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('./assets/aboutus_hero_bg.png')] bg-cover bg-center bg-no-repeat"
-      ></div>
-      <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-[#001738]/75 pointer-events-none z-0"></div>
-      <div
-        class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10"
-      >
-        <div
-          class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0 reveal"
-        >
-          <span
-            class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold"
-          >
-            <span class="live-dot"></span>
-            ABOUT FLEETMATRIX
-          </span>
-          <h1
-            class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6 hero-heading leading-tight max-w-4xl font-bold"
-          >
-            Redefining Fleet Mobility Through Intelligent Telematics &amp; Connected Operations.
-          </h1>
-          <p
-            class="font-body-lg text-base sm:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl font-semibold hero-body1 mx-auto"
-          >
-            We unite vehicle tracking, compliance, driver safety, and route intelligence into a single platform — transforming fragmented telematics data into clear, actionable operational decisions.
-          </p>
-          <p
-            class="font-body-md text-sm sm:text-base text-white/80 mb-6 sm:mb-8 max-w-2xl hero-body2 mx-auto"
-          >
-            Built around the real-world operational challenges of modern transport, utilities, construction, and field services to give managers full clarity.
-          </p>
-          <div
-            class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 hero-cta"
-          >
-            <button
-              onclick="window.location.href='request-demo.html'"
-              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-[#04b861] hover:shadow-lg transition-all shadow-sm duration-300 cursor-pointer"
-            >
-              Request a Demo
-              <span class="material-symbols-outlined text-sm"
-                >chevron_right</span
-              >
-            </button>
-            <a
-              href="#purpose"
-              class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-white/10 hover:shadow-md transition-all duration-300 cursor-pointer"
-            >
-              Explore the Platform
-              <span class="material-symbols-outlined text-sm">arrow_downward</span>
-            </a>
-          </div>
-        </div>
+    <!-- HERO -->
+    <section class="pt-28 sm:pt-36 pb-12 bg-[#002254] text-white px-4 sm:px-8 text-center">
+      <div class="max-w-3xl mx-auto reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#05D16E]/10 border border-[#05D16E]/20 text-[#8BED02] text-xs font-semibold uppercase tracking-wider mb-4">FREQUENTLY ASKED QUESTIONS</div>
+        <h1 class="text-3xl sm:text-5xl font-bold mb-4 leading-tight">Questions about Fleetmatrix</h1>
+        <p class="text-white/80 text-lg">Straightforward answers to the most common questions about our fleet management software.</p>
       </div>
     </section>
 
-    <!-- 2. 2-COLUMN STORY SECTION (The Problem & Who We Are) -->
-    <section id="purpose" class="py-8 sm:py-12 md:py-section-padding bg-white border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Copy Column -->
-        <div class="lg:col-span-6 flex flex-col reveal">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            OUR PURPOSE
-          </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight leading-tight mb-6 font-display">
-            One Connected Ecosystem. Zero Fragmentation.
-          </h2>
-          <div class="space-y-4 sm:space-y-5 text-text-muted font-body-md text-base sm:text-lg leading-relaxed">
-            <p>
-              Traditional fleet management forces operators to juggle disjointed systems for GPS tracking, tachograph compliance, driver safety, asset monitoring, and maintenance.
-            </p>
-            <p>
-              Fleetmatrix eliminates this complexity. We combine real-time IoT hardware telemetry, automated compliance workflows, and predictive analytics into a unified cloud workspace. Built around the real-world operational challenges of modern transport, utilities, construction, and field services, we give managers full operational clarity without the administrative friction.
-            </p>
+    <!-- FAQ BODY -->
+    <section class="py-16 px-4 sm:px-8">
+      <div class="max-w-3xl mx-auto space-y-16">
+
+        <!-- Category: Vehicle Tracking -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Vehicle Tracking</h2>
+          <div class="space-y-3" id="faq-tracking">
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How does vehicle tracking work?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                A small telemetry device is installed in each vehicle. The device uses GPS to determine the vehicle's location and sends that information, along with other data such as speed and ignition status, to the Fleetmatrix platform using a mobile network SIM card. You can then view this information from any web browser or mobile device.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How is the tracking device installed in the vehicle?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                We offer two types of tracking hardware. Hardwired units are connected directly to the vehicle's electrical system by a qualified auto-electrician and are generally used for long-term installations. OBD-II plug-in units can be fitted quickly to most cars and vans without any wiring. Our team will advise on the best option for your vehicle types.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Does Fleetmatrix work across the UK?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Yes. Our tracking devices use multi-network SIM cards that roam across major UK mobile networks, giving reliable coverage across Great Britain and Northern Ireland. Coverage in remote rural areas depends on the mobile network infrastructure in that location. Please ask about European coverage if your vehicles operate internationally.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Can vehicles be tracked during private use?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                This is something fleet operators should consider carefully. Where vehicles are used privately, you may wish to enable a private mode that pauses detailed tracking. Fleetmatrix provides tools to support private-use policies, but fleet operators are responsible for setting appropriate monitoring policies and informing drivers. We recommend reading our Driver Privacy Guide for further guidance.
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Right Visual Column -->
-        <div class="lg:col-span-6 reveal reveal-scale stagger-1">
-          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-[#001a41]">
-            <img 
-              src="./assets/aboutus_connected_ecosystem_hub.png" 
-              alt="Fleetmatrix B2B SaaS Architecture Diagram showing data streams converging into a central cloud hub" 
-              class="w-full h-auto object-cover"
-            />
+        <!-- Category: Driver Privacy -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Driver Privacy &amp; Monitoring</h2>
+          <div class="space-y-3">
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How is driver information handled?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Vehicle location and journey data can often be linked to an individual driver and therefore constitutes personal data under UK data protection law. Fleet operators act as the data controller for this information. Fleetmatrix acts as a data processor. Operators should ensure they have informed drivers, established a lawful basis and set appropriate retention periods.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Should I tell my drivers about vehicle tracking?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Yes. As a general rule under UK data protection law, you should inform employees when monitoring is taking place. This means telling drivers that tracking devices are installed, what information is collected, who can access it and why it is being collected. We recommend taking appropriate legal advice on your specific situation. Our Driver Privacy Guide provides further context.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Does Fleetmatrix make my fleet GDPR compliant?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                No. Fleetmatrix provides tools designed to support responsible fleet monitoring and data management, but we cannot make your fleet legally compliant. Fleet operators remain responsible for their own data protection obligations including lawful basis, driver notices, access controls, retention periods and responding to data-subject rights requests. Always seek appropriate legal advice if you are unsure.
+              </div>
+            </div>
+
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- Category: Dashcams -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Dashcams &amp; Video</h2>
+          <div class="space-y-3">
 
-    <!-- 3. PLATFORM PILLARS (2x2 Bento Grid) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto">
-        
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            ENGINEERED FOR EXCELLENCE
-          </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight font-display">
-            Technology Engineered to Scale With Your Fleet
-          </h2>
-        </div>
-
-        <!-- 2x2 Bento Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          
-          <!-- Card 1 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-1 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">hub</span>
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Does Fleetmatrix support dashcams?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Yes. Fleetmatrix supports forward-facing HD dashcams that record road footage and automatically upload short video clips when a defined event occurs, such as heavy braking or a significant impact. Optional inward-facing cameras are also available depending on the specific camera hardware selected.
+              </div>
             </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Unified by Design
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Centralises vehicles, drivers, OBD-II/CAN-bus diagnostics, and assets into one high-visibility live map.
-            </p>
-          </div>
 
-          <!-- Card 2 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-2 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">psychology</span>
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Is audio recorded by dashcams?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Some dashcam hardware has the ability to record audio. Whether audio recording is enabled is a decision made by the fleet operator during installation and configuration. If audio recording is active, drivers should be informed. This is a separate consideration to video recording and has distinct privacy implications.
+              </div>
             </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Intelligence-Driven
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Leverages automated route optimization and AI-powered driver safety to move beyond passive tracking.
-            </p>
-          </div>
 
-          <!-- Card 3 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-3 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">verified</span>
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How long is dashcam video stored?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Event clips triggered by vehicle incidents are retained in cloud storage for 90 days by default. Continuous footage stored locally on the camera's SD card is automatically overwritten as new footage is recorded, unless a specific event has caused a clip to be flagged and uploaded. Retention settings can be configured by the fleet administrator.
+              </div>
             </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Frictionless Compliance
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Automates remote digital tachograph downloads, driver card syncing, and proactive infringement prevention.
-            </p>
-          </div>
 
-          <!-- Card 4 -->
-          <div class="bg-white p-8 rounded-2xl border border-border-silver card-hover flex flex-col gap-4 reveal stagger-4 shadow-xs">
-            <div class="w-14 h-14 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
-              <span class="material-symbols-outlined text-3xl font-semibold">shield</span>
-            </div>
-            <h3 class="font-display-lg text-xl sm:text-2xl font-bold text-primary tracking-tight">
-              Enterprise Resilience
-            </h3>
-            <p class="font-body-md text-text-muted text-base leading-relaxed">
-              Built on modern cloud infrastructure designed for high throughput, robust security hardening, and high uptime.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. MISSION & VISION (Split Contrast Box) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-white border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto reveal">
-        <div class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden border border-border-silver shadow-md">
-          
-          <!-- Left Side (Dark Theme: Mission) -->
-          <div class="bg-[#001a41] p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-4 text-white">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#05D16E] flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg">flag</span>
-              <span>OUR MISSION</span>
-            </div>
-            <p class="font-display-lg text-lg sm:text-xl lg:text-2xl font-semibold leading-relaxed text-white/95">
-              To empower organisations with intelligent fleet technology that turns complex telematics data into measurable cost savings, elevated safety, and streamlined compliance.
-            </p>
-          </div>
-
-          <!-- Right Side (Light Theme: Vision) -->
-          <div class="bg-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-4 text-primary border-t lg:border-t-0 lg:border-l border-border-silver">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#05D16E] flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg">visibility</span>
-              <span>OUR VISION</span>
-            </div>
-            <p class="font-display-lg text-lg sm:text-xl lg:text-2xl font-semibold leading-relaxed text-primary">
-              To lead the future of connected commercial mobility—bridging AI, electric fleet readiness, and real-time operations into one intuitive platform.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. TEAM & EXPERTISE (Left Aligned Photo Layout) -->
-    <section class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
-      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Image Column -->
-        <div class="lg:col-span-6 reveal reveal-left">
-          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
-            <img 
-              src="./assets/aboutus_engineering_team.png" 
-              alt="Fleetmatrix engineering and logistics specialists collaborating in a modern office" 
-              class="w-full h-auto object-cover max-h-[480px]"
-            />
           </div>
         </div>
 
-        <!-- Right Copy Column -->
-        <div class="lg:col-span-6 flex flex-col reveal stagger-1">
-          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
-            ENGINEERED BY PRACTITIONERS
+        <!-- Category: Tachograph -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Digital Tachograph</h2>
+          <div class="space-y-3">
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Does Fleetmatrix support Smart 2 tachographs?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Yes. Fleetmatrix supports Smart 2 tachograph vehicles, including remote download of driver card and vehicle unit data files. If you have specific tachograph hardware that you need to confirm compatibility for, please ask our team during your demo.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How often is tachograph data downloaded?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Remote tachograph downloads can be scheduled to occur automatically at regular intervals, such as daily or weekly, depending on your legal download frequency requirements. You can also trigger on-demand downloads from the platform.
+              </div>
+            </div>
+
           </div>
-          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight leading-tight mb-6 font-display">
-            Built by Fleet Specialists &amp; Software Engineers
-          </h2>
-          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
-            Fleetmatrix brings together multidisciplinary expertise across telematics engineering, cloud infrastructure, AI video safety, and frontline transport management. Every platform release is guided directly by feedback from dispatchers, compliance managers, and fleet directors on the road.
-          </p>
+        </div>
+
+        <!-- Category: Assets -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Asset Tracking</h2>
+          <div class="space-y-3">
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Can I track trailers and equipment as well as vehicles?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Yes. Fleetmatrix supports battery-powered asset trackers designed for non-powered assets such as trailers, generators, skips, plant and equipment. These devices have long battery life (typically 3–5 years at standard ping intervals) and are enclosed in weatherproof IP67 housings for outdoor use.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Pricing & Contracts -->
+        <div class="reveal">
+          <h2 class="text-xl font-bold text-primary mb-6 pb-3 border-b border-border-silver">Pricing &amp; Getting Started</h2>
+          <div class="space-y-3">
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How much does Fleetmatrix cost?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Pricing is tailored to each fleet based on fleet size, hardware requirements, installation and the specific features you need. We provide itemised proposals so you can see exactly what you're paying for. Get in touch to request a quote or book a demo.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">Is there a contract?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                Subscription terms and contract lengths vary depending on the package you choose. We'll discuss this clearly during the sales process so you understand exactly what you're committing to before you proceed. We don't hide contract terms in small print.
+              </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-2xl border border-border-silver overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between px-6 py-4 gap-4">
+                <span class="font-semibold text-sm text-primary">How quickly can we get started?</span>
+                <span class="material-symbols-outlined faq-icon text-text-muted shrink-0">expand_more</span>
+              </div>
+              <div class="faq-answer px-6 pb-5 text-sm text-text-muted leading-relaxed">
+                After your demo and once hardware has been ordered and delivered, most fleets can be onboarded within a few days to a couple of weeks depending on the number of vehicles and installation requirements. OBD-II plug-in devices can typically be set up more quickly than hardwired installations.
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 6. PRE-FOOTER CALL TO ACTION (Navy Banner matching index.html) -->
-    <section class="bg-[#001a41] py-10 sm:py-14 md:py-20 relative overflow-hidden px-4 sm:px-8 md:px-margin-desktop">
-      <!-- Floating particles -->
-      <div class="particle w-3 h-3 bg-[#05D16E]/30" style="left: 12%; top: 75%; animation-duration: 9s; animation-delay: 0s;"></div>
-      <div class="particle w-2 h-2 bg-white/20" style="left: 30%; top: 80%; animation-duration: 7s; animation-delay: 1s;"></div>
-      <div class="particle w-4 h-4 bg-[#8BED02]/20" style="left: 65%; top: 85%; animation-duration: 11s; animation-delay: 2s;"></div>
-
-      <div class="max-w-max-width mx-auto text-center relative z-10 reveal">
-        <div class="mb-4 text-[#8BED02] font-label-sm uppercase tracking-wider font-semibold">
-          MODERN FLEET OPERATIONS
-        </div>
-        <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white mb-6 tracking-tight">
-          Ready to Modernise Your Fleet Operations?
-        </h2>
-        <p class="font-body-lg text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-          Discover how Fleetmatrix simplifies compliance, cuts fuel burn, and gives you total situational control.
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="request-demo.html" class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#04b861] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer">
-            Request a Demo
-          </a>
-          <a href="request-demo.html" class="inline-flex items-center justify-center border-2 border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300">
-            Talk to Our Team
-          </a>
-        </div>
+    <!-- CTA -->
+    <section class="py-16 bg-[#002254] text-white text-center px-4 sm:px-8">
+      <div class="max-w-2xl mx-auto reveal">
+        <h2 class="text-3xl font-bold mb-4">Still have questions?</h2>
+        <p class="text-white/80 mb-8">Our UK team will be happy to answer any questions about how Fleetmatrix works for your fleet.</p>
+        <a href="request-demo.html" class="inline-block px-8 py-3.5 bg-[#05D16E] hover:bg-[#04b861] text-white rounded-full font-semibold transition-all">Book a Demo</a>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer matching index.html -->
     <!-- SHARED FOOTER -->
   <footer class="w-full py-12 sm:py-16 bg-primary px-4 sm:px-8 md:px-margin-desktop">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-max-width mx-auto pb-10 border-b border-[#375da4]">
@@ -1057,24 +861,7 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const revealEls = document.querySelectorAll(".reveal");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
-    });
-  </script>
+  
   <script>
     const _obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });

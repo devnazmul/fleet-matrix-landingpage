@@ -616,208 +616,125 @@
         background-color: #f43f5e;
         box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
       }
-    </style>
+    
+      /* ── Navbar Dropdowns ────────────────────────── */
+      .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 230px;
+        background: #ffffff;
+        border: 1px solid #E4E9F0;
+        border-radius: 14px;
+        box-shadow: 0 12px 32px rgba(0, 34, 84, 0.12);
+        padding: 8px 0;
+        z-index: 100;
+      }
+      .nav-dropdown::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 0;
+        right: 0;
+        height: 12px;
+      }
+      .nav-group:hover .nav-dropdown {
+        display: block;
+      }
+      .nav-dropdown a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: #434751;
+        font-weight: 500;
+        transition: background 0.15s, color 0.15s;
+        text-decoration: none;
+      }
+      .nav-dropdown a:hover {
+        color: #002254;
+        background: #f8f9ff;
+      }
+      .nav-dropdown a .material-symbols-outlined {
+        font-size: 16px;
+        color: #05D16E;
+        flex-shrink: 0;
+      }
+
+  </style>
   </head>
   <body
     class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden"
   >
-    <!-- TopNavBar -->
-    <nav
-      class="fixed top-0 w-full z-50 bg-surface dark:bg-primary backdrop-blur-md border-b border-border-silver dark:border-primary-container"
-    >
-      <div
-        class="flex justify-between items-center px-4 sm:px-8 md:px-8 w-full max-w-none py-4"
-      >
-        <div class="flex items-center gap-3">
-          <img
-            alt="Fleetmatrix Logo"
-            class="h-8 sm:h-10 w-auto"
-            src="./assets/fleetmatrix_logo.png"
-          />
-          <a href="index.html">
-            <span
-              class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl"
-              >Fleetmatrix</span
-            >
-          </a>
-        </div>
-        <div class="hidden md:flex gap-8 items-center">
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="index.html"
-            >Home</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="aboutus.html"
-            >About Us</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="gps_fleet_tracking.html"
-            >Fleet Tracking</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="dash_cam.html"
-            >AI Powered Dash Cam</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="asset_tracking.html"
-            >Asset Tracking</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="tachograph.html"
-            >Digital Tachograph</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="route_optimization.html"
-            >Route Optimization</a
-          >
-          <!-- Page Switcher Dropdown -->
-          <!-- <div class="relative group">
-            <button
-              class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300 flex items-center gap-1"
-            >
-              More
-              <span class="material-symbols-outlined text-sm">expand_more</span>
-            </button>
-            <div
-              class="absolute top-full right-0 mt-2 w-44 bg-white dark:bg-[#01377D] rounded-xl shadow-xl border border-border-silver dark:border-primary-container opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden"
-            >
-             <a
-                href="route_optimization.html"
-                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
-                >Route Optimization</a
-              >
-              <a
-                href="index.html"
-                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-primary dark:text-white bg-accent-lime/10 border-l-2 border-accent-lime hover:bg-accent-lime/20 transition-all"
-                >⚡ Design 1</a
-              >
-              <a
-                href="index2.html"
-                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
-                >🔵 Design 2</a
-              >
-              <a
-                href="index3.html"
-                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
-                >🌿 Design 3</a
-              >
-              <a
-                href="index4.html"
-                class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-on-surface-variant dark:text-white/80 hover:bg-gray-50 dark:hover:bg-white/10 transition-all"
-                >🎯 Design 4</a
-              >
-            </div>
-          </div> -->
-        </div>
-        <button
-          onclick="window.location.href='request-demo.html'"
-          class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer"
-        >
-          Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
-        </button>
-        <!-- Mobile Menu Toggle -->
-        <button
-          class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
-          id="mobile-menu-btn-idx1"
-          onclick="
-            document
-              .getElementById('mobile-menu-idx1')
-              .classList.toggle('hidden')
-          "
-          aria-label="Toggle menu"
-        >
-          <span class="material-symbols-outlined text-2xl">menu</span>
-        </button>
+   <nav class="fixed top-0 w-full z-50 bg-surface backdrop-blur-md border-b border-border-silver">
+    <div class="flex justify-between items-center px-4 sm:px-8 w-full max-w-none py-4">
+      <div class="flex items-center gap-3">
+        <img alt="Fleetmatrix Logo" class="h-8 sm:h-10 w-auto" src="./assets/fleetmatrix_logo.png"/>
+        <a href="index.html"><span class="font-bold text-primary block text-xl sm:text-2xl">Fleetmatrix</span></a>
       </div>
-
-      <!-- Mobile Dropdown Menu -->
-      <div
-        id="mobile-menu-idx1"
-        class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto"
-      >
-        <a
-          href="index.html"
-          class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10"
-          >Home</a
-        >
-        <a
-          href="aboutus.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >About Us</a
-        >
-        <a
-          href="gps_fleet_tracking.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Fleet Tracking</a
-        >
-        <a
-          href="dash_cam.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >AI Powered Dash Cam</a
-        >
-        <a
-          href="asset_tracking.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Asset Tracking</a
-        >
-        <a
-          href="tachograph.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Digital Tachograph</a
-        >  <a
-                href="route_optimization.html"
-               class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-                >Route Optimization</a
-              >
-
-        <!-- <div
-          class="border-t border-border-silver dark:border-primary-container pt-3 mt-1"
-        >
-          <span
-            class="text-xs font-semibold text-text-muted dark:text-surface-variant uppercase tracking-wider px-3 mb-2 block"
-            >Switch Landing Page Design</span
-          >
-          <div class="grid grid-cols-2 gap-2 px-1">
-            <a
-              href="index.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-accent-lime/10 text-primary dark:text-white font-semibold"
-              >⚡ Design 1</a
-            >
-            <a
-              href="index2.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🔵 Design 2</a
-            >
-            <a
-              href="index3.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🌿 Design 3</a
-            >
-            <a
-              href="index4.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🎯 Design 4</a
-            >
+      <div class="hidden md:flex gap-7 items-center">
+        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="index.html">Home</a>
+        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="aboutus.html">About Us</a>
+        <div class="nav-group relative">
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <div class="nav-dropdown">
+            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined">location_on</span>Vehicle Tracking</a>
+            <a href="dash_cam.html"><span class="material-symbols-outlined">videocam</span>Driver Safety &amp; Dashcams</a>
+            <a href="asset_tracking.html"><span class="material-symbols-outlined">inventory_2</span>Asset Tracking</a>
+            <a href="tachograph.html"><span class="material-symbols-outlined">badge</span>Digital Tachograph</a>
+            <a href="route_optimization.html"><span class="material-symbols-outlined">alt_route</span>Route Optimisation</a>
           </div>
-        </div> -->
-
-        <button
-          onclick="window.location.href='request-demo.html'"
-          class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer"
-        >
-          Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
-        </button>
+        </div>
+        <div class="nav-group relative">
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <div class="nav-dropdown">
+            <a href="industry-logistics.html"><span class="material-symbols-outlined">local_shipping</span>Logistics &amp; Delivery</a>
+            <a href="industry-construction.html"><span class="material-symbols-outlined">construction</span>Construction &amp; Plant</a>
+            <a href="industry-field-services.html"><span class="material-symbols-outlined">engineering</span>Field Services</a>
+            <a href="industry-utilities.html"><span class="material-symbols-outlined">electric_bolt</span>Utilities</a>
+            <a href="industry-transport.html"><span class="material-symbols-outlined">directions_bus</span>Transport</a>
+            <a href="industry-small-business.html"><span class="material-symbols-outlined">store</span>Small Business</a>
+          </div>
+        </div>
+        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="faq.html">FAQs</a>
+        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="pricing.html">Pricing</a>
       </div>
-    </nav>
+      <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
+        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </button>
+      <button class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors" id="mob-menu-btn" onclick="document.getElementById('mob-menu').classList.toggle('hidden')" aria-label="Toggle menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+    <div id="mob-menu" class="hidden md:hidden bg-white border-t border-border-silver px-4 py-4 flex flex-col gap-2 shadow-xl max-h-[85vh] overflow-y-auto">
+      <a href="index.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">Home</a>
+      <a href="aboutus.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">About Us</a>
+      <div class="border-t border-border-silver pt-2 mt-1">
+        <span class="text-xs font-semibold text-text-muted uppercase tracking-wider px-3 mb-1 block">Solutions</span>
+        <a href="gps_fleet_tracking.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Vehicle Tracking</a>
+        <a href="dash_cam.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Driver Safety &amp; Dashcams</a>
+        <a href="asset_tracking.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Asset Tracking</a>
+        <a href="tachograph.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Digital Tachograph</a>
+        <a href="route_optimization.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Route Optimisation</a>
+      </div>
+      <div class="border-t border-border-silver pt-2 mt-1">
+        <span class="text-xs font-semibold text-text-muted uppercase tracking-wider px-3 mb-1 block">Industries</span>
+        <a href="industry-logistics.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Logistics &amp; Delivery</a>
+        <a href="industry-construction.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Construction &amp; Plant</a>
+        <a href="industry-field-services.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Field Services</a>
+        <a href="industry-utilities.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Utilities</a>
+        <a href="industry-transport.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Transport</a>
+        <a href="industry-small-business.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors block">Small Business</a>
+      </div>
+      <a href="faq.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">FAQs</a>
+      <a href="pricing.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">Pricing</a>
+      <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer">
+        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </button>
+    </div>
+  </nav>
     <!-- 1. Hero Section -->
     <section
       class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[85vh] lg:min-h-[90vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]"
