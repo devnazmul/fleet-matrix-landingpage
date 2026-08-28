@@ -1,638 +1,755 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fleetmatrix | GPS Fleet Tracking</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "surface-container-highest": "#d6e3fb",
-              surface: "#f8f9ff",
-              "surface-container-lowest": "#ffffff",
-              "bg-fog": "#F4F7FA",
-              "accent-lime": "#8BED02",
-              "secondary-fixed-dim": "#adc6ff",
-              "on-secondary-fixed-variant": "#004494",
-              "tertiary-fixed-dim": "#32e27d",
-              "on-error": "#ffffff",
-              "on-primary-fixed": "#001a42",
-              "inverse-primary": "#aec6ff",
-              "on-secondary-container": "#003b82",
-              "outline-variant": "#c3c6d2",
-              "on-surface": "#0f1c2d",
-              "surface-dim": "#cedbf2",
-              outline: "#747782",
-              tertiary: "#002b12",
-              "on-surface-variant": "#434751",
-              primary: "#002254",
-              "error-container": "#ffdad6",
-              "brand-gradient":
-                "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
-              "primary-fixed-dim": "#aec6ff",
-              "on-background": "#0f1c2d",
-              "surface-tint": "#375da4",
-              secondary: "#295caf",
-              "secondary-fixed": "#d8e2ff",
-              "tertiary-fixed": "#60ff98",
-              "on-primary-fixed-variant": "#19448a",
-              "on-error-container": "#93000a",
-              background: "#f8f9ff",
-              "on-tertiary-fixed": "#00210c",
-              "primary-container": "#01377d",
-              "inverse-on-surface": "#ebf1ff",
-              "surface-container-low": "#eff3ff",
-              "border-silver": "#E4E9F0",
-              "on-tertiary-fixed-variant": "#005227",
-              "surface-variant": "#d6e3fb",
-              "on-secondary": "#ffffff",
-              "on-primary": "#ffffff",
-              "on-tertiary-container": "#00bd62",
-              "surface-container-high": "#dde9ff",
-              "on-tertiary": "#ffffff",
-              "text-muted": "#5A6B84",
-              "tertiary-container": "#00441f",
-              "on-secondary-fixed": "#001a41",
-              "primary-fixed": "#d8e2ff",
-              "surface-container": "#e6eeff",
-              error: "#ba1a1a",
-              "on-primary-container": "#7fa3ef",
-              "inverse-surface": "#253143",
-              "surface-bright": "#f8f9ff",
-              "secondary-container": "#7ba8ff",
-              "emerald-500": "#10B981",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "section-padding": "80px",
-              gutter: "24px",
-              "margin-desktop": "40px",
-              "margin-mobile": "16px",
-              "max-width": "1280px",
-              "stack-sm": "8px",
-              "stack-md": "16px",
-              "stack-lg": "24px",
-            },
-            fontFamily: {
-              sans: ["Montserrat", "sans-serif"],
-              "label-md": ["Montserrat", "sans-serif"],
-              "display-lg": ["Montserrat", "sans-serif"],
-              "body-md": ["Montserrat", "sans-serif"],
-              "headline-lg-mobile": ["Montserrat", "sans-serif"],
-              "body-lg": ["Montserrat", "sans-serif"],
-              "label-sm": ["Montserrat", "sans-serif"],
-              "headline-md": ["Montserrat", "sans-serif"],
-              "headline-lg": ["Montserrat", "sans-serif"],
-            },
-            fontSize: {
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  letterSpacing: "0.01em",
-                  fontWeight: "500",
-                },
-              ],
-              "display-lg": [
-                "48px",
-                {
-                  lineHeight: "56px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-lg-mobile": [
-                "28px",
-                {
-                  lineHeight: "36px",
-                  fontWeight: "700",
-                },
-              ],
-              "body-lg": [
-                "18px",
-                {
-                  lineHeight: "28px",
-                  fontWeight: "400",
-                },
-              ],
-              "label-sm": [
-                "12px",
-                {
-                  lineHeight: "16px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-md": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-lg": [
-                "32px",
-                {
-                  lineHeight: "40px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-            },
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GPS Fleet Tracking System - Fleetmatrix</title>
+  <meta name="description" content="Real-time 360° fleet tracking and vehicle visibility system. Monitor location, fuel, driver behavior, EV battery status, and route intelligence."/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Tailwind Configuration matching index.html -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#d6e3fb",
+            surface: "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "bg-fog": "#F4F7FA",
+            "accent-lime": "#8BED02",
+            "secondary-fixed-dim": "#adc6ff",
+            "on-secondary-fixed-variant": "#004494",
+            "tertiary-fixed-dim": "#32e27d",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#001a42",
+            "inverse-primary": "#aec6ff",
+            "on-secondary-container": "#003b82",
+            "outline-variant": "#c3c6d2",
+            "on-surface": "#0f1c2d",
+            "surface-dim": "#cedbf2",
+            outline: "#747782",
+            tertiary: "#002b12",
+            "on-surface-variant": "#434751",
+            primary: "#002254",
+            "error-container": "#ffdad6",
+            "brand-gradient":
+              "linear-gradient(135deg, #8BED02 0%, #05D16E 45%, #01377D 100%)",
+            "primary-fixed-dim": "#aec6ff",
+            "on-background": "#0f1c2d",
+            "surface-tint": "#375da4",
+            secondary: "#295caf",
+            "secondary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#60ff98",
+            "on-primary-fixed-variant": "#19448a",
+            "on-error-container": "#93000a",
+            background: "#f8f9ff",
+            "on-tertiary-fixed": "#00210c",
+            "primary-container": "#01377d",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-container-low": "#eff3ff",
+            "border-silver": "#E4E9F0",
+            "on-tertiary-fixed-variant": "#005227",
+            "surface-variant": "#d6e3fb",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#00bd62",
+            "surface-container-high": "#dde9ff",
+            "on-tertiary": "#ffffff",
+            "text-muted": "#5A6B84",
+            "tertiary-container": "#00441f",
+            "on-secondary-fixed": "#001a41",
+            "primary-fixed": "#d8e2ff",
+            "surface-container": "#e6eeff",
+            error: "#ba1a1a",
+            "on-primary-container": "#7fa3ef",
+            "inverse-surface": "#253143",
+            "surface-bright": "#f8f9ff",
+            "secondary-container": "#7ba8ff",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            full: "9999px",
+          },
+          spacing: {
+            "section-padding": "80px",
+            gutter: "24px",
+            "margin-desktop": "40px",
+            "margin-mobile": "16px",
+            "max-width": "1280px",
+            "stack-sm": "8px",
+            "stack-md": "16px",
+            "stack-lg": "24px",
+          },
+          fontFamily: {
+            sans: ["Montserrat", "sans-serif"],
+            "label-md": ["Montserrat", "sans-serif"],
+            "display-lg": ["Montserrat", "sans-serif"],
+            "body-md": ["Montserrat", "sans-serif"],
+            "headline-lg-mobile": ["Montserrat", "sans-serif"],
+            "body-lg": ["Montserrat", "sans-serif"],
+            "label-sm": ["Montserrat", "sans-serif"],
+            "headline-md": ["Montserrat", "sans-serif"],
+            "headline-lg": ["Montserrat", "sans-serif"],
           },
         },
-      };
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .material-symbols-outlined[data-weight="fill"] {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        
-        /* Glassmorphism nav base */
-        .glass-nav {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+      },
+    };
+  </script>
 
-        /* Chevron line */
-        .chevron-line::after {
-            content: ">>>";
-            display: block;
-            font-family: monospace;
-            color: #10B981; /* Emerald */
-            font-size: 14px;
-            letter-spacing: 4px;
-            margin-top: 16px;
-        }
+  <style>
+    *, body, button, input, select, textarea {
+      font-family: "Montserrat", sans-serif;
+    }
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined" !important;
+    }
+    
+    /* Card hover effects */
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #E4E9F0;
+    }
+    .card-hover:hover {
+      border-color: #05D16E;
+      box-shadow: 0px 8px 24px rgba(0, 34, 84, 0.08);
+      transform: translateY(-3px);
+    }
 
-        /* Ambient hover shadow */
-        .ambient-hover:hover {
-            box-shadow: 0px 4px 20px rgba(14, 27, 44, 0.08);
-            border-color: #002254; /* Primary Navy 900 */
-        }
-        /* ── Live Dot Badge Indicator ────────────────── */
-        .live-dot {
-          position: relative;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background: #05d16e;
-          display: inline-block;
-        }
-        .live-dot::after {
-          content: "";
-          position: absolute;
-          inset: -3px;
-          border-radius: 50%;
-          background: #05d16e;
-          opacity: 0.4;
-          animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-        @keyframes pingSlow {
-          0% { transform: scale(1); opacity: 1; }
-          75%, 100% { transform: scale(2.2); opacity: 0; }
-        }
+    /* Scroll-reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.reveal-left {
+      transform: translateX(-28px);
+    }
+    .reveal.reveal-scale {
+      transform: scale(0.92);
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+    .stagger-1 { transition-delay: 0.05s !important; }
+    .stagger-2 { transition-delay: 0.13s !important; }
+    .stagger-3 { transition-delay: 0.21s !important; }
+    .stagger-4 { transition-delay: 0.29s !important; }
 
-        @keyframes floatY {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
+    /* Live Dot Indicator */
+    .live-dot {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #05d16e;
+      display: inline-block;
+    }
+    .live-dot::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: #05d16e;
+      opacity: 0.4;
+      animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes pingSlow {
+      0% { transform: scale(1); opacity: 1; }
+      75%, 100% { transform: scale(2.2); opacity: 0; }
+    }
 
-        /* ── Scroll-reveal base ───────────────────────── */
-        .reveal {
-          opacity: 0;
-          transform: translateY(28px);
-          transition:
-            opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-            transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.reveal-left {
-          transform: translateX(-28px);
-        }
-        .reveal.reveal-scale {
-          transform: scale(0.92);
-        }
-        .reveal.in-view {
-          opacity: 1;
-          transform: none;
-        }
-        /* ── Typewriter Animation Styling ─────────────── */
-        .typewriter-cursor {
-          display: inline-block;
-          width: 3px;
-          height: 0.85em;
-          background-color: currentColor;
-          margin-left: 3px;
-          vertical-align: middle;
-          animation: typewriterBlink 0.75s infinite;
-        }
-        @keyframes typewriterBlink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-        .typewriter-heading {
-          min-height: 1.1em;
-        }
-        .tw-accent {
-          color: #05D16E;
-        }
-
-        .stagger-1 { transition-delay: 0.05s !important; }
-        .stagger-2 { transition-delay: 0.13s !important; }
-        .stagger-3 { transition-delay: 0.21s !important; }
-        .stagger-4 { transition-delay: 0.29s !important; }
-
-        /* ── Typewriter Animation Styling ─────────────── */
-        .typewriter-cursor {
-          display: inline-block;
-          width: 3px;
-          height: 0.85em;
-          background-color: currentColor;
-          margin-left: 3px;
-          vertical-align: middle;
-          animation: typewriterBlink 0.75s infinite;
-        }
-        @keyframes typewriterBlink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-        .typewriter-heading {
-          min-height: 1.1em;
-        }
-        .tw-accent {
-          color: #05D16E;
-        }
-    </style>
+    /* Floating background particle effects */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particleDrift linear infinite;
+    }
+    @keyframes particleDrift {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+      50% { opacity: 0.15; }
+      100% { transform: translateY(-120px) translateX(40px) rotate(180deg); opacity: 0; }
+    }
+  </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
-<!-- TopNavBar -->
-    <!-- TopNavBar -->
-    <nav
-      class="fixed top-0 w-full z-50 bg-surface dark:bg-primary backdrop-blur-md border-b border-border-silver dark:border-primary-container"
-    >
-      <div
-        class="flex justify-between items-center px-4 sm:px-8 md:px-8 w-full max-w-none py-4"
-      >
-        <div class="flex items-center gap-3">
-          <img
-            alt="Fleetmatrix Logo"
-            class="h-8 sm:h-10 w-auto"
-            src="./assets/fleetmatrix_logo.png"
-          />
-          <a href="index.html">
-            <span
-              class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl"
-              >Fleetmatrix</span
-            >
-          </a>
-        </div>
-        <div class="hidden md:flex gap-8 items-center">
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="index.html"
-            >Home</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="aboutus.html"
-            >About Us</a
-          >
-          <a
-            class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="gps_fleet_tracking.html"
-            >Fleet Tracking</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="dash_cam.html"
-            >AI Powered Dash Cam</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="asset_tracking.html"
-            >Asset Tracking</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="tachograph.html"
-            >Digital Tachograph</a
-          >
-          <a
-            class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300"
-            href="route_optimization.html"
-            >Route Optimization</a
-          >
-        </div>
-        <button
-          onclick="window.location.href='request-demo.html'"
-          class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer"
-        >
-          Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
-        </button>
-        <!-- Mobile Menu Toggle -->
-        <button
-          class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors"
-          id="mobile-menu-btn-idx1"
-          onclick="
-            document
-              .getElementById('mobile-menu-idx1')
-              .classList.toggle('hidden')
-          "
-          aria-label="Toggle menu"
-        >
-          <span class="material-symbols-outlined text-2xl">menu</span>
-        </button>
-      </div>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-primary selection:text-white">
 
-      <!-- Mobile Dropdown Menu -->
-      <div
-        id="mobile-menu-idx1"
-        class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto"
-      >
-        <a
-          href="index.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Home</a
-        >
-        <a
-          href="aboutus.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >About Us</a
-        >
-        <a
-          href="gps_fleet_tracking.html"
-          class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10"
-          >Fleet Tracking</a
-        >
-        <a
-          href="dash_cam.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >AI Powered Dash Cam</a
-        >
-        <a
-          href="asset_tracking.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Asset Tracking</a
-        >
-        <a
-          href="tachograph.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Digital Tachograph</a
-        >
-        <a
-          href="route_optimization.html"
-          class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors"
-          >Route Optimization</a
-        >
-
-        <!-- <div
-          class="border-t border-border-silver dark:border-primary-container pt-3 mt-1"
-        >
-          <span
-            class="text-xs font-semibold text-text-muted dark:text-surface-variant uppercase tracking-wider px-3 mb-2 block"
-            >Switch Landing Page Design</span
-          >
-          <div class="grid grid-cols-2 gap-2 px-1">
-            <a
-              href="index.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-accent-lime/10 text-primary dark:text-white font-semibold"
-              >⚡ Design 1</a
-            >
-            <a
-              href="index2.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🔵 Design 2</a
-            >
-            <a
-              href="index3.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🌿 Design 3</a
-            >
-            <a
-              href="index4.html"
-              class="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg text-on-surface-variant dark:text-white/80 hover:bg-surface-variant dark:hover:bg-primary-container"
-              >🎯 Design 4</a
-            >
-          </div>
-        </div> -->
-
-        <button
-          onclick="window.location.href='request-demo.html'"
-          class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer"
-        >
-          Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
-        </button>
+  <!-- TopNavBar matching index.html -->
+  <nav class="fixed top-0 w-full z-50 bg-surface dark:bg-primary backdrop-blur-md border-b border-border-silver dark:border-primary-container">
+    <div class="flex justify-between items-center px-4 sm:px-8 md:px-8 w-full max-w-none py-4">
+      <div class="flex items-center gap-3">
+        <img
+          alt="Fleetmatrix Logo"
+          class="h-8 sm:h-10 w-auto"
+          src="./assets/fleetmatrix_logo.png"
+        />
+        <a href="index.html">
+          <span class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed block text-xl sm:text-2xl">Fleetmatrix</span>
+        </a>
       </div>
-    </nav>
-<main>
-<!-- Hero Section -->
-<section class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[75vh] flex items-center overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]">
-  <!-- Hero Background Image -->
-  <div class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('./assets/gps_tracking_hero_bg.png')] bg-cover bg-center bg-no-repeat"></div>
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-[#001738]/75 pointer-events-none z-0"></div>
-  <div class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10">
-    <div class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0 reveal">
-      <span class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 hero-badge inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold">
-        <span class="live-dot"></span>
-        REAL-TIME GPS TELEMATICS
-      </span>
-      <h1 class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6 hero-heading leading-tight max-w-4xl font-bold">
-        Total operational control, in real time.
-      </h1>
-      <p class="font-body-lg text-base sm:text-lg text-white/90 mb-8 max-w-2xl font-medium mx-auto leading-relaxed">
-        Live GPS visibility, AI-driven insights, and connected fleet management — all from one intuitive, enterprise-grade cloud dashboard.
-      </p>
-      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 hero-cta">
-        <button onclick="window.location.href='request-demo.html'" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] hover:bg-[#01944d] text-white rounded-full font-label-md font-semibold text-base shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
-          Request a Demo
-          <span class="material-symbols-outlined text-sm">chevron_right</span>
-        </button>
-        <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white/40 text-white hover:bg-white/10 rounded-full font-label-md font-semibold text-base transition-all duration-300 cursor-pointer">
-          See Pricing
-        </button>
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="index.html">Home</a>
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="aboutus.html">About Us</a>
+        <a class="font-body-md text-label-md text-primary dark:text-tertiary-fixed border-b-2 border-accent-lime pb-1 hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300 font-semibold" href="gps_fleet_tracking.html">Fleet Tracking</a>
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="dash_cam.html">AI Powered Dash Cam</a>
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="asset_tracking.html">Asset Tracking</a>
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="tachograph.html">Digital Tachograph</a>
+        <a class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-tertiary-fixed transition-all duration-300" href="route_optimization.html">Route Optimization</a>
       </div>
+      <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
+        Request a Demo
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </button>
+      <!-- Mobile Menu Toggle -->
+      <button class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors" id="mobile-menu-btn-gps" onclick="document.getElementById('mobile-menu-gps').classList.toggle('hidden')" aria-label="Toggle menu">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
     </div>
-  </div>
-</section>
-<!-- Overview Section -->
-<section class="bg-white py-section-padding px-margin-mobile md:px-margin-desktop border-t border-border-silver/60">
-<div class="max-w-max-width mx-auto text-center max-w-3xl space-y-4 reveal">
-<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] lg:leading-[54px] font-bold text-[#002254] tracking-tight">
-                    Streamlined Fleet Intelligence
-                </h2>
-<p class="font-body-lg text-base sm:text-lg text-text-muted leading-relaxed">
-                    Track location, route history, fuel usage, and maintenance alerts across all your vehicles from a single pane of glass.
-                </p>
-</div>
-</section>
-<!-- Feature Showcase -->
-<section class="bg-[#F4F7FA] py-section-padding px-margin-mobile md:px-margin-desktop">
-<div class="max-w-max-width mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-<div class="md:col-span-5 space-y-6">
-<h3 class="font-display-lg text-3xl sm:text-4xl lg:text-[38px] lg:leading-[46px] font-bold text-[#002254] tracking-tight">Unlock full potential using fewer resources</h3>
-<p class="font-body-md text-base text-text-muted leading-relaxed">
-                            Our platform analyzes millions of data points to identify operational bottlenecks. By optimizing routes, monitoring idle times, and predicting maintenance needs, you can do more with your existing assets while significantly reducing overhead costs.
-                        </p>
-<ul class="space-y-3 pt-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
-<span class="font-body-md text-base text-text-muted">Reduce idle time across your entire fleet</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[#05D16E] text-[20px] mt-0.5" data-weight="fill">keyboard_double_arrow_right</span>
-<span class="font-body-md text-base text-text-muted">Optimize routing for fuel efficiency</span>
-</li>
-</ul>
-</div>
-<div class="md:col-span-7">
-<div class="relative rounded-2xl border border-border-silver overflow-hidden shadow-sm bg-white p-2">
-<img class="w-full h-auto rounded-xl border border-border-silver/50" data-alt="A clean, high-fidelity UI dashboard screenshot showing analytics charts for fleet efficiency. It features modern line graphs, bar charts in navy and emerald colors against a bright white background. The data visualizations are sharp, professional, and indicative of an enterprise software platform." src="./assets/analytics.png"/>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Closing CTA -->
-<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-[#001a41] relative overflow-hidden">
-<div class="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-6 reveal">
-<h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white tracking-tight">See your fleet, in real time.</h2>
-<a class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#01944d] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer" href="request-demo.html" onclick="window.location.href='request-demo.html'">
-                    Request a Demo
-                    <span class="material-symbols-outlined ml-2 text-[18px]">chevron_right</span>
-</a>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer
-      class="w-full py-12 sm:py-16 lg:py-section-padding bg-primary dark:bg-primary px-4 sm:px-8 md:px-margin-desktop"
-    >
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-gutter max-w-max-width mx-auto"
-      >
-        <!-- Brand Column -->
-        <div class="col-span-1 sm:col-span-2 md:col-span-1 flex flex-col">
-          <span
-            class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl"
-            >Fleetmatrix</span
-          >
-          <p
-            class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6"
-          >
-            Driving performance forward with intelligent fleet management
-            solutions.
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu-gps" class="hidden md:hidden bg-white dark:bg-primary border-t border-border-silver dark:border-primary-container px-4 py-4 flex flex-col gap-3 shadow-xl max-h-[85vh] overflow-y-auto">
+      <a href="index.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">Home</a>
+      <a href="aboutus.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">About Us</a>
+      <a href="gps_fleet_tracking.html" class="font-body-md text-label-md text-primary dark:text-tertiary-fixed font-semibold px-3 py-2 rounded-lg bg-accent-lime/10">Fleet Tracking</a>
+      <a href="dash_cam.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">AI Powered Dash Cam</a>
+      <a href="asset_tracking.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">Asset Tracking</a>
+      <a href="tachograph.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">Digital Tachograph</a>
+      <a href="route_optimization.html" class="font-body-md text-label-md text-on-surface-variant dark:text-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant dark:hover:bg-primary-container transition-colors">Route Optimization</a>
+
+      <button onclick="window.location.href='request-demo.html'" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-[#04b861] hover:shadow-lg transition-all shadow-sm duration-300 cursor-pointer">
+        Request a Demo
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Workspace -->
+  <main class="flex-grow">
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-section-padding min-h-[75vh] lg:min-h-[85vh] flex items-center bg-white overflow-hidden px-4 sm:px-8 md:px-12 lg:px-[96px]">
+      <!-- Hero Background Image -->
+      <div class="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[url('./assets/gps_tracking_hero_bg.png')] bg-cover bg-center bg-no-repeat"></div>
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-[#001738]/75 pointer-events-none z-0"></div>
+      <div class="max-w-max-width mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-gutter relative z-10">
+        <div class="col-span-1 lg:col-span-12 flex flex-col items-center justify-center text-center pt-4 lg:pt-0 reveal">
+          <span class="font-label-sm text-[#05D16E] tracking-[0.15em] uppercase mb-4 inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold">
+            <span class="live-dot"></span>
+            REAL-TIME 360° FLEET TRACKING
+          </span>
+          <h1 class="font-display-lg text-3xl sm:text-4xl lg:text-display-lg text-white mb-4 sm:mb-6 leading-tight max-w-4xl font-bold">
+            Innovative GPS Fleet Tracking System
+          </h1>
+          <p class="font-body-lg text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-3xl font-medium mx-auto leading-relaxed">
+            Real-time fleet visibility through one intelligent 360° tracking platform. Know where every vehicle is, understand what it's doing, and stay in control of your operation from one intuitive dashboard.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <button onclick="window.location.href='request-demo.html'" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] hover:bg-[#04b861] text-white rounded-full font-label-md font-semibold text-base shadow hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+              <span>Request a Demo</span>
+              <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+            <a href="#overview" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-label-md font-semibold text-base hover:bg-white/10 transition-all duration-300 cursor-pointer">
+              <span>See Tracking in Action</span>
+              <span class="material-symbols-outlined text-sm">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. OVERVIEW & CORE OUTCOMES (2-Column / Split Section) -->
+    <section id="overview" class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Copy Header -->
+        <div class="lg:col-span-5 flex flex-col reveal">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            OVERVIEW
+          </div>
+          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight leading-tight mb-5 font-display">
+            Real Time Visibility: The Engine of Fleet Excellence
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Visibility is the foundation of efficient fleet operations. Fleetmatrix provides a live 360-degree view of your fleet, turning raw telematics into actionable insights to cut costs, optimize assets, and keep operations moving.
           </p>
         </div>
-        <!-- Links Columns -->
-        <div class="col-span-1 md:col-start-3">
-          <h4
-            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
-          >
-            Company
-          </h4>
-          <ul class="space-y-2 sm:space-y-3">
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >About Us</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >Careers</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="col-span-1">
-          <h4
-            class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
-          >
-            Solutions
-          </h4>
-          <ul class="space-y-2 sm:space-y-3">
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >Tracking</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >Safety</a
-              >
-            </li>
-            <li>
-              <a
-                class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block"
-                href="#"
-                >Sustainability</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div
-        class="max-w-max-width mx-auto mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-surface-tint flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
-      >
-        <span class="font-body-md text-xs sm:text-sm text-surface-variant/80"
-          >© 2024 Fleetmatrix. All rights reserved.</span
-        >
-        <div class="flex gap-6">
-          <a
-            class="text-surface-variant/80 hover:text-white transition-colors"
-            href="#"
-            ><span class="material-symbols-outlined text-xl">public</span></a
-          >
-          <a
-            class="text-surface-variant/80 hover:text-white transition-colors"
-            href="#"
-            ><span class="material-symbols-outlined text-xl">mail</span></a
-          >
-        </div>
-      </div>
-    </footer>
 
-<script>
-      // ── Scroll-reveal via IntersectionObserver ─────────────
+        <!-- Right 2x3 Grid of 6 Core Outcomes -->
+        <div class="lg:col-span-7 reveal stagger-1">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Live visibility across your entire fleet.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Better control of fuel, mileage, and operating costs.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Proactive maintenance and reduced vehicle downtime.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Faster decisions through accurate fleet data.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Secure access from desktop and mobile devices.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-border-silver flex items-start gap-3.5 card-hover shadow-2xs">
+              <span class="material-symbols-outlined text-[#05D16E] text-2xl shrink-0 mt-0.5 font-bold">check_circle</span>
+              <p class="font-body-md text-sm sm:text-base font-semibold text-primary">Improved driver safety and operational performance.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. ALTERNATING FEATURE DEEP-DIVES (Z-Pattern Layout) -->
+    <section class="py-8 sm:py-12 md:py-section-padding space-y-12 sm:space-y-16 md:space-y-24 bg-white border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
+      
+      <!-- Row 1 (Left: Copy | Right: UI Graphic) -->
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1 flex flex-col reveal">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            MAXIMISE PRODUCTIVITY
+          </div>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary tracking-tight leading-tight mb-4">
+            Unlock Full Potential Using Fewer Resources
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Every journey generates valuable operational data. Fleetmatrix analyses vehicle movement, idle time, route efficiency, driver behaviour, and asset utilisation to pinpoint cost savings and drive higher daily productivity.
+          </p>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 reveal reveal-scale stagger-1">
+          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
+            <img src="./assets/fleetmatrix_live_map.png" alt="Fleetmatrix Live Map Interface" class="w-full h-auto object-cover max-h-[420px]"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 (Left: UI Graphic | Right: Copy) -->
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-6 order-1 reveal reveal-scale">
+          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-[#001a41]">
+            <img src="./assets/gps_tracking_ev_management.png" alt="Fleetmatrix EV Electric Vehicle Fleet Management Dashboard" class="w-full h-auto object-cover max-h-[420px]"/>
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-2 flex flex-col reveal stagger-1">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            EV FLEET READINESS
+          </div>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary tracking-tight leading-tight mb-4">
+            A Step Ahead in Electric Vehicle (EV) Management
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Manage electric, hybrid, and conventional vehicles through one connected dashboard. Monitor live battery charge levels, charging activity, energy consumption, and vehicle availability to support your fleet transition.
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 3 (Left: Copy | Right: UI Graphic) -->
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1 flex flex-col reveal">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            BUSINESS INTELLIGENCE
+          </div>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary tracking-tight leading-tight mb-4">
+            Keep Improving with Fleet Analytics
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Transform operational data into business intelligence. Customisable dashboards provide clear visibility into fleet utilisation, operating costs, driver performance, maintenance activity, vehicle health, and key KPIs.
+          </p>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 reveal reveal-scale stagger-1">
+          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
+            <img src="./assets/analytics.png" alt="Fleetmatrix Advanced Fleet Analytics Dashboard" class="w-full h-auto object-cover max-h-[420px]"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4 (Left: UI Graphic | Right: Copy) -->
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-6 order-1 reveal reveal-scale">
+          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
+            <img src="./assets/risk.png" alt="Driver Safety and Risk Analysis Module" class="w-full h-auto object-cover max-h-[420px]"/>
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-2 flex flex-col reveal stagger-1">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            SAFETY &amp; SECURITY
+          </div>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary tracking-tight leading-tight mb-4">
+            Elevate Driver Safety, Coaching &amp; Asset Security
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Monitor harsh acceleration, braking, cornering, and speeding. Integrate AI dashcam video for incident investigation and enable safe remote vehicle immobilisation when stopped to prevent unauthorised usage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 5 (Left: Copy | Right: UI Graphic) -->
+      <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1 flex flex-col reveal">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            MOBILE &amp; SUPPORT
+          </div>
+          <h2 class="font-display-lg text-2xl sm:text-3xl lg:text-[38px] font-bold text-primary tracking-tight leading-tight mb-4">
+            Fleet Management in Your Pocket &amp; Dedicated Partnership
+          </h2>
+          <p class="font-body-md text-text-muted text-base sm:text-lg leading-relaxed">
+            Stay connected wherever you go with the Fleetmatrix mobile app. Plus, benefit from end-to-end partnership: hardware installation, onboarding, API integrations, and ongoing technical support.
+          </p>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 reveal reveal-scale stagger-1">
+          <div class="rounded-2xl border border-border-silver overflow-hidden shadow-md bg-white">
+            <img src="./assets/live_fleet_ststus_float.png" alt="Fleetmatrix Mobile Application Interface" class="w-full h-auto object-cover max-h-[420px]"/>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 4. 12-ITEM PLATFORM FEATURES (3x4 Grid) -->
+    <section class="py-8 sm:py-12 md:py-section-padding bg-[#F4F7FA] border-b border-border-silver/60 px-4 sm:px-8 md:px-margin-desktop">
+      <div class="max-w-max-width mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal">
+          <div class="mb-3 text-[#05D16E] font-label-sm uppercase tracking-wider font-semibold">
+            ENTERPRISE CAPABILITIES
+          </div>
+          <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] font-bold text-primary tracking-tight font-display">
+            Comprehensive Fleet Telematics Capabilities
+          </h2>
+        </div>
+
+        <!-- 12 Cards Grid (3 Columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-1 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">map</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Live Vehicle Map</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Monitor connected vehicles with live location, speed, and movement status.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-2 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">history</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Journey History</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Replay historical journeys to review routes, stops, mileage, and idle time.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-3 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">polyline</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Smart Geofencing</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Receive instant alerts when vehicles enter or exit designated zones.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-1 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">traffic</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Traffic-Aware Mapping</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Plan journeys using real-time traffic to avoid congestion and bottlenecks.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-2 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">videocam</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">AI-Powered Dashcam</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Pair GPS telemetry with HD video and driver safety coaching.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-3 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">lock</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Remote Immobilisation</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Safely prevent unauthorised vehicle startup once securely parked.
+            </p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-1 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">speed</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Engine Data &amp; Diagnostics</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Access live OBD-II/CAN-bus fault codes and vehicle health telemetry.
+            </p>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-2 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">badge</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Digital Tachograph Tools</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Automate remote card/mass memory downloads and compliance logs.
+            </p>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-3 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">build</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Maintenance Scheduling</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Trigger service schedules based on real odometer and engine hours.
+            </p>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-1 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">assessment</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Automated Reports</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Receive scheduled PDF/CSV reports on fuel burn, mileage, and driver behavior.
+            </p>
+          </div>
+
+          <!-- Card 11 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-2 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">domain</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Fleet Organisation Tools</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Group vehicles by depot, division, contract, or vehicle category.
+            </p>
+          </div>
+
+          <!-- Card 12 -->
+          <div class="bg-white p-6 rounded-2xl border border-border-silver card-hover flex flex-col gap-3 reveal stagger-3 shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl font-bold">speeding</span>
+            </div>
+            <h3 class="font-display-lg text-lg font-bold text-primary">Posted Speed Alerts</h3>
+            <p class="font-body-md text-text-muted text-sm leading-relaxed">
+              Compare real-time vehicle speed against road speed limits to curb risk.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. FAQ SECTION (Accordion Component) -->
+    <section class="bg-[#F4F7FA] py-8 sm:py-12 md:py-section-padding px-4 sm:px-8 md:px-margin-desktop border-t border-border-silver/60">
+      <div class="max-w-[800px] mx-auto">
+        <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-primary text-center mb-6 sm:mb-8 md:mb-12 tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        
+        <div class="space-y-3 sm:space-y-4">
+          
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">How accurate is Fleetmatrix vehicle tracking?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              Fleetmatrix uses high-precision GPS and connected telematics hardware with configurable reporting intervals for pin-point accuracy.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">How often is vehicle location updated?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              Vehicle locations feature configurable live polling based on your operational needs and device settings, down to second-by-second updates.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">How long does GPS hardware installation take?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              Hardware installation is quick and non-disruptive, completed rapidly by certified technicians or your own maintenance crew.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">Can I monitor vehicles across multiple locations?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              Yes, Fleetmatrix provides full multi-depot, multi-region management from one unified cloud platform with customizable permissions.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">Can I review where a vehicle has been?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              Yes, full journey route replay, breadcrumb tracking, speed analysis, and historical stop logs are stored securely for comprehensive audit review.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-xl border border-border-silver overflow-hidden">
+            <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+              <span class="font-bold text-lg text-primary">What hardware does Fleetmatrix support?</span>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-text-muted leading-[1.7]">
+              We support a wide range of hardware including hardwired GPS trackers, OBD-II/CAN-bus devices, AI video dashcams, asset beacons, and digital tachograph units.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRE-FOOTER CTA BANNER -->
+    <section class="bg-[#001a41] py-10 sm:py-14 md:py-20 relative overflow-hidden px-4 sm:px-8 md:px-margin-desktop">
+      <!-- Floating particles -->
+      <div class="particle w-3 h-3 bg-[#05D16E]/30" style="left: 12%; top: 75%; animation-duration: 9s; animation-delay: 0s;"></div>
+      <div class="particle w-2 h-2 bg-white/20" style="left: 30%; top: 80%; animation-duration: 7s; animation-delay: 1s;"></div>
+      <div class="particle w-4 h-4 bg-[#8BED02]/20" style="left: 65%; top: 85%; animation-duration: 11s; animation-delay: 2s;"></div>
+
+      <div class="max-w-max-width mx-auto text-center relative z-10 reveal">
+        <div class="mb-4 text-[#8BED02] font-label-sm uppercase tracking-wider font-semibold">
+          360° FLEET VISIBILITY
+        </div>
+        <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[46px] font-bold text-white mb-6 tracking-tight">
+          See Your Fleet Clearly. Act With Confidence.
+        </h2>
+        <p class="font-body-lg text-base sm:text-lg text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+          Stop managing vehicles through disconnected data and delayed updates. Get live 360° visibility today.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="window.location.href='request-demo.html'" class="inline-flex items-center justify-center bg-[#05D16E] hover:bg-[#04b861] text-white font-label-md px-8 py-3 rounded-full shadow hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 font-semibold text-base cursor-pointer">
+            Request a Demo
+          </button>
+          <a href="#overview" class="inline-flex items-center justify-center border-2 border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 font-label-md font-semibold text-base transition-all duration-300">
+            See Fleet Tracking in Action
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. FOOTER matching index.html -->
+  <footer class="w-full py-8 sm:py-12 lg:py-section-padding bg-primary dark:bg-primary px-4 sm:px-8 md:px-margin-desktop">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-gutter max-w-max-width mx-auto">
+      <!-- Brand Column -->
+      <div class="col-span-1 sm:col-span-2 md:col-span-1 flex flex-col">
+        <span class="text-headline-md font-headline-md font-bold text-white mb-4 sm:mb-6 text-xl sm:text-2xl">Fleetmatrix</span>
+        <p class="font-body-md text-sm sm:text-base text-surface-variant/80 mb-6">
+          Driving performance forward with intelligent fleet management solutions.
+        </p>
+      </div>
+      <!-- Links Columns -->
+      <div class="col-span-1 md:col-start-3">
+        <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+          Company
+        </h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="aboutus.html">About Us</a>
+          </li>
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="#">Careers</a>
+          </li>
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="request-demo.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-span-1">
+        <h4 class="font-label-md text-white mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+          Solutions
+        </h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="gps_fleet_tracking.html">Tracking</a>
+          </li>
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="dash_cam.html">Safety &amp; AI Dash Cam</a>
+          </li>
+          <li>
+            <a class="font-body-md text-xs sm:text-base text-surface-variant/80 hover:text-on-tertiary-container transition-colors hover:translate-x-1 inline-block" href="tachograph.html">Digital Tachograph</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-max-width mx-auto mt-6 sm:mt-12 pt-6 sm:pt-8 border-t border-surface-tint flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+      <span class="font-body-md text-xs sm:text-sm text-surface-variant/80">&copy; 2026 Fleetmatrix. All rights reserved.</span>
+      <div class="flex gap-6">
+        <a class="text-surface-variant/80 hover:text-white transition-colors" href="#" aria-label="Website"><span class="material-symbols-outlined text-xl">public</span></a>
+        <a class="text-surface-variant/80 hover:text-white transition-colors" href="request-demo.html" aria-label="Email"><span class="material-symbols-outlined text-xl">mail</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
       const revealEls = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver(
         (entries) => {
@@ -646,138 +763,7 @@
         { threshold: 0.12 }
       );
       revealEls.forEach((el) => revealObserver.observe(el));
-
-      // ── Typewriter Animation for Headings ──────────────────
-      document.addEventListener("DOMContentLoaded", () => {
-        // Hero Section Infinite Cycling Typewriter
-        const heroHeading = document.querySelector(".hero-heading");
-        if (heroHeading) {
-          initHeroInfiniteTypewriter(heroHeading, [
-            { main: "Total operational control, ", accent: "in real time." },
-            { main: "Live GPS tracking & ", accent: "satellite telematics." },
-            { main: "Reduce fuel costs with ", accent: "AI fleet insights." },
-            { main: "Complete visibility for ", accent: "every vehicle." }
-          ]);
-        }
-
-        const sectionHeadings = document.querySelectorAll("h2");
-
-        const headingObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const heading = entry.target;
-                if (!heading.dataset.typed) {
-                  heading.dataset.typed = "true";
-                  startSectionTypewriter(heading);
-                }
-                headingObserver.unobserve(heading);
-              }
-            });
-          },
-          { threshold: 0.15 }
-        );
-
-        sectionHeadings.forEach((heading) => {
-          const originalText = heading.textContent.trim();
-          if (!originalText) return;
-
-          heading.dataset.originalText = originalText;
-          heading.classList.add("typewriter-heading");
-          heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
-
-          headingObserver.observe(heading);
-        });
-
-        function startSectionTypewriter(heading) {
-          const text = heading.dataset.originalText || "";
-          const mainContainer = heading.querySelector(".tw-main");
-          const accentContainer = heading.querySelector(".tw-accent");
-
-          const words = text.split(" ");
-          let mainText = text;
-          let accentText = "";
-
-          if (words.length > 1) {
-            const accentCount = Math.max(1, Math.min(3, Math.floor(words.length * 0.35)));
-            mainText = words.slice(0, words.length - accentCount).join(" ") + " ";
-            accentText = words.slice(words.length - accentCount).join(" ");
-          }
-
-          let index = 0;
-          const totalLength = mainText.length + accentText.length;
-          const speed = 30 + Math.random() * 15;
-
-          function typeNextChar() {
-            if (index < totalLength) {
-              if (index < mainText.length) {
-                if (mainContainer) mainContainer.textContent += mainText.charAt(index);
-              } else {
-                const accentIdx = index - mainText.length;
-                if (accentContainer) accentContainer.textContent += accentText.charAt(accentIdx);
-              }
-              index++;
-              setTimeout(typeNextChar, speed);
-            }
-          }
-          typeNextChar();
-        }
-
-        function initHeroInfiniteTypewriter(el, phrases) {
-          if (!phrases || !phrases.length) return;
-          el.classList.add("typewriter-heading");
-          el.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span><span class="typewriter-cursor"></span>`;
-          const mainContainer = el.querySelector(".tw-main");
-          const accentContainer = el.querySelector(".tw-accent");
-
-          let phraseIdx = 0;
-          let charIdx = 0;
-          let isDeleting = false;
-
-          function cycleHero() {
-            const current = phrases[phraseIdx];
-            const fullMain = current.main;
-            const fullAccent = current.accent;
-            const totalLen = fullMain.length + fullAccent.length;
-
-            if (!isDeleting) {
-              if (charIdx < fullMain.length) {
-                if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx + 1);
-                if (accentContainer) accentContainer.textContent = "";
-              } else {
-                if (mainContainer) mainContainer.textContent = fullMain;
-                const accentCharIdx = charIdx - fullMain.length;
-                if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx + 1);
-              }
-              charIdx++;
-
-              if (charIdx === totalLen) {
-                isDeleting = true;
-                setTimeout(cycleHero, 2400);
-                return;
-              }
-              setTimeout(cycleHero, 45);
-            } else {
-              if (charIdx > fullMain.length) {
-                const accentCharIdx = charIdx - fullMain.length;
-                if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx - 1);
-              } else {
-                if (accentContainer) accentContainer.textContent = "";
-                if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx - 1);
-              }
-              charIdx--;
-
-              if (charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                setTimeout(cycleHero, 400);
-                return;
-              }
-              setTimeout(cycleHero, 25);
-            }
-          }
-          cycleHero();
-        }
-      });
-</script>
-</body></html>
+    });
+  </script>
+</body>
+</html>

@@ -473,7 +473,7 @@
                   <span>Edit</span>
                 </button>
               </div>
-              <div class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
+              <div id="preview-company-row" class="flex justify-between items-center border-b border-border-silver/80 pb-2.5">
                 <div class="flex items-center gap-2 overflow-hidden pr-2">
                   <span class="text-text-muted font-medium min-w-[70px] sm:min-w-[90px]">Company:</span>
                   <span class="font-semibold text-on-surface truncate" id="preview-company">-</span>
@@ -591,7 +591,7 @@
                 <span class="text-text-muted">Contact:</span>
                 <span class="font-semibold text-on-surface" id="summary-name">-</span>
               </div>
-              <div class="flex justify-between border-b border-border-silver/80 pb-2">
+              <div id="summary-company-row" class="flex justify-between border-b border-border-silver/80 pb-2">
                 <span class="text-text-muted">Company:</span>
                 <span class="font-semibold text-on-surface" id="summary-company">-</span>
               </div>
@@ -692,19 +692,33 @@
         phone: '',
       };
 
+      function isPersonalUse() {
+        return formData.solutionFor === 'Personal use';
+      }
+
+      function getActiveSteps() {
+        if (isPersonalUse()) {
+          return steps.filter((s) => s.id !== 4);
+        }
+        return steps;
+      }
+
       function updateUI() {
-        const step = steps[currentStepIndex];
-        const totalSteps = steps.length;
+        const activeSteps = getActiveSteps();
+        const currentStep = steps[currentStepIndex];
+        const activeIndex = activeSteps.findIndex((s) => s.elementId === currentStep.elementId);
+        const totalActiveSteps = activeSteps.length;
 
         // Update progress bar
         const progressBarFill = document.getElementById('progress-bar-fill');
         const progressText = document.getElementById('progress-text');
         const stepCounter = document.getElementById('step-counter');
 
-        if (progressBarFill && progressText) {
-          progressBarFill.style.width = step.progress + '%';
-          progressText.innerText = step.progressLabel;
-          stepCounter.innerText = `Step ${currentStepIndex + 1} of ${totalSteps}`;
+        if (progressBarFill && progressText && activeIndex !== -1) {
+          const progressPercent = Math.round((activeIndex / (totalActiveSteps - 1)) * 100);
+          progressBarFill.style.width = progressPercent + '%';
+          progressText.innerText = currentStep.id === 8 ? 'Preview Request' : `Progress ${progressPercent}%`;
+          stepCounter.innerText = `Step ${activeIndex + 1} of ${totalActiveSteps}`;
         }
 
         // Show active step, hide others
@@ -774,7 +788,7 @@
 
         // Focus input on text steps
         setTimeout(() => {
-          if (currentStepIndex === 3) {
+          if (currentStepIndex === 3 && !isPersonalUse()) {
             document.getElementById('company-name')?.focus();
           } else if (currentStepIndex === 4) {
             document.getElementById('first-name')?.focus();
@@ -789,13 +803,21 @@
       function populatePreviewData() {
         const nameEl = document.getElementById('preview-name');
         const companyEl = document.getElementById('preview-company');
+        const companyRow = document.getElementById('preview-company-row');
         const emailEl = document.getElementById('preview-email');
         const phoneEl = document.getElementById('preview-phone');
         const fleetEl = document.getElementById('preview-fleet');
         const featuresEl = document.getElementById('preview-features');
 
         if (nameEl) nameEl.innerText = `${formData.firstName} ${formData.lastName}`.trim() || '-';
-        if (companyEl) companyEl.innerText = formData.companyName || '-';
+        if (companyRow) {
+          if (isPersonalUse()) {
+            companyRow.classList.add('hidden');
+          } else {
+            companyRow.classList.remove('hidden');
+            if (companyEl) companyEl.innerText = formData.companyName || '-';
+          }
+        }
         if (emailEl) emailEl.innerText = formData.email || '-';
         if (phoneEl) phoneEl.innerText = formData.phone || '-';
         if (fleetEl) fleetEl.innerText = formData.fleetSize ? `${formData.fleetSize} vehicles (${formData.solutionFor || 'Business/Personal'})` : '-';
@@ -812,6 +834,13 @@
         // Add selected styling to this card
         const card = input.closest('.option-card');
         if (card) card.classList.add('selected');
+
+        if (input.name === 'solution_for') {
+          formData.solutionFor = input.value;
+          if (input.value === 'Personal use') {
+            formData.companyName = '';
+          }
+        }
 
         hideValidationNotice();
       }
@@ -863,6 +892,9 @@
             return false;
           }
           formData.solutionFor = selected.value;
+          if (isPersonalUse()) {
+            formData.companyName = '';
+          }
           return true;
         } else if (currentStepIndex === 2) {
           const checked = Array.from(document.querySelectorAll('input[name="features"]:checked')).map((c) => c.value);
@@ -873,6 +905,10 @@
           formData.features = checked;
           return true;
         } else if (currentStepIndex === 3) {
+          if (isPersonalUse()) {
+            formData.companyName = '';
+            return true;
+          }
           const compInput = document.getElementById('company-name');
           if (!compInput || !compInput.value.trim()) {
             document.getElementById('company-name-error')?.classList.remove('hidden');
@@ -919,6 +955,9 @@
       }
 
       function goToStep(stepIndex) {
+        if (stepIndex === 3 && isPersonalUse()) {
+          stepIndex = 4;
+        }
         if (currentStepIndex === 7 && stepIndex < 7) {
           isEditingFromPreview = true;
         }
@@ -946,7 +985,11 @@
         }
 
         if (currentStepIndex < steps.length - 1) {
-          currentStepIndex++;
+          let nextIdx = currentStepIndex + 1;
+          if (nextIdx === 3 && isPersonalUse()) {
+            nextIdx = 4;
+          }
+          currentStepIndex = nextIdx;
           updateUI();
         } else {
           // Submitting from Preview Step
@@ -956,7 +999,11 @@
 
       function prevStep() {
         if (currentStepIndex > 0) {
-          currentStepIndex--;
+          let prevIdx = currentStepIndex - 1;
+          if (prevIdx === 3 && isPersonalUse()) {
+            prevIdx = 2;
+          }
+          currentStepIndex = prevIdx;
           updateUI();
         }
       }
@@ -976,7 +1023,15 @@
 
         // Fill final summary details
         document.getElementById('summary-name').innerText = `${formData.firstName} ${formData.lastName}`.trim() || '-';
-        document.getElementById('summary-company').innerText = formData.companyName || '-';
+        const summaryCompanyRow = document.getElementById('summary-company-row');
+        if (summaryCompanyRow) {
+          if (isPersonalUse()) {
+            summaryCompanyRow.classList.add('hidden');
+          } else {
+            summaryCompanyRow.classList.remove('hidden');
+            document.getElementById('summary-company').innerText = formData.companyName || '-';
+          }
+        }
         document.getElementById('summary-email').innerText = formData.email || '-';
         document.getElementById('summary-phone').innerText = formData.phone || '-';
         document.getElementById('summary-fleet').innerText = formData.fleetSize ? `${formData.fleetSize} vehicles (${formData.solutionFor || 'Business/Personal'})` : '-';
