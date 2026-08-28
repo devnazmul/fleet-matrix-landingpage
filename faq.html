@@ -501,6 +501,23 @@
         flex-shrink: 0;
       }
 
+      /* ── FAQ Accordion Styles ────────────────────────── */
+      .faq-answer {
+        display: none;
+      }
+      .faq-answer.open {
+        display: block;
+      }
+      .faq-icon {
+        transition: transform 0.3s ease;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(180deg);
+        color: #05D16E !important;
+      }
+      .faq-item.open {
+        border-color: #05D16E !important;
+      }
   </style>
 </head>
 <body class="bg-surface text-[#0f1c2d] min-h-screen flex flex-col">
