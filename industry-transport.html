@@ -120,12 +120,31 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>tailwind.config={theme:{extend:{colors:{surface:"#F4F7FA",primary:"#002254","border-silver":"#E4E9F0","text-muted":"#5A6B84","accent-green":"#05D16E","accent-lime":"#8BED02"},fontFamily:{sans:["Montserrat","sans-serif"]}}}};</script>
   <style>
-      /* ── Base Global Font Rule ────────────────────── */
+      /* ── Base Global Font & Layout Stability Rules ────────────────────── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
       *, body, button, input, select, textarea {
         font-family: "Montserrat", sans-serif;
       }
       .material-symbols-outlined {
         font-family: "Material Symbols Outlined" !important;
+        flex-shrink: 0;
+      }
+      p, h1, h2, h3, h4, h5, h6, span, a, li, label, td, th {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .flex > *, .grid > * {
+        min-width: 0;
+      }
+      img, svg, video, iframe {
+        max-width: 100%;
+        height: auto;
       }
 
       /* ── Base Utilities ───────────────────────────── */
@@ -462,8 +481,9 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
-      .typewriter-heading {
-        min-height: 1.1em;
+      .typewriter-heading, .hero-heading {
+        display: block;
+        min-height: 2.4em;
       }
       .tw-accent {
         color: #05D16E;
@@ -624,34 +644,34 @@
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="index.html">Home</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="aboutus.html">About Us</a>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined">location_on</span>Vehicle Tracking</a>
-            <a href="dash_cam.html"><span class="material-symbols-outlined">videocam</span>Driver Safety &amp; Dashcams</a>
-            <a href="asset_tracking.html"><span class="material-symbols-outlined">inventory_2</span>Asset Tracking</a>
-            <a href="tachograph.html"><span class="material-symbols-outlined">badge</span>Digital Tachograph</a>
-            <a href="route_optimization.html"><span class="material-symbols-outlined">alt_route</span>Route Optimisation</a>
+            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined shrink-0">location_on</span>Vehicle Tracking</a>
+            <a href="dash_cam.html"><span class="material-symbols-outlined shrink-0">videocam</span>Driver Safety &amp; Dashcams</a>
+            <a href="asset_tracking.html"><span class="material-symbols-outlined shrink-0">inventory_2</span>Asset Tracking</a>
+            <a href="tachograph.html"><span class="material-symbols-outlined shrink-0">badge</span>Digital Tachograph</a>
+            <a href="route_optimization.html"><span class="material-symbols-outlined shrink-0">alt_route</span>Route Optimisation</a>
           </div>
         </div>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="industry-logistics.html"><span class="material-symbols-outlined">local_shipping</span>Logistics &amp; Delivery</a>
-            <a href="industry-construction.html"><span class="material-symbols-outlined">construction</span>Construction &amp; Plant</a>
-            <a href="industry-field-services.html"><span class="material-symbols-outlined">engineering</span>Field Services</a>
-            <a href="industry-utilities.html"><span class="material-symbols-outlined">electric_bolt</span>Utilities</a>
-            <a href="industry-transport.html"><span class="material-symbols-outlined">directions_bus</span>Transport</a>
-            <a href="industry-small-business.html"><span class="material-symbols-outlined">store</span>Small Business</a>
+            <a href="industry-logistics.html"><span class="material-symbols-outlined shrink-0">local_shipping</span>Logistics &amp; Delivery</a>
+            <a href="industry-construction.html"><span class="material-symbols-outlined shrink-0">construction</span>Construction &amp; Plant</a>
+            <a href="industry-field-services.html"><span class="material-symbols-outlined shrink-0">engineering</span>Field Services</a>
+            <a href="industry-utilities.html"><span class="material-symbols-outlined shrink-0">electric_bolt</span>Utilities</a>
+            <a href="industry-transport.html"><span class="material-symbols-outlined shrink-0">directions_bus</span>Transport</a>
+            <a href="industry-small-business.html"><span class="material-symbols-outlined shrink-0">store</span>Small Business</a>
           </div>
         </div>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="faq.html">FAQs</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="pricing.html">Pricing</a>
       </div>
       <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
       <button class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors" id="mob-menu-btn" onclick="document.getElementById('mob-menu').classList.toggle('hidden')" aria-label="Toggle menu">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+        <span class="material-symbols-outlined shrink-0 text-2xl">menu</span>
       </button>
     </div>
     <div id="mob-menu" class="hidden md:hidden bg-white border-t border-border-silver px-4 py-4 flex flex-col gap-2 shadow-xl max-h-[85vh] overflow-y-auto">
@@ -677,7 +697,7 @@
       <a href="faq.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">FAQs</a>
       <a href="pricing.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">Pricing</a>
       <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
     </div>
   </nav>
@@ -730,7 +750,7 @@
               class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-1 hover:bg-[#04b861] hover:shadow-lg transition-all shadow-sm duration-300 cursor-pointer"
             >
               Request a Demo
-              <span class="material-symbols-outlined text-sm"
+              <span class="material-symbols-outlined shrink-0 text-sm"
                 >chevron_right</span
               >
             </button>
@@ -749,12 +769,12 @@
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12 reveal"><h2 class="text-2xl sm:text-3xl font-bold text-primary mb-3">How Fleetmatrix helps transport fleets</h2><p class="text-text-muted max-w-xl mx-auto">Built for operators running vans, HGVs, coaches and mixed commercial vehicle fleets.</p></div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">map</span></div><h3 class="font-bold text-xl text-primary">Live vehicle tracking</h3><p class="text-text-muted text-sm leading-relaxed">Monitor all vehicles on a live map, review journey history and check vehicle status without calling drivers directly.</p></div>
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">badge</span></div><h3 class="font-bold text-xl text-primary">Digital tachograph management</h3><p class="text-text-muted text-sm leading-relaxed">Remote driver card and vehicle unit downloads. Review Drivers' Hours summaries and manage tachograph records from one platform, including Smart 2 tachograph support.</p></div>
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">health_and_safety</span></div><h3 class="font-bold text-xl text-primary">Driver safety monitoring</h3><p class="text-text-muted text-sm leading-relaxed">Monitor driving behaviours including harsh braking, speeding and acceleration. Use driver safety scores to identify training priorities.</p></div>
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">videocam</span></div><h3 class="font-bold text-xl text-primary">Fleet dashcams</h3><p class="text-text-muted text-sm leading-relaxed">Forward-facing cameras provide footage context for incidents and help protect drivers against non-fault third-party claims.</p></div>
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">pin_drop</span></div><h3 class="font-bold text-xl text-primary">Route planning</h3><p class="text-text-muted text-sm leading-relaxed">Plan routes around vehicle capacity, time windows and driver availability to make better use of your vehicle fleet.</p></div>
-          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined text-xl">assessment</span></div><h3 class="font-bold text-xl text-primary">Fleet reports</h3><p class="text-text-muted text-sm leading-relaxed">Generate clear operational reports covering vehicle utilisation, journey history, mileage and driver activity summaries.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">map</span></div><h3 class="font-bold text-xl text-primary">Live vehicle tracking</h3><p class="text-text-muted text-sm leading-relaxed">Monitor all vehicles on a live map, review journey history and check vehicle status without calling drivers directly.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">badge</span></div><h3 class="font-bold text-xl text-primary">Digital tachograph management</h3><p class="text-text-muted text-sm leading-relaxed">Remote driver card and vehicle unit downloads. Review Drivers' Hours summaries and manage tachograph records from one platform, including Smart 2 tachograph support.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">health_and_safety</span></div><h3 class="font-bold text-xl text-primary">Driver safety monitoring</h3><p class="text-text-muted text-sm leading-relaxed">Monitor driving behaviours including harsh braking, speeding and acceleration. Use driver safety scores to identify training priorities.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">videocam</span></div><h3 class="font-bold text-xl text-primary">Fleet dashcams</h3><p class="text-text-muted text-sm leading-relaxed">Forward-facing cameras provide footage context for incidents and help protect drivers against non-fault third-party claims.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">pin_drop</span></div><h3 class="font-bold text-xl text-primary">Route planning</h3><p class="text-text-muted text-sm leading-relaxed">Plan routes around vehicle capacity, time windows and driver availability to make better use of your vehicle fleet.</p></div>
+          <div class="card bg-surface rounded-2xl border border-border-silver p-7 space-y-3 reveal"><div class="w-11 h-11 rounded-xl bg-[#05D16E]/10 text-[#05D16E] flex items-center justify-center"><span class="material-symbols-outlined shrink-0 text-xl">assessment</span></div><h3 class="font-bold text-xl text-primary">Fleet reports</h3><p class="text-text-muted text-sm leading-relaxed">Generate clear operational reports covering vehicle utilisation, journey history, mileage and driver activity summaries.</p></div>
         </div>
       </div>
     </section>

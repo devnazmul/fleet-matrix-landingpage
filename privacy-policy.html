@@ -271,12 +271,31 @@
       };
     </script>
   <style>
-      /* ── Base Global Font Rule ────────────────────── */
+      /* ── Base Global Font & Layout Stability Rules ────────────────────── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
       *, body, button, input, select, textarea {
         font-family: "Montserrat", sans-serif;
       }
       .material-symbols-outlined {
         font-family: "Material Symbols Outlined" !important;
+        flex-shrink: 0;
+      }
+      p, h1, h2, h3, h4, h5, h6, span, a, li, label, td, th {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .flex > *, .grid > * {
+        min-width: 0;
+      }
+      img, svg, video, iframe {
+        max-width: 100%;
+        height: auto;
       }
 
       /* ── Base Utilities ───────────────────────────── */
@@ -613,8 +632,9 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
-      .typewriter-heading {
-        min-height: 1.1em;
+      .typewriter-heading, .hero-heading {
+        display: block;
+        min-height: 2.4em;
       }
       .tw-accent {
         color: #05D16E;
@@ -775,34 +795,34 @@
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="index.html">Home</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="aboutus.html">About Us</a>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined">location_on</span>Vehicle Tracking</a>
-            <a href="dash_cam.html"><span class="material-symbols-outlined">videocam</span>Driver Safety &amp; Dashcams</a>
-            <a href="asset_tracking.html"><span class="material-symbols-outlined">inventory_2</span>Asset Tracking</a>
-            <a href="tachograph.html"><span class="material-symbols-outlined">badge</span>Digital Tachograph</a>
-            <a href="route_optimization.html"><span class="material-symbols-outlined">alt_route</span>Route Optimisation</a>
+            <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined shrink-0">location_on</span>Vehicle Tracking</a>
+            <a href="dash_cam.html"><span class="material-symbols-outlined shrink-0">videocam</span>Driver Safety &amp; Dashcams</a>
+            <a href="asset_tracking.html"><span class="material-symbols-outlined shrink-0">inventory_2</span>Asset Tracking</a>
+            <a href="tachograph.html"><span class="material-symbols-outlined shrink-0">badge</span>Digital Tachograph</a>
+            <a href="route_optimization.html"><span class="material-symbols-outlined shrink-0">alt_route</span>Route Optimisation</a>
           </div>
         </div>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined text-sm">expand_more</span></button>
+          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
-            <a href="industry-logistics.html"><span class="material-symbols-outlined">local_shipping</span>Logistics &amp; Delivery</a>
-            <a href="industry-construction.html"><span class="material-symbols-outlined">construction</span>Construction &amp; Plant</a>
-            <a href="industry-field-services.html"><span class="material-symbols-outlined">engineering</span>Field Services</a>
-            <a href="industry-utilities.html"><span class="material-symbols-outlined">electric_bolt</span>Utilities</a>
-            <a href="industry-transport.html"><span class="material-symbols-outlined">directions_bus</span>Transport</a>
-            <a href="industry-small-business.html"><span class="material-symbols-outlined">store</span>Small Business</a>
+            <a href="industry-logistics.html"><span class="material-symbols-outlined shrink-0">local_shipping</span>Logistics &amp; Delivery</a>
+            <a href="industry-construction.html"><span class="material-symbols-outlined shrink-0">construction</span>Construction &amp; Plant</a>
+            <a href="industry-field-services.html"><span class="material-symbols-outlined shrink-0">engineering</span>Field Services</a>
+            <a href="industry-utilities.html"><span class="material-symbols-outlined shrink-0">electric_bolt</span>Utilities</a>
+            <a href="industry-transport.html"><span class="material-symbols-outlined shrink-0">directions_bus</span>Transport</a>
+            <a href="industry-small-business.html"><span class="material-symbols-outlined shrink-0">store</span>Small Business</a>
           </div>
         </div>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="faq.html">FAQs</a>
         <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="pricing.html">Pricing</a>
       </div>
       <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
       <button class="md:hidden text-primary p-1.5 rounded-lg hover:bg-surface-variant transition-colors" id="mob-menu-btn" onclick="document.getElementById('mob-menu').classList.toggle('hidden')" aria-label="Toggle menu">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+        <span class="material-symbols-outlined shrink-0 text-2xl">menu</span>
       </button>
     </div>
     <div id="mob-menu" class="hidden md:hidden bg-white border-t border-border-silver px-4 py-4 flex flex-col gap-2 shadow-xl max-h-[85vh] overflow-y-auto">
@@ -828,7 +848,7 @@
       <a href="faq.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">FAQs</a>
       <a href="pricing.html" class="text-label-md text-on-surface-variant px-3 py-2 rounded-lg hover:bg-surface-variant transition-colors">Pricing</a>
       <button onclick="window.location.href='request-demo.html'" class="w-full mt-2 flex items-center justify-center gap-2 px-6 py-2.5 bg-[#05D16E] text-white rounded-full font-label-md cursor-pointer">
-        Request a Demo <span class="material-symbols-outlined text-sm">chevron_right</span>
+        Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
       </button>
     </div>
   </nav>
