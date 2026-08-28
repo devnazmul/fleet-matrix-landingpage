@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap Index Location
+Sitemap: https://fleetmatrix.co.uk/sitemap.xml
+Sitemap: https://cool-sopapillas-ceee74.netlify.app/sitemap.xml
