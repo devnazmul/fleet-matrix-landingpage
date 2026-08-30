@@ -603,12 +603,12 @@
       }
     
       /* ── Navbar Dropdowns ────────────────────────── */
-      .nav-dropdown {
+        .nav-dropdown {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
-        min-width: 230px;
+        min-width: 250px;
         background: #ffffff;
         border: 1px solid #E4E9F0;
         border-radius: 14px;
@@ -635,12 +635,15 @@
         font-size: 13px;
         color: #434751;
         font-weight: 500;
-        transition: background 0.15s, color 0.15s;
+        white-space: nowrap;
+        border-left: 3px solid transparent;
+        transition: all 0.2s ease;
         text-decoration: none;
       }
       .nav-dropdown a:hover {
         color: #002254;
-        background: #f8f9ff;
+        background: rgba(5, 209, 110, 0.12);
+        border-left-color: #05D16E;
       }
       .nav-dropdown a .material-symbols-outlined {
         font-size: 16px;
@@ -660,10 +663,10 @@
         <a href="index.html"><span class="font-bold text-primary block text-xl sm:text-2xl">Fleetmatrix</span></a>
       </div>
       <div class="hidden md:flex gap-7 items-center">
-        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="index.html">Home</a>
-        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="aboutus.html">About Us</a>
+        <a class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold" href="index.html">Home</a>
+        <a class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold" href="aboutus.html">About Us</a>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Solutions <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
+          <button class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold flex items-center gap-1">Solutions <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
             <a href="gps_fleet_tracking.html"><span class="material-symbols-outlined shrink-0">location_on</span>Vehicle Tracking</a>
             <a href="dash_cam.html"><span class="material-symbols-outlined shrink-0">videocam</span>Driver Safety &amp; Dashcams</a>
@@ -673,7 +676,7 @@
           </div>
         </div>
         <div class="nav-group relative">
-          <button class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300 flex items-center gap-1">Industries <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
+          <button class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold flex items-center gap-1">Industries <span class="material-symbols-outlined shrink-0 text-sm">expand_more</span></button>
           <div class="nav-dropdown">
             <a href="industry-logistics.html"><span class="material-symbols-outlined shrink-0">local_shipping</span>Logistics &amp; Delivery</a>
             <a href="industry-construction.html"><span class="material-symbols-outlined shrink-0">construction</span>Construction &amp; Plant</a>
@@ -683,8 +686,8 @@
             <a href="industry-small-business.html"><span class="material-symbols-outlined shrink-0">store</span>Small Business</a>
           </div>
         </div>
-        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="faq.html">FAQs</a>
-        <a class="text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="pricing.html">Pricing</a>
+        <a class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold" href="faq.html">FAQs</a>
+        <a class="px-3 py-1.5 rounded-lg text-label-md text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/10 transition-all duration-200 font-semibold" href="pricing.html">Pricing</a>
       </div>
       <button onclick="window.location.href='request-demo.html'" class="hidden md:flex items-center gap-2 px-6 py-2 bg-[#05D16E] text-white rounded-full font-label-md hover:-translate-y-0.5 hover:bg-[#04b861] transition-all cursor-pointer">
         Request a Demo <span class="material-symbols-outlined shrink-0 text-sm">chevron_right</span>
@@ -947,6 +950,9 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   
+  
+  </div>
+  
   <!-- Mobile Sidebar Overlay & Drawer -->
   <div id="mob-menu-overlay" class="fixed inset-0 z-[9999] bg-[#001738]/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
     <div id="mob-menu-drawer" class="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-white shadow-2xl z-[10000] flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out p-6 overflow-y-auto font-sans">
@@ -964,11 +970,11 @@
 
         <!-- Drawer Navigation Links -->
         <nav class="flex flex-col gap-1.5 px-0.5">
-          <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-sans text-[15px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="index.html">
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-sans text-[15px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="index.html">
             <span class="material-symbols-outlined text-[22px] text-primary/70 group-hover:text-primary transition-colors">home</span>
             <span>Home</span>
           </a>
-          <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-sans text-[15px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="aboutus.html">
+          <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-sans text-[15px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="aboutus.html">
             <span class="material-symbols-outlined text-[22px] text-primary/70 group-hover:text-primary transition-colors">info</span>
             <span>About Us</span>
           </a>
@@ -976,23 +982,23 @@
           <!-- Solutions Section -->
           <div class="pt-3 mt-1.5 border-t border-border-silver/60 flex flex-col gap-1">
             <span class="text-[11px] font-bold text-text-muted uppercase tracking-wider px-3 mb-0.5 block">Solutions</span>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="gps_fleet_tracking.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="gps_fleet_tracking.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">location_on</span>
               <span>Vehicle Tracking</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="dash_cam.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="dash_cam.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">videocam</span>
               <span>Driver Safety & Dashcams</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="asset_tracking.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="asset_tracking.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">inventory_2</span>
               <span>Asset Tracking</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="tachograph.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="tachograph.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">badge</span>
               <span>Digital Tachograph</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="route_optimization.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="route_optimization.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">alt_route</span>
               <span>Route Optimisation</span>
             </a>
@@ -1001,27 +1007,27 @@
           <!-- Industries Section -->
           <div class="pt-3 mt-1.5 border-t border-border-silver/60 flex flex-col gap-1">
             <span class="text-[11px] font-bold text-text-muted uppercase tracking-wider px-3 mb-0.5 block">Industries</span>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-bold text-primary bg-[#05D16E]/10 border-l-4 border-[#05D16E] shadow-xs transition-all" href="industry-logistics.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-bold text-primary bg-[#05D16E]/15 border-l-4 border-[#05D16E] shadow-xs transition-all" href="industry-logistics.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">local_shipping</span>
               <span>Logistics & Delivery</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="industry-construction.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="industry-construction.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">construction</span>
               <span>Construction & Plant</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="industry-field-services.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="industry-field-services.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">engineering</span>
               <span>Field Services</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="industry-utilities.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="industry-utilities.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">electric_bolt</span>
               <span>Utilities</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="industry-transport.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="industry-transport.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">directions_bus</span>
               <span>Transport</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="industry-small-business.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="industry-small-business.html">
               <span class="material-symbols-outlined text-[20px] text-[#05D16E]">store</span>
               <span>Small Business</span>
             </a>
@@ -1029,11 +1035,11 @@
 
           <!-- General Pages -->
           <div class="pt-3 mt-1.5 border-t border-border-silver/60 flex flex-col gap-1">
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="faq.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="faq.html">
               <span class="material-symbols-outlined text-[20px] text-primary/70 group-hover:text-primary transition-colors">help</span>
               <span>FAQs</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#F4F7FA] transition-all group" href="pricing.html">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-xl font-sans text-[14px] font-semibold text-on-surface-variant hover:text-primary hover:bg-[#05D16E]/12 hover:border-l-4 hover:border-[#05D16E] hover:translate-x-1 transition-all group" href="pricing.html">
               <span class="material-symbols-outlined text-[20px] text-primary/70 group-hover:text-primary transition-colors">payments</span>
               <span>Pricing</span>
             </a>
