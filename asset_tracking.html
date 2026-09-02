@@ -5,6 +5,7 @@
   <meta name="description" content="Monitor heavy machinery, trailers, and non-powered equipment with Fleetmatrix rugged GPS asset tracking and maintenance alerts."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://fleetmatrix.co.uk/asset_tracking.html"/>
+  <link rel="icon" href="/favicon.ico"/>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website"/>
@@ -865,7 +866,7 @@
 </ul>
 </div>
 <div class="relative w-full flex items-center justify-center pt-4 pb-6">
-<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" data-alt="Asset list table view mockup" src="./assets/asset_list.png"/>
+<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" alt="Asset list table view mockup" src="./assets/asset_list.png"/>
 </div>
 </div>
 </section>
@@ -873,7 +874,7 @@
 <section class="bg-white py-section-padding px-margin-mobile md:px-margin-desktop border-t border-border-silver/60">
 <div class="max-w-max-width mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="relative w-full order-2 lg:order-1 flex items-center justify-center pt-4 pb-6">
-<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" data-alt="Asset performance analytics mockup" src="./assets/asset_performance.png"/>
+<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" alt="Asset performance analytics mockup" src="./assets/asset_performance.png"/>
 </div>
 <div class="space-y-stack-md order-1 lg:order-2">
 <h2 class="font-display-lg text-3xl sm:text-4xl lg:text-[42px] lg:leading-[50px] font-bold text-[#002254] tracking-tight">
@@ -941,7 +942,7 @@
 </ul>
 </div>
 <div class="relative w-full flex items-center justify-center pt-4 pb-6">
-<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" data-alt="Asset maintenance tracking mockup" src="./assets/asset_maintanace.png"/>
+<img class="w-full h-auto object-contain drop-shadow-2xl" style="animation: floatY 6s ease-in-out infinite" alt="Asset maintenance tracking mockup" src="./assets/asset_maintanace.png"/>
 </div>
 </div>
 </section>
@@ -1025,7 +1026,7 @@
         <p class="text-xs text-[#d6e3fb]/55 leading-relaxed">Fleetmatrix UK Ltd<br/>Reg. No. 14892301 (England &amp; Wales)<br/>100 Bishopsgate, London, EC2N 4AG<br/>ICO Reg: ZB591024</p>
       </div>
       <div>
-        <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Solutions</h4>
+        <h3 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Solutions</h3>
         <ul class="space-y-2">
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="gps_fleet_tracking.html">Vehicle Tracking</a></li>
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="dash_cam.html">Driver Safety &amp; Dashcams</a></li>
@@ -1035,7 +1036,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Industries</h4>
+        <h3 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Industries</h3>
         <ul class="space-y-2">
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="industry-logistics.html">Logistics &amp; Delivery</a></li>
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="industry-construction.html">Construction &amp; Plant</a></li>
@@ -1046,7 +1047,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Resources</h4>
+        <h3 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Resources</h3>
         <ul class="space-y-2">
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="faq.html">FAQs</a></li>
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="driver-privacy.html">Driver Privacy</a></li>
@@ -1056,7 +1057,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Legal</h4>
+        <h3 class="text-white text-xs font-semibold uppercase tracking-wider mb-3">Legal</h3>
         <ul class="space-y-2">
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="privacy-policy.html">Privacy Policy</a></li>
           <li><a class="text-xs text-[#d6e3fb]/75 hover:text-[#05D16E] transition-colors hover:translate-x-1 inline-block" href="cookie-policy.html">Cookie Policy</a></li>
@@ -1071,162 +1072,7 @@
     </div>
   </footer>
 </main>
-<script>
-  // ── Scroll-reveal via IntersectionObserver ─────────────
-  const revealEls = document.querySelectorAll(".reveal");
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-  revealEls.forEach((el) => revealObserver.observe(el));
 
-  // ── Typewriter Animation for Headings ──────────────────
-  document.addEventListener("DOMContentLoaded", () => {
-    // Hero Section Infinite Cycling Typewriter
-    const heroHeading = document.querySelector(".hero-heading");
-    if (heroHeading) {
-      initHeroInfiniteTypewriter(heroHeading, [
-        { main: "Secure, monitor, and optimise ", accent: "every high-value asset." },
-        { main: "Real-time GPS tracking for ", accent: "trailers & equipment." },
-        { main: "Prevent asset theft & ", accent: "maximise utilization." },
-        { main: "Complete visibility for ", accent: "powered & unpowered assets." }
-      ]);
-    }
-
-    const sectionHeadings = document.querySelectorAll("h2");
-    const headingObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const heading = entry.target;
-            if (!heading.dataset.typed) {
-              heading.dataset.typed = "true";
-              startSectionTypewriter(heading);
-            }
-            headingObserver.unobserve(heading);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    sectionHeadings.forEach((heading) => {
-      const originalText = heading.textContent.trim();
-      if (!originalText) return;
-      const initialH = heading.offsetHeight;
-      if (initialH > 0) {
-        heading.style.minHeight = initialH + "px";
-      }
-      heading.dataset.originalText = originalText;
-      heading.classList.add("typewriter-heading");
-      heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
-      headingObserver.observe(heading);
-    });
-
-    function startSectionTypewriter(heading) {
-      const text = heading.dataset.originalText || "";
-      const mainContainer = heading.querySelector(".tw-main");
-      const accentContainer = heading.querySelector(".tw-accent");
-
-      const words = text.split(" ");
-      let mainText = text;
-      let accentText = "";
-
-      if (words.length > 1) {
-        const accentCount = Math.max(1, Math.min(3, Math.floor(words.length * 0.35)));
-        mainText = words.slice(0, words.length - accentCount).join(" ") + " ";
-        accentText = words.slice(words.length - accentCount).join(" ");
-      }
-
-      let index = 0;
-      const totalLength = mainText.length + accentText.length;
-      const speed = 30 + Math.random() * 15;
-
-      function typeNextChar() {
-        if (index < totalLength) {
-          if (index < mainText.length) {
-            if (mainContainer) mainContainer.textContent += mainText.charAt(index);
-          } else {
-            const accentIdx = index - mainText.length;
-            if (accentContainer) accentContainer.textContent += accentText.charAt(accentIdx);
-          }
-          index++;
-          setTimeout(typeNextChar, speed);
-        }
-      }
-      typeNextChar();
-    }
-
-    function initHeroInfiniteTypewriter(el, phrases) {
-      if (!phrases || !phrases.length) return;
-      const initialH = el.offsetHeight;
-      if (initialH > 0) {
-        el.style.minHeight = initialH + "px";
-      } else {
-        el.style.minHeight = "2.4em";
-      }
-      el.classList.add("typewriter-heading");
-      el.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span><span class="typewriter-cursor"></span>`;
-      const mainContainer = el.querySelector(".tw-main");
-      const accentContainer = el.querySelector(".tw-accent");
-
-      let phraseIdx = 0;
-      let charIdx = 0;
-      let isDeleting = false;
-
-      function cycleHero() {
-        const current = phrases[phraseIdx];
-        const fullMain = current.main;
-        const fullAccent = current.accent;
-        const totalLen = fullMain.length + fullAccent.length;
-
-        if (!isDeleting) {
-          if (charIdx < fullMain.length) {
-            if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx + 1);
-            if (accentContainer) accentContainer.textContent = "";
-          } else {
-            if (mainContainer) mainContainer.textContent = fullMain;
-            const accentCharIdx = charIdx - fullMain.length;
-            if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx + 1);
-          }
-          charIdx++;
-
-          if (charIdx === totalLen) {
-            isDeleting = true;
-            setTimeout(cycleHero, 2400);
-            return;
-          }
-          setTimeout(cycleHero, 45);
-        } else {
-          if (charIdx > fullMain.length) {
-            const accentCharIdx = charIdx - fullMain.length;
-            if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx - 1);
-          } else {
-            if (accentContainer) accentContainer.textContent = "";
-            if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx - 1);
-          }
-          charIdx--;
-
-          if (charIdx === 0) {
-            isDeleting = false;
-            phraseIdx = (phraseIdx + 1) % phrases.length;
-            setTimeout(cycleHero, 400);
-            return;
-          }
-          setTimeout(cycleHero, 25);
-        }
-      }
-      cycleHero();
-    }
-  });
-</script>
   <script>
     const _obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
@@ -1354,36 +1200,284 @@
       </div>
     </div>
   </div>
+  
   <script>
-    (function () {
-      const btn = document.getElementById('mob-menu-btn');
-      const closeBtn = document.getElementById('mob-menu-close');
-      const overlay = document.getElementById('mob-menu-overlay');
-      const drawer = document.getElementById('mob-menu-drawer');
+    (function() {
+      // ── Generic init function for dynamic CMS environments ──
+      function initFleetMatrix() {
+        // Nav scroll shadow
+        const nav = document.querySelector("nav, header");
+        if (nav && !nav.dataset.scrollInit) {
+          nav.dataset.scrollInit = 'true';
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 20) {
+              nav.classList.add("scrolled");
+            } else {
+              nav.classList.remove("scrolled");
+            }
+          }, { passive: true });
+        }
 
-      if (!btn || !overlay || !drawer) return;
+        // Floating hero particles
+        const heroSection = document.querySelector("section");
+        if (heroSection && !heroSection.dataset.particlesInit) {
+          heroSection.dataset.particlesInit = 'true';
+          for (let i = 0; i < 12; i++) {
+            const dot = document.createElement("div");
+            const size = Math.random() * 6 + 3;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const dur = Math.random() * 8 + 6;
+            const delay = Math.random() * 5;
+            dot.style.cssText = `
+              position: absolute;
+              width: ${size}px;
+              height: ${size}px;
+              border-radius: 50%;
+              left: ${left}%;
+              top: ${top}%;
+              pointer-events: none;
+              background: rgba(5,209,110,${Math.random() * 0.3 + 0.05});
+              animation: particleDrift ${dur}s ${delay}s linear infinite;
+              z-index: 0;
+            `;
+            heroSection.style.position = "relative";
+            heroSection.appendChild(dot);
+          }
+        }
 
-      function openMenu() {
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        overlay.classList.add('opacity-100');
-        drawer.classList.remove('translate-x-full');
-        drawer.classList.add('translate-x-0');
-        document.body.style.overflow = 'hidden';
+        // Live vehicle counter flicker
+        const vehicleEl = document.getElementById("hero-vehicles");
+        if (vehicleEl && !vehicleEl.dataset.counterInit) {
+          vehicleEl.dataset.counterInit = 'true';
+          setInterval(() => {
+            const base = 4281;
+            const delta = Math.floor(Math.random() * 10) - 4;
+            vehicleEl.textContent = (base + delta).toLocaleString();
+          }, 3200);
+        }
+
+        // Scroll-reveal via IntersectionObserver
+        if (window.IntersectionObserver) {
+          const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+
+          document.querySelectorAll(".reveal:not(.reveal-observed)").forEach((el) => {
+            el.classList.add("reveal-observed");
+            revealObserver.observe(el);
+          });
+
+          // Animated stat counters
+          const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target, 10);
+                const suffix = el.dataset.suffix || "";
+                const duration = 1800;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                  current = Math.min(current + step, target);
+                  if (target >= 1000) {
+                    el.textContent = Math.floor(current / 1000) + "k" + suffix;
+                  } else {
+                    el.textContent = Math.floor(current) + suffix;
+                  }
+                  if (current >= target) clearInterval(timer);
+                }, 16);
+                statsObserver.unobserve(el);
+              }
+            });
+          }, { threshold: 0.3 });
+
+          document.querySelectorAll("[data-target]:not(.stat-observed)").forEach((el) => {
+            el.classList.add("stat-observed");
+            statsObserver.observe(el);
+          });
+
+          // Typewriter Animation for Headings
+          const headingObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const heading = entry.target;
+                if (!heading.dataset.typed) {
+                  heading.dataset.typed = "true";
+                  startSectionTypewriter(heading);
+                }
+                headingObserver.unobserve(heading);
+              }
+            });
+          }, { threshold: 0.15 });
+
+          document.querySelectorAll("h2:not(.tw-observed)").forEach((heading) => {
+            heading.classList.add("tw-observed");
+            const originalText = heading.textContent.trim();
+            if (!originalText) return;
+            heading.dataset.originalText = originalText;
+            heading.classList.add("typewriter-heading");
+            heading.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span>`;
+            headingObserver.observe(heading);
+          });
+        }
+
+        // Hero Typewriter
+        const heroHeading = document.querySelector(".hero-heading:not(.tw-hero-observed)");
+        if (heroHeading) {
+          heroHeading.classList.add("tw-hero-observed");
+          initHeroInfiniteTypewriter(heroHeading);
+        }
       }
 
-      function closeMenu() {
-        overlay.classList.remove('opacity-100');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        drawer.classList.remove('translate-x-0');
-        drawer.classList.add('translate-x-full');
-        document.body.style.overflow = '';
+      // Typewriter helpers
+      function initHeroInfiniteTypewriter(el) {
+        const heroPhrases = [
+          { main: "Fleet management ", accent: "made simple." },
+          { main: "Track vehicles. ", accent: "Protect drivers." },
+          { main: "Run your fleet ", accent: "with confidence." },
+          { main: "Simple telematics for ", accent: "UK fleet operators." }
+        ];
+        el.classList.add("typewriter-heading");
+        el.innerHTML = `<span class="tw-main"></span><span class="tw-accent text-[#05D16E]"></span><span class="typewriter-cursor"></span>`;
+        const mainContainer = el.querySelector(".tw-main");
+        const accentContainer = el.querySelector(".tw-accent");
+        let phraseIdx = 0, charIdx = 0, isDeleting = false;
+        function cycleHero() {
+          const current = heroPhrases[phraseIdx];
+          const fullMain = current.main, fullAccent = current.accent;
+          const totalLen = fullMain.length + fullAccent.length;
+          if (!isDeleting) {
+            if (charIdx < fullMain.length) {
+              if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx + 1);
+              if (accentContainer) accentContainer.textContent = "";
+            } else {
+              if (mainContainer) mainContainer.textContent = fullMain;
+              const accentCharIdx = charIdx - fullMain.length;
+              if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx + 1);
+            }
+            charIdx++;
+            if (charIdx === totalLen) {
+              isDeleting = true;
+              setTimeout(cycleHero, 2400);
+              return;
+            }
+            setTimeout(cycleHero, 45);
+          } else {
+            if (charIdx > fullMain.length) {
+              const accentCharIdx = charIdx - fullMain.length;
+              if (accentContainer) accentContainer.textContent = fullAccent.substring(0, accentCharIdx - 1);
+            } else {
+              if (accentContainer) accentContainer.textContent = "";
+              if (mainContainer) mainContainer.textContent = fullMain.substring(0, charIdx - 1);
+            }
+            charIdx--;
+            if (charIdx === 0) {
+              isDeleting = false;
+              phraseIdx = (phraseIdx + 1) % heroPhrases.length;
+              setTimeout(cycleHero, 400);
+              return;
+            }
+            setTimeout(cycleHero, 25);
+          }
+        }
+        cycleHero();
       }
 
-      btn.addEventListener('click', openMenu);
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeMenu();
+      function startSectionTypewriter(heading) {
+        const text = heading.dataset.originalText || "";
+        const mainContainer = heading.querySelector(".tw-main");
+        const accentContainer = heading.querySelector(".tw-accent");
+        const words = text.split(" ");
+        let mainText = text, accentText = "";
+        if (words.length > 1) {
+          const accentCount = Math.max(1, Math.min(3, Math.floor(words.length * 0.35)));
+          mainText = words.slice(0, words.length - accentCount).join(" ") + " ";
+          accentText = words.slice(words.length - accentCount).join(" ");
+        }
+        let index = 0;
+        const totalLength = mainText.length + accentText.length;
+        const speed = 30 + Math.random() * 15;
+        function typeNextChar() {
+          if (index < totalLength) {
+            if (index < mainText.length) {
+              if (mainContainer) mainContainer.textContent += mainText.charAt(index);
+            } else {
+              const accentIdx = index - mainText.length;
+              if (accentContainer) accentContainer.textContent += accentText.charAt(accentIdx);
+            }
+            index++;
+            setTimeout(typeNextChar, speed);
+          }
+        }
+        typeNextChar();
+      }
+
+      // ── Global Event Delegation for Clicks ─────────────────
+      document.addEventListener('click', function (e) {
+        // Mobile Menu
+        const mobBtn = e.target.closest('#mob-menu-btn');
+        const mobCloseBtn = e.target.closest('#mob-menu-close');
+        const mobOverlay = document.getElementById('mob-menu-overlay');
+        const mobDrawer = document.getElementById('mob-menu-drawer');
+
+        if (mobBtn && mobOverlay && mobDrawer) {
+          e.preventDefault();
+          mobOverlay.classList.remove('opacity-0', 'pointer-events-none');
+          mobOverlay.classList.add('opacity-100');
+          mobDrawer.classList.remove('translate-x-full');
+          mobDrawer.classList.add('translate-x-0');
+          document.body.style.overflow = 'hidden';
+        } else if ((mobCloseBtn || (mobOverlay && e.target === mobOverlay)) && mobOverlay && mobDrawer) {
+          e.preventDefault();
+          mobOverlay.classList.remove('opacity-100');
+          mobOverlay.classList.add('opacity-0', 'pointer-events-none');
+          mobDrawer.classList.remove('translate-x-0');
+          mobDrawer.classList.add('translate-x-full');
+          document.body.style.overflow = '';
+        }
+
+        // Carousel
+        const carouselPrevBtn = e.target.closest('#carousel-prev');
+        const carouselNextBtn = e.target.closest('#carousel-next');
+        const carouselContainer = document.querySelector(".snap-x");
+        
+        if (carouselPrevBtn && carouselContainer) {
+          e.preventDefault();
+          carouselContainer.scrollBy({ left: -320, behavior: "smooth" });
+        } else if (carouselNextBtn && carouselContainer) {
+          e.preventDefault();
+          carouselContainer.scrollBy({ left: 320, behavior: "smooth" });
+        }
       });
+
+      // ── Initialization & MutationObserver ──────────────────
+      initFleetMatrix(); // Run initially
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFleetMatrix);
+      }
+      
+      // Watch for dynamic CMS element injections (React, Webflow, WordPress AJAX, etc.)
+      const observer = new MutationObserver((mutations) => {
+        let shouldInit = false;
+        for (const m of mutations) {
+          if (m.addedNodes.length > 0) {
+            shouldInit = true;
+            break;
+          }
+        }
+        if (shouldInit) {
+          setTimeout(initFleetMatrix, 50); // debounce slightly
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
     })();
   </script>
 </body></html>
